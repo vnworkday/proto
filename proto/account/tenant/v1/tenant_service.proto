@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package account.tenant.v1;
+
+import "account/tenant/v1/tenant.proto";
+
+service TenantService {
+  rpc CreateTenant(CreateTenantRequest) returns (CreateTenantResponse) {}
+
+  rpc GetTenant(GetTenantRequest) returns (GetTenantResponse) {}
+
+  rpc ListTenants(ListTenantsRequest) returns (ListTenantsResponse) {}
+
+  rpc UpdateTenant(UpdateTenantRequest) returns (UpdateTenantResponse) {}
+
+  rpc DeleteTenant(DeleteTenantRequest) returns (DeleteTenantResponse) {}
+}
+
+message CreateTenantRequest {
+  string name = 1;
+}
+
+message CreateTenantResponse {
+  Tenant tenant = 1;
+}
+
+message GetTenantRequest {
+  string id = 1;
+}
+
+message GetTenantResponse {
+  Tenant tenant = 1;
+}
+
+message ListTenantsRequest {
+  int32 page_size = 1;
+  int32 page_token = 2;
+  // Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+  string query = 3;
+}
+
+message ListTenantsResponse {
+  repeated Tenant tenants = 1;
+  string next_page_token = 2;
+}
+
+message UpdateTenantRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message UpdateTenantResponse {
+  Tenant tenant = 1;
+}
+
+message DeleteTenantRequest {
+  string id = 1;
+}
+
+message DeleteTenantResponse {
+  string id = 1;
+}

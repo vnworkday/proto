@@ -1,0 +1,29 @@
+name: pull-request
+run-name: Pull Request Lint by ${{ github.actor }}
+on:
+  # Trigger the workflow on pull request to main, staging, and production branches
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Buf
+        uses: bufbuild/buf-setup-action@v1.32.1
+      - name: Run Buf Lint
+        uses: bufbuild/buf-lint-action@v1.1.1
+        with:
+          input: "proto"
+      - name: Run Buf Breaking
+        uses: bufbuild/buf-breaking-action@v1.1.4
+        with:
+          against: "https://github.com/ntduycs/vnworkday-proto.git#branch=main,subdir=proto"
+          input: "proto"

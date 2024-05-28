@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package workforce.leave.v1;
+
+import "workforce/leave/v1/leave_entitlement.proto";
+
+service LeaveEntitlementService {
+  rpc GetLeaveEntitlement(GetLeaveEntitlementRequest) returns (GetLeaveEntitlementResponse);
+}
+
+message GetLeaveEntitlementRequest {
+  string id = 1;
+}
+
+message GetLeaveEntitlementResponse {
+  LeaveEntitlement leave_entitlement = 1;
+}

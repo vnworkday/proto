@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package account.tenant.v1;
+
+// A group or an entity that has its own isolated environment and resources within a shared system.
+message Tenant {
+  string id = 1;
+  string name = 2;
+  TenantStatus status = 3;
+}
+
+// The status of a tenant.
+enum TenantStatus {
+  TENANT_STATUS_UNSPECIFIED = 0;
+  TENANT_STATUS_UNSET = 1 [deprecated = true];
+  TENANT_STATUS_ACTIVE = 2;
+  TENANT_STATUS_INACTIVE = 3;
+}

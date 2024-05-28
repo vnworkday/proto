@@ -1,0 +1,31 @@
+{
+  "name": "vnworkday-proto",
+  "version": "0.2.0",
+  "description": "## Pre-requisites",
+  "main": "index.js",
+  "scripts": {
+    "check:break": "npx buf breaking --against '.git#subdir=proto'",
+    "check:style": "npx buf lint",
+    "format": "npx buf format -w",
+    "gen:go": "npx buf generate --template buf.gen.go.yaml",
+    "gen:java": "npx buf generate --template buf.gen.java.yaml && sh ./scripts/fix-java.sh",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "Duy Nguyen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntduycs/vnworkday-proto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ntduycs/vnworkday-proto/issues"
+  },
+  "homepage": "https://github.com/ntduycs/vnworkday-proto#readme",
+  "dependencies": {
+    "@bufbuild/buf": "^1.32.1"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11"
+  }
+}

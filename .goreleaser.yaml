@@ -1,0 +1,9 @@
+project_name: vnworkday-proto
+release:
+  github:
+    owner: ntduycs
+    name: vnworkday-proto
+builds:
+  - skip: true
+checksum:
+  name_template: checksums.txt
