@@ -1,8 +1,8 @@
-project_name: vnworkday-proto
+project_name: proto
 release:
   github:
-    owner: ntduycs
-    name: vnworkday-proto
+    owner: vnworkday
+    name: proto
 builds:
   - skip: true
 checksum:

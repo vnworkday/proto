@@ -1,6 +1,6 @@
 {
   "name": "vnworkday-proto",
-  "version": "0.2.0",
+  "version": "0.0.0",
   "description": "## Pre-requisites",
   "main": "index.js",
   "scripts": {
