@@ -1,2 +1,2 @@
-pnpm check:style
-pnpm format
+npm run check:style
+npm run format
