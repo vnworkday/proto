@@ -40,6 +40,9 @@ This project contains the proto files for the VN Workday project. It currently s
 ## Prerequisites installation
 
 - [x] Install [Node.js (v.20.13.1+)](https://nodejs.org/en/download/)
+- [x] Install [Java (v.22) via SDKMAN](https://sdkman.io/) (Temurin variant is recommended)
+- [x] Install [Maven (v.3.8.4+ via SDKMAN)](https://sdkman.io/)
+- [x] Install [Go (v.1.22.3+)](https://golang.org/doc/install)
 
 ## Prepare the project
 

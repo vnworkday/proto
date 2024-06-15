@@ -8,10 +8,13 @@
     ```bash
     # Install gsed
     brew install gsed
+
     # Add alias to zshrc to use gsed instead of sed
     echo "alias sed=gsed" >> ~/.zshrc
+
     # Reload zshrc to apply the changes
     source ~/.zshrc
+
     # Run the generation command again
     npm run gen:java
     ```
