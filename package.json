@@ -1,7 +1,7 @@
 {
   "name": "vnworkday-proto",
   "version": "0.1.0",
-  "description": "## Pre-requisites",
+  "description": "Proto files for vnworkday",
   "main": "index.js",
   "scripts": {
     "check:break": "npx buf breaking --against '.git#subdir=proto'",
@@ -9,9 +9,16 @@
     "format": "npx buf format -w",
     "gen:go": "npx buf generate --template buf.gen.go.yaml",
     "gen:java": "npx buf generate --template buf.gen.java.yaml && sh ./scripts/fix-java.sh",
-    "prepare": "husky"
+    "gen:doc": "sh ./ci/doc.sh",
+    "prepare": "husky",
+    "setup": "npm run prepare && sh ./ci/start.sh"
   },
-  "keywords": [],
+  "keywords": [
+    "vnworkday",
+    "buf",
+    "grpc",
+    "protobuf"
+  ],
   "author": "Duy Nguyen",
   "license": "MIT",
   "repository": {

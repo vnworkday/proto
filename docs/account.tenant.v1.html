@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VN Workday Proto API Documentation</title>
+    <link rel="stylesheet" href="static/mystyles.css" />
+    <script src="static/fontawesome.js"></script>
+    <script src="static/lunr.js"></script>
+    <script src="static/theme.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="level pt-6 mb-5 pb-2 bottom-border">
+        <div class="level-left">
+          <p class="level-item has-text-centered is-size-3 has-text-weight-medium">
+            <a class="link is-info" href="index.html">
+              VN Workday Proto API Documentation
+            </a>
+          </p>
+        </div>
+
+        <div class="level-right">
+          
+          <form action="search.html" class="mr-2 has-text-centered">
+            <input type="text" name="query" class="input mr-3 navbar-search-query-input" placeholder="Search">
+            <input type="submit" class="button is-primary mr-5" value="Search" />
+          </form>
+          
+
+          <p class="level-item has-text-centered is-size-5">
+            <a href="https://github.com/vnworkday/proto" class="link is-info mr-5" target="_blank">
+              
+              <span class="icon">
+                <i class="fa-brands fa-github"></i>
+              </span>
+              
+              <span>Source</span>
+            </a>
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite" type="button">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main-content" class="container mb-6">
+  <p class="mb-2">
+    <a style="font-size: 0.9em" href="index.html">← Back to packages</a>
+  </p>
+  <h3 class="title is-3">
+    
+    Package <code>account.tenant.v1</code>
+    
+  </h3>
+
+  <div class="block">
+    
+    <p>
+      <a href="#service-account.tenant.v1.TenantService">
+        <span class="tag" style="min-width: 6em">Service</span>
+        <code>TenantService</code> 
+      </a>
+    </p>
+    
+
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.CreateTenantRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>CreateTenantRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.CreateTenantResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>CreateTenantResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.DeleteTenantRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>DeleteTenantRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.DeleteTenantResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>DeleteTenantResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.GetTenantRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>GetTenantRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.GetTenantResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>GetTenantResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.ListTenantsRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>ListTenantsRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.ListTenantsResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>ListTenantsResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.Tenant">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Tenant</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.UpdateTenantRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>UpdateTenantRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-account.tenant.v1.UpdateTenantResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>UpdateTenantResponse</code> 
+        </a>
+      </p>
+      
+    
+
+    
+      <p>
+        <a href="#enum-account.tenant.v1.TenantStatus">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>TenantStatus</code> 
+        </a>
+      </p>
+    
+  </div>
+
+  <div class="block">
+      
+  </div>
+
+  
+
+  <div class="block">
+    <h3 class="title is-3">
+      Services
+    </h3>
+
+    
+    <div>
+      
+
+<h4 class="title is-4 type-heading" id="service-account.tenant.v1.TenantService">
+  <a href="#service-account.tenant.v1.TenantService" title="account.tenant.v1.TenantService">service TenantService</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L6">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-account.tenant.v1.TenantService-CreateTenant">
+      <a href="#service-account.tenant.v1.TenantService-CreateTenant">
+        rpc <code>CreateTenant</code>
+      </a>
+    </h5>
+    Request: <code><a href="account.tenant.v1.html#message-account.tenant.v1.CreateTenantRequest"><span title="account.tenant.v1.CreateTenantRequest">account.tenant.v1.CreateTenantRequest</span>
+    </a></code><br>
+    Response: <code><a href="account.tenant.v1.html#message-account.tenant.v1.CreateTenantResponse"><span title="account.tenant.v1.CreateTenantResponse">account.tenant.v1.CreateTenantResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-account.tenant.v1.TenantService-GetTenant">
+      <a href="#service-account.tenant.v1.TenantService-GetTenant">
+        rpc <code>GetTenant</code>
+      </a>
+    </h5>
+    Request: <code><a href="account.tenant.v1.html#message-account.tenant.v1.GetTenantRequest"><span title="account.tenant.v1.GetTenantRequest">account.tenant.v1.GetTenantRequest</span>
+    </a></code><br>
+    Response: <code><a href="account.tenant.v1.html#message-account.tenant.v1.GetTenantResponse"><span title="account.tenant.v1.GetTenantResponse">account.tenant.v1.GetTenantResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-account.tenant.v1.TenantService-ListTenants">
+      <a href="#service-account.tenant.v1.TenantService-ListTenants">
+        rpc <code>ListTenants</code>
+      </a>
+    </h5>
+    Request: <code><a href="account.tenant.v1.html#message-account.tenant.v1.ListTenantsRequest"><span title="account.tenant.v1.ListTenantsRequest">account.tenant.v1.ListTenantsRequest</span>
+    </a></code><br>
+    Response: <code><a href="account.tenant.v1.html#message-account.tenant.v1.ListTenantsResponse"><span title="account.tenant.v1.ListTenantsResponse">account.tenant.v1.ListTenantsResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-account.tenant.v1.TenantService-UpdateTenant">
+      <a href="#service-account.tenant.v1.TenantService-UpdateTenant">
+        rpc <code>UpdateTenant</code>
+      </a>
+    </h5>
+    Request: <code><a href="account.tenant.v1.html#message-account.tenant.v1.UpdateTenantRequest"><span title="account.tenant.v1.UpdateTenantRequest">account.tenant.v1.UpdateTenantRequest</span>
+    </a></code><br>
+    Response: <code><a href="account.tenant.v1.html#message-account.tenant.v1.UpdateTenantResponse"><span title="account.tenant.v1.UpdateTenantResponse">account.tenant.v1.UpdateTenantResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-account.tenant.v1.TenantService-DeleteTenant">
+      <a href="#service-account.tenant.v1.TenantService-DeleteTenant">
+        rpc <code>DeleteTenant</code>
+      </a>
+    </h5>
+    Request: <code><a href="account.tenant.v1.html#message-account.tenant.v1.DeleteTenantRequest"><span title="account.tenant.v1.DeleteTenantRequest">account.tenant.v1.DeleteTenantRequest</span>
+    </a></code><br>
+    Response: <code><a href="account.tenant.v1.html#message-account.tenant.v1.DeleteTenantResponse"><span title="account.tenant.v1.DeleteTenantResponse">account.tenant.v1.DeleteTenantResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+ 
+    </div>
+    
+  </div>
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Messages
+    </h3>
+
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.CreateTenantRequest">
+  <span>
+    <a href="#message-account.tenant.v1.CreateTenantRequest" title="account.tenant.v1.CreateTenantRequest">message CreateTenantRequest</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L18">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.CreateTenantResponse">
+  <span>
+    <a href="#message-account.tenant.v1.CreateTenantResponse" title="account.tenant.v1.CreateTenantResponse">message CreateTenantResponse</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L22">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        tenant
+      </td>
+      <td>
+        <code title="account.tenant.v1.Tenant">
+          
+          <a href="account.tenant.v1.html#message-account.tenant.v1.Tenant"><span title="account.tenant.v1.Tenant">account.tenant.v1.Tenant</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.DeleteTenantRequest">
+  <span>
+    <a href="#message-account.tenant.v1.DeleteTenantRequest" title="account.tenant.v1.DeleteTenantRequest">message DeleteTenantRequest</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L55">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.DeleteTenantResponse">
+  <span>
+    <a href="#message-account.tenant.v1.DeleteTenantResponse" title="account.tenant.v1.DeleteTenantResponse">message DeleteTenantResponse</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L59">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.GetTenantRequest">
+  <span>
+    <a href="#message-account.tenant.v1.GetTenantRequest" title="account.tenant.v1.GetTenantRequest">message GetTenantRequest</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L26">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.GetTenantResponse">
+  <span>
+    <a href="#message-account.tenant.v1.GetTenantResponse" title="account.tenant.v1.GetTenantResponse">message GetTenantResponse</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L30">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        tenant
+      </td>
+      <td>
+        <code title="account.tenant.v1.Tenant">
+          
+          <a href="account.tenant.v1.html#message-account.tenant.v1.Tenant"><span title="account.tenant.v1.Tenant">account.tenant.v1.Tenant</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.ListTenantsRequest">
+  <span>
+    <a href="#message-account.tenant.v1.ListTenantsRequest" title="account.tenant.v1.ListTenantsRequest">message ListTenantsRequest</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L34">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        page_size
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        page_token
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        query
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.ListTenantsResponse">
+  <span>
+    <a href="#message-account.tenant.v1.ListTenantsResponse" title="account.tenant.v1.ListTenantsResponse">message ListTenantsResponse</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L41">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        tenants
+      </td>
+      <td>
+        <code title="account.tenant.v1.Tenant">
+          
+            repeated
+          
+          <a href="account.tenant.v1.html#message-account.tenant.v1.Tenant"><span title="account.tenant.v1.Tenant">account.tenant.v1.Tenant</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        next_page_token
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.Tenant">
+  <span>
+    <a href="#message-account.tenant.v1.Tenant" title="account.tenant.v1.Tenant">message Tenant</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L5">account/tenant/v1/tenant.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p>A group or an entity that has its own isolated environment and resources within a shared system.</p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        status
+      </td>
+      <td>
+        <code title="account.tenant.v1.TenantStatus">
+          
+          <a href="account.tenant.v1.html#enum-account.tenant.v1.TenantStatus"><span title="account.tenant.v1.TenantStatus">account.tenant.v1.TenantStatus</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.UpdateTenantRequest">
+  <span>
+    <a href="#message-account.tenant.v1.UpdateTenantRequest" title="account.tenant.v1.UpdateTenantRequest">message UpdateTenantRequest</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L46">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-account.tenant.v1.UpdateTenantResponse">
+  <span>
+    <a href="#message-account.tenant.v1.UpdateTenantResponse" title="account.tenant.v1.UpdateTenantResponse">message UpdateTenantResponse</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L51">account/tenant/v1/tenant_service.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        tenant
+      </td>
+      <td>
+        <code title="account.tenant.v1.Tenant">
+          
+          <a href="account.tenant.v1.html#message-account.tenant.v1.Tenant"><span title="account.tenant.v1.Tenant">account.tenant.v1.Tenant</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Enums
+    </h3>
+
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-account.tenant.v1.TenantStatus">
+  <a href="#enum-account.tenant.v1.TenantStatus" title="account.tenant.v1.TenantStatus">enum TenantStatus</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L12">account/tenant/v1/tenant.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p><p>The status of a tenant.</p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>TENANT_STATUS_UNSPECIFIED</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_STATUS_UNSET</code></td>
+      <td>1</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_STATUS_ACTIVE</code></td>
+      <td>2</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_STATUS_INACTIVE</code></td>
+      <td>3</td>
+      <td class="content"></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+
+  
+
+</div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        
+          <p>© 2024 Duy Nguyen. All rights reserved.</p>
+        
+        <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
+      </div>
+    </footer>
+  </body>
+</html>

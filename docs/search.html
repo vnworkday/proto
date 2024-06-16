@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VN Workday Proto API Documentation</title>
+    <link rel="stylesheet" href="static/mystyles.css" />
+    <script src="static/fontawesome.js"></script>
+    <script src="static/lunr.js"></script>
+    <script src="static/theme.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="level pt-6 mb-5 pb-2 bottom-border">
+        <div class="level-left">
+          <p class="level-item has-text-centered is-size-3 has-text-weight-medium">
+            <a class="link is-info" href="index.html">
+              VN Workday Proto API Documentation
+            </a>
+          </p>
+        </div>
+
+        <div class="level-right">
+          
+          <form action="search.html" class="mr-2 has-text-centered">
+            <input type="text" name="query" class="input mr-3 navbar-search-query-input" placeholder="Search">
+            <input type="submit" class="button is-primary mr-5" value="Search" />
+          </form>
+          
+
+          <p class="level-item has-text-centered is-size-5">
+            <a href="https://github.com/vnworkday/proto" class="link is-info mr-5" target="_blank">
+              
+              <span class="icon">
+                <i class="fa-brands fa-github"></i>
+              </span>
+              
+              <span>Source</span>
+            </a>
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite" type="button">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main-content" class="container mb-6">
+<script>
+    const searchDocuments =  {"account.tenant.v1": {"package": "account.tenant.v1", "url": "account.tenant.v1.html", "content": "account.tenant.v1\n\naccount\ntenant\nv1\nTenantService\n\nCreateTenant\n\naccount\ntenant\nv1\nCreateTenantRequest\naccount\ntenant\nv1\nCreateTenantResponse\nGetTenant\n\naccount\ntenant\nv1\nGetTenantRequest\naccount\ntenant\nv1\nGetTenantResponse\nListTenants\n\naccount\ntenant\nv1\nListTenantsRequest\naccount\ntenant\nv1\nListTenantsResponse\nUpdateTenant\n\naccount\ntenant\nv1\nUpdateTenantRequest\naccount\ntenant\nv1\nUpdateTenantResponse\nDeleteTenant\n\naccount\ntenant\nv1\nDeleteTenantRequest\naccount\ntenant\nv1\nDeleteTenantResponse\naccount\ntenant\nv1\nCreateTenantRequest\nname\n\naccount\ntenant\nv1\nCreateTenantResponse\ntenant\n\naccount\ntenant\nv1\nDeleteTenantRequest\nid\n\naccount\ntenant\nv1\nDeleteTenantResponse\nid\n\naccount\ntenant\nv1\nGetTenantRequest\nid\n\naccount\ntenant\nv1\nGetTenantResponse\ntenant\n\naccount\ntenant\nv1\nListTenantsRequest\npage_size\n\npage_token\n\nquery\nSearch query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.\naccount\ntenant\nv1\nListTenantsResponse\ntenants\n\nnext_page_token\n\naccount\ntenant\nv1\nTenant\nid\n\nname\n\nstatus\n\naccount\ntenant\nv1\nUpdateTenantRequest\nid\n\nname\n\naccount\ntenant\nv1\nUpdateTenantResponse\ntenant\n\naccount\ntenant\nv1\nTenantStatus\nThe status of a tenant.\nTENANT_STATUS_UNSPECIFIED\n\nTENANT_STATUS_UNSET\n\nTENANT_STATUS_ACTIVE\n\nTENANT_STATUS_INACTIVE\n\n"}, "account.user.v1": {"package": "account.user.v1", "url": "account.user.v1.html", "content": "account.user.v1\n\naccount\nuser\nv1\nUserService\n\nGetUser\n\naccount\nuser\nv1\nGetUserRequest\naccount\nuser\nv1\nGetUserResponse\nCreateUser\n\naccount\nuser\nv1\nCreateUserRequest\naccount\nuser\nv1\nCreateUserResponse\nUpdateUser\n\naccount\nuser\nv1\nUpdateUserRequest\naccount\nuser\nv1\nUpdateUserResponse\nDeleteUser\n\naccount\nuser\nv1\nDeleteUserRequest\naccount\nuser\nv1\nDeleteUserResponse\naccount\nuser\nv1\nCreateUserRequest\nuser\n\naccount\nuser\nv1\nCreateUserResponse\nuser\n\naccount\nuser\nv1\nDeleteUserRequest\nid\n\naccount\nuser\nv1\nDeleteUserResponse\nid\n\naccount\nuser\nv1\nGetUserRequest\nid\n\naccount\nuser\nv1\nGetUserResponse\nuser\n\naccount\nuser\nv1\nUpdateUserRequest\nuser\n\naccount\nuser\nv1\nUpdateUserResponse\nuser\n\naccount\nuser\nv1\nUser\nid\n\nfirst_name\n\nlast_name\n\nfull_name\n\nemail\n\n"}, "workforce.leave.v1": {"package": "workforce.leave.v1", "url": "workforce.leave.v1.html", "content": "workforce.leave.v1\n\nworkforce\nleave\nv1\nLeaveEntitlementService\n\nGetLeaveEntitlement\n\nworkforce\nleave\nv1\nGetLeaveEntitlementRequest\nworkforce\nleave\nv1\nGetLeaveEntitlementResponse\nworkforce\nleave\nv1\nGetLeaveEntitlementRequest\nid\n\nworkforce\nleave\nv1\nGetLeaveEntitlementResponse\nleave_entitlement\n\nworkforce\nleave\nv1\nLeaveEntitlement\nid\n\nname\n\n"}};
+    const searchIndex = {"version": "2.3.9", "fields": ["content", "url"], "fieldVectors": [["content/account.tenant.v1", [0, 0.796, 1, 0.962, 2, 2.042, 3, 0.273, 4, 0.796, 5, 0.796, 6, 1.164, 7, 1.164, 8, 0.796, 9, 1.164, 10, 1.164, 11, 0.796, 12, 1.164, 13, 1.164, 14, 0.796, 15, 1.164, 16, 1.164, 17, 0.796, 18, 1.164, 19, 1.164, 20, 0.659, 21, 0.219, 22, 0.796, 23, 0.796, 24, 1.375, 25, 0.796, 26, 0.796, 27, 0.796, 28, 0.796, 29, 0.796, 30, 0.796, 31, 0.796, 32, 0.796, 33, 1.164, 34, 0.796, 35, 0.796, 36, 0.796, 37, 0.796, 38, 0.796]], ["url/account.tenant.v1", [39, 0.981]], ["content/account.user.v1", [1, 0.966, 3, 0.274, 21, 0.223, 40, 0.951, 41, 2.05, 42, 0.951, 43, 0.951, 44, 1.321, 45, 1.321, 46, 0.951, 47, 1.321, 48, 1.321, 49, 0.951, 50, 1.321, 51, 1.321, 52, 0.951, 53, 1.321, 54, 1.321, 55, 0.951, 56, 0.951, 57, 0.951, 58, 0.951]], ["url/account.user.v1", [59, 0.981]], ["content/workforce.leave.v1", [3, 0.266, 20, 0.637, 21, 0.224, 60, 1.33, 61, 1.955, 62, 1.955, 63, 1.33, 64, 1.33, 65, 1.645, 66, 1.645, 67, 1.33, 68, 1.33]], ["url/workforce.leave.v1", [69, 0.981]]], "invertedIndex": [["(*)", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 30}], ["account", {"content": {"account.tenant.v1": {}, "account.user.v1": {}}, "url": {}, "_index": 1}], ["account.tenant.v1", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 0}], ["account.tenant.v1.html", {"content": {}, "url": {"account.tenant.v1": {}}, "_index": 39}], ["account.user.v1", {"content": {"account.user.v1": {}}, "url": {}, "_index": 40}], ["account.user.v1.html", {"content": {}, "url": {"account.user.v1": {}}, "_index": 59}], ["allow", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 31}], ["case", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 26}], ["createten", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 5}], ["createtenantrequest", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 6}], ["createtenantrespons", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 7}], ["createus", {"content": {"account.user.v1": {}}, "url": {}, "_index": 46}], ["createuserrequest", {"content": {"account.user.v1": {}}, "url": {}, "_index": 47}], ["createuserrespons", {"content": {"account.user.v1": {}}, "url": {}, "_index": 48}], ["deleteten", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 17}], ["deletetenantrequest", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 18}], ["deletetenantrespons", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 19}], ["deleteus", {"content": {"account.user.v1": {}}, "url": {}, "_index": 52}], ["deleteuserrequest", {"content": {"account.user.v1": {}}, "url": {}, "_index": 53}], ["deleteuserrespons", {"content": {"account.user.v1": {}}, "url": {}, "_index": 54}], ["email", {"content": {"account.user.v1": {}}, "url": {}, "_index": 58}], ["first_nam", {"content": {"account.user.v1": {}}, "url": {}, "_index": 55}], ["full_nam", {"content": {"account.user.v1": {}}, "url": {}, "_index": 57}], ["getleaveentitl", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 64}], ["getleaveentitlementrequest", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 65}], ["getleaveentitlementrespons", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 66}], ["getten", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 8}], ["gettenantrequest", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 9}], ["gettenantrespons", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 10}], ["getus", {"content": {"account.user.v1": {}}, "url": {}, "_index": 43}], ["getuserrequest", {"content": {"account.user.v1": {}}, "url": {}, "_index": 44}], ["getuserrespons", {"content": {"account.user.v1": {}}, "url": {}, "_index": 45}], ["id", {"content": {"account.tenant.v1": {}, "account.user.v1": {}, "workforce.leave.v1": {}}, "url": {}, "_index": 21}], ["insensit", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 27}], ["last_nam", {"content": {"account.user.v1": {}}, "url": {}, "_index": 56}], ["leav", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 62}], ["leave_entitl", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 67}], ["leaveentitl", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 68}], ["leaveentitlementservic", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 63}], ["listten", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 11}], ["listtenantsrequest", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 12}], ["listtenantsrespons", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 13}], ["name", {"content": {"account.tenant.v1": {}, "workforce.leave.v1": {}}, "url": {}, "_index": 20}], ["next_page_token", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 32}], ["page_s", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 22}], ["page_token", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 23}], ["queri", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 24}], ["search", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 25}], ["statu", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 33}], ["tenant", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 2}], ["tenant_status_act", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 37}], ["tenant_status_inact", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 38}], ["tenant_status_unset", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 36}], ["tenant_status_unspecifi", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 35}], ["tenantservic", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 4}], ["tenantstatu", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 34}], ["updateten", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 14}], ["updatetenantrequest", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 15}], ["updatetenantrespons", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 16}], ["updateus", {"content": {"account.user.v1": {}}, "url": {}, "_index": 49}], ["updateuserrequest", {"content": {"account.user.v1": {}}, "url": {}, "_index": 50}], ["updateuserrespons", {"content": {"account.user.v1": {}}, "url": {}, "_index": 51}], ["us", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 28}], ["user", {"content": {"account.user.v1": {}}, "url": {}, "_index": 41}], ["userservic", {"content": {"account.user.v1": {}}, "url": {}, "_index": 42}], ["v1", {"content": {"account.tenant.v1": {}, "account.user.v1": {}, "workforce.leave.v1": {}}, "url": {}, "_index": 3}], ["wildcard", {"content": {"account.tenant.v1": {}}, "url": {}, "_index": 29}], ["workforc", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 61}], ["workforce.leave.v1", {"content": {"workforce.leave.v1": {}}, "url": {}, "_index": 60}], ["workforce.leave.v1.html", {"content": {}, "url": {"workforce.leave.v1": {}}, "_index": 69}]], "pipeline": ["stemmer"]};
+
+    const idx = lunr.Index.load(searchIndex);
+
+    function displaySearchResults() {
+        const query = new URLSearchParams(window.location.search).get('query');
+
+        if (query) {
+            document.getElementById('mainInputQuery').value = query;
+
+            const results = idx.query(function (q) {
+              words = query.toLowerCase().split(" "); // toLowerCase() is needed to make the search case insensitive.
+              for (n in words) {
+                const word = words[n];
+
+                if (!word) {
+                  continue;
+                }
+
+                // look for an exact match and apply a large positive boost
+                q.term(word, { usePipeline: true, boost: 100 })
+
+                // look for terms that match the beginning of this queryTerm and apply a medium boost
+                q.term(word + "*", { usePipeline: false, boost: 10 })
+              }
+            });
+
+            const searchResults = document.getElementById('searchResults');
+
+            if (results.length > 0) {
+                let resultList = ''
+                for (const n in results) {
+                    // Use the unique ref from the results list to get the full item
+                    // so you can build its <li>
+                    const doc = searchDocuments[results[n].ref]
+                    resultList += '<h5 class="title is-5 mt-3"><a href="' + doc.url + '">' + doc.package + '</a></h5>'
+                    // Add a short clip of the content
+                    resultList += '<p>' + doc.content.substring(0, 150) + '...</p><hr />'
+                }
+                searchResults.innerHTML = resultList
+            } else {
+                searchResults.innerHTML = '<p>No search results.</p>';
+            }
+        }
+    }
+
+    window.addEventListener("load", displaySearchResults);
+</script>
+
+  <div>
+    <p class="block">
+      Enter a query to search this documentation.
+    </p>
+    <div class="field is-horizontal">
+      <form class="field-body">
+        <div class="field">
+          <p class="control is-expanded">
+            <input id="mainInputQuery" type="text" name="query" class="input" placeholder="Search query">
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded">
+            <input type="submit" class="button is-primary" value="Search" />
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="block mt-6">
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        
+          <p>© 2024 Duy Nguyen. All rights reserved.</p>
+        
+        <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
+      </div>
+    </footer>
+  </body>
+</html>
