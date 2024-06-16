@@ -25,5 +25,5 @@ jobs:
       - name: Run Buf Breaking
         uses: bufbuild/buf-breaking-action@v1.1.4
         with:
-          against: "https://github.com/ntduycs/vnworkday-proto.git#branch=main,subdir=proto"
+          against: "https://github.com/vnworkday/proto.git#branch=main,subdir=proto"
           input: "proto"
