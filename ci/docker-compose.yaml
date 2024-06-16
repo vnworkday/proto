@@ -1,0 +1,33 @@
+services:
+  protoc:
+    container_name: protoc
+    image: markvincze/sabledocs:0.13.756-alpine
+    pull_policy: missing
+    labels:
+      com.vnworkday.docker.name: protoc
+      com.vnworkday.docker.project: vnworkday
+    restart: unless-stopped
+    volumes:
+      - ../proto:/proto
+      - ../docs:/docs
+      - ../sabledocs.toml:/sabledocs.toml
+    entrypoint: /bin/sh
+    stdin_open: true
+    stop_signal: SIGKILL
+    healthcheck:
+      test: [ "CMD", "protoc", "--version" ]
+      interval: 10s
+      timeout: 5s
+      start_period: 5s
+      retries: 3
+  wait:
+    container_name: wait
+    image: dokku/wait:latest
+    pull_policy: missing
+    labels:
+      com.vnworkday.docker.name: wait
+      com.vnworkday.docker.project: vnworkday
+    restart: no
+    depends_on:
+      protoc:
+        condition: service_healthy
