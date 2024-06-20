@@ -10,11 +10,19 @@ public interface TenantOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * Required. In form of nanoid.
+   * </pre>
+   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
+   * <pre>
+   * Required. In form of nanoid.
+   * </pre>
+   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
@@ -22,11 +30,19 @@ public interface TenantOrBuilder extends
       getIdBytes();
 
   /**
+   * <pre>
+   * Required. Name of the tenant. Unique within the system.
+   * </pre>
+   *
    * <code>string name = 2 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
+   * <pre>
+   * Required. Name of the tenant. Unique within the system.
+   * </pre>
+   *
    * <code>string name = 2 [json_name = "name"];</code>
    * @return The bytes for name.
    */
@@ -34,13 +50,163 @@ public interface TenantOrBuilder extends
       getNameBytes();
 
   /**
+   * <pre>
+   * Required. Default is PROVISIONING status.
+   * </pre>
+   *
    * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
+   * <pre>
+   * Required. Default is PROVISIONING status.
+   * </pre>
+   *
    * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
    * @return The status.
    */
   com.github.vnworkday.proto.account.tenant.v1.TenantStatus getStatus();
+
+  /**
+   * <pre>
+   * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+   * </pre>
+   *
+   * <code>string domain = 4 [json_name = "domain"];</code>
+   * @return The domain.
+   */
+  java.lang.String getDomain();
+  /**
+   * <pre>
+   * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+   * </pre>
+   *
+   * <code>string domain = 4 [json_name = "domain"];</code>
+   * @return The bytes for domain.
+   */
+  com.google.protobuf.ByteString
+      getDomainBytes();
+
+  /**
+   * <pre>
+   * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+   * </pre>
+   *
+   * <code>string timezone = 5 [json_name = "timezone"];</code>
+   * @return The timezone.
+   */
+  java.lang.String getTimezone();
+  /**
+   * <pre>
+   * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+   * </pre>
+   *
+   * <code>string timezone = 5 [json_name = "timezone"];</code>
+   * @return The bytes for timezone.
+   */
+  com.google.protobuf.ByteString
+      getTimezoneBytes();
+
+  /**
+   * <pre>
+   * Required. Default is ENTERPRISE.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+   * @return The enum numeric value on the wire for productionType.
+   */
+  int getProductionTypeValue();
+  /**
+   * <pre>
+   * Required. Default is ENTERPRISE.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+   * @return The productionType.
+   */
+  com.github.vnworkday.proto.account.tenant.v1.TenantProductionType getProductionType();
+
+  /**
+   * <pre>
+   * Required. Default is BASIC.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+   * @return The enum numeric value on the wire for subscriptionType.
+   */
+  int getSubscriptionTypeValue();
+  /**
+   * <pre>
+   * Required. Default is BASIC.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+   * @return The subscriptionType.
+   */
+  com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType getSubscriptionType();
+
+  /**
+   * <pre>
+   * Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.
+   * </pre>
+   *
+   * <code>bool self_registration_enabled = 8 [json_name = "selfRegistrationEnabled"];</code>
+   * @return The selfRegistrationEnabled.
+   */
+  boolean getSelfRegistrationEnabled();
+
+  /**
+   * <pre>
+   * Required. Time when the tenant was created.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+   * @return Whether the createdAt field is set.
+   */
+  boolean hasCreatedAt();
+  /**
+   * <pre>
+   * Required. Time when the tenant was created.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+   * @return The createdAt.
+   */
+  com.google.protobuf.Timestamp getCreatedAt();
+  /**
+   * <pre>
+   * Required. Time when the tenant was created.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
+
+  /**
+   * <pre>
+   * Required. Time when the tenant was last updated.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+   * @return Whether the updatedAt field is set.
+   */
+  boolean hasUpdatedAt();
+  /**
+   * <pre>
+   * Required. Time when the tenant was last updated.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+   * @return The updatedAt.
+   */
+  com.google.protobuf.Timestamp getUpdatedAt();
+  /**
+   * <pre>
+   * Required. Time when the tenant was last updated.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

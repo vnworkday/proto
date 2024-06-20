@@ -10,12 +10,35 @@ public interface GetTenantRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return Whether the info field is set.
+   */
+  boolean hasInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return The info.
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfo getInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder();
+
+  /**
+   * <pre>
+   * Required. The ID of the tenant to get.
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <pre>
+   * Required. The ID of the tenant to get.
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString

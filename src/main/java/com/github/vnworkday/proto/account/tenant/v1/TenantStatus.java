@@ -6,10 +6,6 @@
 package com.github.vnworkday.proto.account.tenant.v1;
 
 /**
- * <pre>
- * The status of a tenant.
- * </pre>
- *
  * Protobuf enum {@code account.tenant.v1.TenantStatus}
  */
 public enum TenantStatus
@@ -19,15 +15,26 @@ public enum TenantStatus
    */
   TENANT_STATUS_UNSPECIFIED(0),
   /**
-   * <code>TENANT_STATUS_UNSET = 1 [deprecated = true];</code>
+   * <pre>
+   * Default. After the tenant is created, it is placed in the provisioning state and not ready for use yet.
+   * </pre>
+   *
+   * <code>TENANT_STATUS_PROVISIONING = 1;</code>
    */
-  @java.lang.Deprecated
-  TENANT_STATUS_UNSET(1),
+  TENANT_STATUS_PROVISIONING(1),
   /**
+   * <pre>
+   * Active tenant is a tenant that is ready for use and can be accessed by users.
+   * </pre>
+   *
    * <code>TENANT_STATUS_ACTIVE = 2;</code>
    */
   TENANT_STATUS_ACTIVE(2),
   /**
+   * <pre>
+   * Inactive tenant is a tenant that is not ready for use and cannot be accessed by users. It is disabled by the tenant admin only.
+   * </pre>
+   *
    * <code>TENANT_STATUS_INACTIVE = 3;</code>
    */
   TENANT_STATUS_INACTIVE(3),
@@ -48,14 +55,26 @@ public enum TenantStatus
    */
   public static final int TENANT_STATUS_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>TENANT_STATUS_UNSET = 1 [deprecated = true];</code>
+   * <pre>
+   * Default. After the tenant is created, it is placed in the provisioning state and not ready for use yet.
+   * </pre>
+   *
+   * <code>TENANT_STATUS_PROVISIONING = 1;</code>
    */
-  @java.lang.Deprecated public static final int TENANT_STATUS_UNSET_VALUE = 1;
+  public static final int TENANT_STATUS_PROVISIONING_VALUE = 1;
   /**
+   * <pre>
+   * Active tenant is a tenant that is ready for use and can be accessed by users.
+   * </pre>
+   *
    * <code>TENANT_STATUS_ACTIVE = 2;</code>
    */
   public static final int TENANT_STATUS_ACTIVE_VALUE = 2;
   /**
+   * <pre>
+   * Inactive tenant is a tenant that is not ready for use and cannot be accessed by users. It is disabled by the tenant admin only.
+   * </pre>
+   *
    * <code>TENANT_STATUS_INACTIVE = 3;</code>
    */
   public static final int TENANT_STATUS_INACTIVE_VALUE = 3;
@@ -86,7 +105,7 @@ public enum TenantStatus
   public static TenantStatus forNumber(int value) {
     switch (value) {
       case 0: return TENANT_STATUS_UNSPECIFIED;
-      case 1: return TENANT_STATUS_UNSET;
+      case 1: return TENANT_STATUS_PROVISIONING;
       case 2: return TENANT_STATUS_ACTIVE;
       case 3: return TENANT_STATUS_INACTIVE;
       default: return null;

@@ -10,26 +10,86 @@ public interface UpdateTenantRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return Whether the info field is set.
+   */
+  boolean hasInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return The info.
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfo getInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder();
+
+  /**
+   * <pre>
+   * Required. The ID of the tenant to update.
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <pre>
+   * Required. The ID of the tenant to update.
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
 
   /**
-   * <code>string name = 2 [json_name = "name"];</code>
+   * <pre>
+   * Required. The new name of the tenant. This must be unique across all tenants.
+   * </pre>
+   *
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [json_name = "name"];</code>
+   * <pre>
+   * Required. The new name of the tenant. This must be unique across all tenants.
+   * </pre>
+   *
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <pre>
+   * Required. The new type of subscription for the tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 4 [json_name = "subscriptionType"];</code>
+   * @return The enum numeric value on the wire for subscriptionType.
+   */
+  int getSubscriptionTypeValue();
+  /**
+   * <pre>
+   * Required. The new type of subscription for the tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 4 [json_name = "subscriptionType"];</code>
+   * @return The subscriptionType.
+   */
+  com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType getSubscriptionType();
+
+  /**
+   * <pre>
+   * Optional. Whether self-registration is enabled for the tenant. Defaults to false if not set.
+   * </pre>
+   *
+   * <code>bool self_registration_enabled = 5 [json_name = "selfRegistrationEnabled"];</code>
+   * @return The selfRegistrationEnabled.
+   */
+  boolean getSelfRegistrationEnabled();
 }

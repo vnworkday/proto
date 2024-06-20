@@ -6,6 +6,10 @@
 package com.github.vnworkday.proto.account.tenant.v1;
 
 /**
+ * <pre>
+ * For getting a tenant.
+ * </pre>
+ *
  * Protobuf type {@code account.tenant.v1.GetTenantRequest}
  */
 public final class GetTenantRequest extends
@@ -43,11 +47,42 @@ private static final long serialVersionUID = 0L;
             com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest.class, com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
+  private int bitField0_;
+  public static final int INFO_FIELD_NUMBER = 1;
+  private com.github.vnworkday.proto.shared.v1.RequestInfo info_;
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return Whether the info field is set.
+   */
+  @java.lang.Override
+  public boolean hasInfo() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return The info.
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestInfo getInfo() {
+    return info_ == null ? com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+  }
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder() {
+    return info_ == null ? com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+  }
+
+  public static final int ID_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
   /**
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <pre>
+   * Required. The ID of the tenant to get.
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -64,7 +99,11 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string id = 1 [json_name = "id"];</code>
+   * <pre>
+   * Required. The ID of the tenant to get.
+   * </pre>
+   *
+   * <code>string id = 2 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -96,8 +135,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(1, getInfo());
+    }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, id_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -108,8 +150,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getInfo());
+    }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(id_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, id_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -126,6 +172,11 @@ private static final long serialVersionUID = 0L;
     }
     com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest other = (com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest) obj;
 
+    if (hasInfo() != other.hasInfo()) return false;
+    if (hasInfo()) {
+      if (!getInfo()
+          .equals(other.getInfo())) return false;
+    }
     if (!getId()
         .equals(other.getId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -139,6 +190,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasInfo()) {
+      hash = (37 * hash) + INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getInfo().hashCode();
+    }
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -239,6 +294,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * For getting a tenant.
+   * </pre>
+   *
    * Protobuf type {@code account.tenant.v1.GetTenantRequest}
    */
   public static final class Builder extends
@@ -260,18 +319,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        getInfoFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      info_ = null;
+      if (infoBuilder_ != null) {
+        infoBuilder_.dispose();
+        infoBuilder_ = null;
+      }
       id_ = "";
       return this;
     }
@@ -306,9 +376,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest result) {
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.info_ = infoBuilder_ == null
+            ? info_
+            : infoBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.id_ = id_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -323,9 +401,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest other) {
       if (other == com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest.getDefaultInstance()) return this;
+      if (other.hasInfo()) {
+        mergeInfo(other.getInfo());
+      }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -355,10 +436,17 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              id_ = input.readStringRequireUtf8();
+              input.readMessage(
+                  getInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 18: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -376,9 +464,134 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private com.github.vnworkday.proto.shared.v1.RequestInfo info_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestInfo, com.github.vnworkday.proto.shared.v1.RequestInfo.Builder, com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder> infoBuilder_;
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     * @return Whether the info field is set.
+     */
+    public boolean hasInfo() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     * @return The info.
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestInfo getInfo() {
+      if (infoBuilder_ == null) {
+        return info_ == null ? com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+      } else {
+        return infoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public Builder setInfo(com.github.vnworkday.proto.shared.v1.RequestInfo value) {
+      if (infoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        info_ = value;
+      } else {
+        infoBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public Builder setInfo(
+        com.github.vnworkday.proto.shared.v1.RequestInfo.Builder builderForValue) {
+      if (infoBuilder_ == null) {
+        info_ = builderForValue.build();
+      } else {
+        infoBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public Builder mergeInfo(com.github.vnworkday.proto.shared.v1.RequestInfo value) {
+      if (infoBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          info_ != null &&
+          info_ != com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance()) {
+          getInfoBuilder().mergeFrom(value);
+        } else {
+          info_ = value;
+        }
+      } else {
+        infoBuilder_.mergeFrom(value);
+      }
+      if (info_ != null) {
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public Builder clearInfo() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      info_ = null;
+      if (infoBuilder_ != null) {
+        infoBuilder_.dispose();
+        infoBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestInfo.Builder getInfoBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder() {
+      if (infoBuilder_ != null) {
+        return infoBuilder_.getMessageOrBuilder();
+      } else {
+        return info_ == null ?
+            com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+      }
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestInfo, com.github.vnworkday.proto.shared.v1.RequestInfo.Builder, com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder> 
+        getInfoFieldBuilder() {
+      if (infoBuilder_ == null) {
+        infoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.RequestInfo, com.github.vnworkday.proto.shared.v1.RequestInfo.Builder, com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder>(
+                getInfo(),
+                getParentForChildren(),
+                isClean());
+        info_ = null;
+      }
+      return infoBuilder_;
+    }
+
     private java.lang.Object id_ = "";
     /**
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <pre>
+     * Required. The ID of the tenant to get.
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -394,7 +607,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <pre>
+     * Required. The ID of the tenant to get.
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -411,7 +628,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <pre>
+     * Required. The ID of the tenant to get.
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -419,22 +640,30 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       id_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <pre>
+     * Required. The ID of the tenant to get.
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
       id_ = getDefaultInstance().getId();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <code>string id = 1 [json_name = "id"];</code>
+     * <pre>
+     * Required. The ID of the tenant to get.
+     * </pre>
+     *
+     * <code>string id = 2 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -443,7 +672,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       id_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

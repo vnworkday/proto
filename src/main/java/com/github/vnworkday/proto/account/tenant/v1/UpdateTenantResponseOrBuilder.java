@@ -10,17 +10,44 @@ public interface UpdateTenantResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  boolean hasError();
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return The error.
+   */
+  com.github.vnworkday.proto.shared.v1.Error getError();
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.ErrorOrBuilder getErrorOrBuilder();
+
+  /**
+   * <pre>
+   * Required. The updated tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
    * @return Whether the tenant field is set.
    */
   boolean hasTenant();
   /**
-   * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+   * <pre>
+   * Required. The updated tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
    * @return The tenant.
    */
   com.github.vnworkday.proto.account.tenant.v1.Tenant getTenant();
   /**
-   * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+   * <pre>
+   * Required. The updated tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
    */
   com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder getTenantOrBuilder();
 }

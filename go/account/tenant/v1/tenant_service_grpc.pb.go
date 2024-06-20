@@ -23,18 +23,20 @@ const (
 	TenantService_GetTenant_FullMethodName    = "/account.tenant.v1.TenantService/GetTenant"
 	TenantService_ListTenants_FullMethodName  = "/account.tenant.v1.TenantService/ListTenants"
 	TenantService_UpdateTenant_FullMethodName = "/account.tenant.v1.TenantService/UpdateTenant"
-	TenantService_DeleteTenant_FullMethodName = "/account.tenant.v1.TenantService/DeleteTenant"
 )
 
 // TenantServiceClient is the client API for TenantService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TenantServiceClient interface {
+	// Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
 	CreateTenant(ctx context.Context, in *CreateTenantRequest, opts ...grpc.CallOption) (*CreateTenantResponse, error)
+	// Get a tenant by ID.
 	GetTenant(ctx context.Context, in *GetTenantRequest, opts ...grpc.CallOption) (*GetTenantResponse, error)
+	// List tenants. Supports pagination and filtering.
 	ListTenants(ctx context.Context, in *ListTenantsRequest, opts ...grpc.CallOption) (*ListTenantsResponse, error)
+	// Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
 	UpdateTenant(ctx context.Context, in *UpdateTenantRequest, opts ...grpc.CallOption) (*UpdateTenantResponse, error)
-	DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*DeleteTenantResponse, error)
 }
 
 type tenantServiceClient struct {
@@ -81,24 +83,18 @@ func (c *tenantServiceClient) UpdateTenant(ctx context.Context, in *UpdateTenant
 	return out, nil
 }
 
-func (c *tenantServiceClient) DeleteTenant(ctx context.Context, in *DeleteTenantRequest, opts ...grpc.CallOption) (*DeleteTenantResponse, error) {
-	out := new(DeleteTenantResponse)
-	err := c.cc.Invoke(ctx, TenantService_DeleteTenant_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // TenantServiceServer is the server API for TenantService service.
 // All implementations must embed UnimplementedTenantServiceServer
 // for forward compatibility
 type TenantServiceServer interface {
+	// Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
 	CreateTenant(context.Context, *CreateTenantRequest) (*CreateTenantResponse, error)
+	// Get a tenant by ID.
 	GetTenant(context.Context, *GetTenantRequest) (*GetTenantResponse, error)
+	// List tenants. Supports pagination and filtering.
 	ListTenants(context.Context, *ListTenantsRequest) (*ListTenantsResponse, error)
+	// Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
 	UpdateTenant(context.Context, *UpdateTenantRequest) (*UpdateTenantResponse, error)
-	DeleteTenant(context.Context, *DeleteTenantRequest) (*DeleteTenantResponse, error)
 	mustEmbedUnimplementedTenantServiceServer()
 }
 
@@ -117,9 +113,6 @@ func (UnimplementedTenantServiceServer) ListTenants(context.Context, *ListTenant
 }
 func (UnimplementedTenantServiceServer) UpdateTenant(context.Context, *UpdateTenantRequest) (*UpdateTenantResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTenant not implemented")
-}
-func (UnimplementedTenantServiceServer) DeleteTenant(context.Context, *DeleteTenantRequest) (*DeleteTenantResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteTenant not implemented")
 }
 func (UnimplementedTenantServiceServer) mustEmbedUnimplementedTenantServiceServer() {}
 
@@ -206,24 +199,6 @@ func _TenantService_UpdateTenant_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TenantService_DeleteTenant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteTenantRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TenantServiceServer).DeleteTenant(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TenantService_DeleteTenant_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TenantServiceServer).DeleteTenant(ctx, req.(*DeleteTenantRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // TenantService_ServiceDesc is the grpc.ServiceDesc for TenantService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -246,10 +221,6 @@ var TenantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateTenant",
 			Handler:    _TenantService_UpdateTenant_Handler,
-		},
-		{
-			MethodName: "DeleteTenant",
-			Handler:    _TenantService_DeleteTenant_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

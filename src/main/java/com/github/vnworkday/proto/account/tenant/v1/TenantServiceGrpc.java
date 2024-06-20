@@ -3,6 +3,10 @@ package com.github.vnworkday.proto.account.tenant.v1;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+ * Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
+ * </pre>
  */
 @jakarta.annotation.Generated(
     value = "by gRPC proto compiler (version 1.64.0)",
@@ -139,37 +143,6 @@ public final class TenantServiceGrpc {
     return getUpdateTenantMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest,
-      com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse> getDeleteTenantMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DeleteTenant",
-      requestType = com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest.class,
-      responseType = com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest,
-      com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse> getDeleteTenantMethod() {
-    io.grpc.MethodDescriptor<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest, com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse> getDeleteTenantMethod;
-    if ((getDeleteTenantMethod = TenantServiceGrpc.getDeleteTenantMethod) == null) {
-      synchronized (TenantServiceGrpc.class) {
-        if ((getDeleteTenantMethod = TenantServiceGrpc.getDeleteTenantMethod) == null) {
-          TenantServiceGrpc.getDeleteTenantMethod = getDeleteTenantMethod =
-              io.grpc.MethodDescriptor.<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest, com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteTenant"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TenantServiceMethodDescriptorSupplier("DeleteTenant"))
-              .build();
-        }
-      }
-    }
-    return getDeleteTenantMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -215,10 +188,17 @@ public final class TenantServiceGrpc {
   }
 
   /**
+   * <pre>
+   * Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+   * Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
+   * </pre>
    */
   public interface AsyncService {
 
     /**
+     * <pre>
+     * Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
+     * </pre>
      */
     default void createTenant(com.github.vnworkday.proto.account.tenant.v1.CreateTenantRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse> responseObserver) {
@@ -226,6 +206,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Get a tenant by ID.
+     * </pre>
      */
     default void getTenant(com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.GetTenantResponse> responseObserver) {
@@ -233,6 +216,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * List tenants. Supports pagination and filtering.
+     * </pre>
      */
     default void listTenants(com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse> responseObserver) {
@@ -240,22 +226,22 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
+     * </pre>
      */
     default void updateTenant(com.github.vnworkday.proto.account.tenant.v1.UpdateTenantRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.UpdateTenantResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateTenantMethod(), responseObserver);
     }
-
-    /**
-     */
-    default void deleteTenant(com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest request,
-        io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteTenantMethod(), responseObserver);
-    }
   }
 
   /**
    * Base class for the server implementation of the service TenantService.
+   * <pre>
+   * Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+   * Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
+   * </pre>
    */
   public static abstract class TenantServiceImplBase
       implements io.grpc.BindableService, AsyncService {
@@ -267,6 +253,10 @@ public final class TenantServiceGrpc {
 
   /**
    * A stub to allow clients to do asynchronous rpc calls to service TenantService.
+   * <pre>
+   * Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+   * Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
+   * </pre>
    */
   public static final class TenantServiceStub
       extends io.grpc.stub.AbstractAsyncStub<TenantServiceStub> {
@@ -282,6 +272,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
+     * </pre>
      */
     public void createTenant(com.github.vnworkday.proto.account.tenant.v1.CreateTenantRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse> responseObserver) {
@@ -290,6 +283,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Get a tenant by ID.
+     * </pre>
      */
     public void getTenant(com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.GetTenantResponse> responseObserver) {
@@ -298,6 +294,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * List tenants. Supports pagination and filtering.
+     * </pre>
      */
     public void listTenants(com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse> responseObserver) {
@@ -306,24 +305,23 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
+     * </pre>
      */
     public void updateTenant(com.github.vnworkday.proto.account.tenant.v1.UpdateTenantRequest request,
         io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.UpdateTenantResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateTenantMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void deleteTenant(com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest request,
-        io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getDeleteTenantMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service TenantService.
+   * <pre>
+   * Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+   * Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
+   * </pre>
    */
   public static final class TenantServiceBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<TenantServiceBlockingStub> {
@@ -339,6 +337,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
+     * </pre>
      */
     public com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse createTenant(com.github.vnworkday.proto.account.tenant.v1.CreateTenantRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -346,6 +347,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Get a tenant by ID.
+     * </pre>
      */
     public com.github.vnworkday.proto.account.tenant.v1.GetTenantResponse getTenant(com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -353,6 +357,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * List tenants. Supports pagination and filtering.
+     * </pre>
      */
     public com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse listTenants(com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -360,22 +367,22 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
+     * </pre>
      */
     public com.github.vnworkday.proto.account.tenant.v1.UpdateTenantResponse updateTenant(com.github.vnworkday.proto.account.tenant.v1.UpdateTenantRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateTenantMethod(), getCallOptions(), request);
     }
-
-    /**
-     */
-    public com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse deleteTenant(com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getDeleteTenantMethod(), getCallOptions(), request);
-    }
   }
 
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service TenantService.
+   * <pre>
+   * Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+   * Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
+   * </pre>
    */
   public static final class TenantServiceFutureStub
       extends io.grpc.stub.AbstractFutureStub<TenantServiceFutureStub> {
@@ -391,6 +398,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse> createTenant(
         com.github.vnworkday.proto.account.tenant.v1.CreateTenantRequest request) {
@@ -399,6 +409,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Get a tenant by ID.
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.github.vnworkday.proto.account.tenant.v1.GetTenantResponse> getTenant(
         com.github.vnworkday.proto.account.tenant.v1.GetTenantRequest request) {
@@ -407,6 +420,9 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * List tenants. Supports pagination and filtering.
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse> listTenants(
         com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest request) {
@@ -415,19 +431,14 @@ public final class TenantServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.github.vnworkday.proto.account.tenant.v1.UpdateTenantResponse> updateTenant(
         com.github.vnworkday.proto.account.tenant.v1.UpdateTenantRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateTenantMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse> deleteTenant(
-        com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getDeleteTenantMethod(), getCallOptions()), request);
     }
   }
 
@@ -435,7 +446,6 @@ public final class TenantServiceGrpc {
   private static final int METHODID_GET_TENANT = 1;
   private static final int METHODID_LIST_TENANTS = 2;
   private static final int METHODID_UPDATE_TENANT = 3;
-  private static final int METHODID_DELETE_TENANT = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -469,10 +479,6 @@ public final class TenantServiceGrpc {
         case METHODID_UPDATE_TENANT:
           serviceImpl.updateTenant((com.github.vnworkday.proto.account.tenant.v1.UpdateTenantRequest) request,
               (io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.UpdateTenantResponse>) responseObserver);
-          break;
-        case METHODID_DELETE_TENANT:
-          serviceImpl.deleteTenant((com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest) request,
-              (io.grpc.stub.StreamObserver<com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -520,13 +526,6 @@ public final class TenantServiceGrpc {
               com.github.vnworkday.proto.account.tenant.v1.UpdateTenantRequest,
               com.github.vnworkday.proto.account.tenant.v1.UpdateTenantResponse>(
                 service, METHODID_UPDATE_TENANT)))
-        .addMethod(
-          getDeleteTenantMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              com.github.vnworkday.proto.account.tenant.v1.DeleteTenantRequest,
-              com.github.vnworkday.proto.account.tenant.v1.DeleteTenantResponse>(
-                service, METHODID_DELETE_TENANT)))
         .build();
   }
 
@@ -579,7 +578,6 @@ public final class TenantServiceGrpc {
               .addMethod(getGetTenantMethod())
               .addMethod(getListTenantsMethod())
               .addMethod(getUpdateTenantMethod())
-              .addMethod(getDeleteTenantMethod())
               .build();
         }
       }
