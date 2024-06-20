@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Buf
         uses: bufbuild/buf-setup-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run Buf Lint
         uses: bufbuild/buf-lint-action@v1
         with:
