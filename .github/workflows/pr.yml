@@ -18,13 +18,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup Buf
-        uses: bufbuild/buf-setup-action@v1.32.1
+        uses: bufbuild/buf-setup-action@v1
       - name: Run Buf Lint
-        uses: bufbuild/buf-lint-action@v1.1.1
+        uses: bufbuild/buf-lint-action@v1
         with:
           input: "proto"
       - name: Run Buf Breaking
-        uses: bufbuild/buf-breaking-action@v1.1.4
+        uses: bufbuild/buf-breaking-action@v1
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
         # Only run buf breaking if the PR title does not contain 'BREAKING'
