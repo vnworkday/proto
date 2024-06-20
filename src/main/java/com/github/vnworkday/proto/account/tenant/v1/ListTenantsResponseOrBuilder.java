@@ -10,38 +10,56 @@ public interface ListTenantsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  boolean hasError();
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return The error.
+   */
+  com.github.vnworkday.proto.shared.v1.Error getError();
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.ErrorOrBuilder getErrorOrBuilder();
+
+  /**
+   * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+   * @return Whether the pagination field is set.
+   */
+  boolean hasPagination();
+  /**
+   * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+   * @return The pagination.
+   */
+  com.github.vnworkday.proto.shared.v1.ResponsePagination getPagination();
+  /**
+   * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.ResponsePaginationOrBuilder getPaginationOrBuilder();
+
+  /**
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   java.util.List<com.github.vnworkday.proto.account.tenant.v1.Tenant> 
       getTenantsList();
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   com.github.vnworkday.proto.account.tenant.v1.Tenant getTenants(int index);
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   int getTenantsCount();
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   java.util.List<? extends com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder> 
       getTenantsOrBuilderList();
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder getTenantsOrBuilder(
       int index);
-
-  /**
-   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-   * @return The nextPageToken.
-   */
-  java.lang.String getNextPageToken();
-  /**
-   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-   * @return The bytes for nextPageToken.
-   */
-  com.google.protobuf.ByteString
-      getNextPageTokenBytes();
 }

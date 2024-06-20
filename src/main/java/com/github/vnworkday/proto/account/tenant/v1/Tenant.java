@@ -34,6 +34,10 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     name_ = "";
     status_ = 0;
+    domain_ = "";
+    timezone_ = "";
+    productionType_ = 0;
+    subscriptionType_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -49,10 +53,15 @@ private static final long serialVersionUID = 0L;
             com.github.vnworkday.proto.account.tenant.v1.Tenant.class, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
   /**
+   * <pre>
+   * Required. In form of nanoid.
+   * </pre>
+   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
@@ -70,6 +79,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Required. In form of nanoid.
+   * </pre>
+   *
    * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
@@ -92,6 +105,10 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object name_ = "";
   /**
+   * <pre>
+   * Required. Name of the tenant. Unique within the system.
+   * </pre>
+   *
    * <code>string name = 2 [json_name = "name"];</code>
    * @return The name.
    */
@@ -109,6 +126,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * Required. Name of the tenant. Unique within the system.
+   * </pre>
+   *
    * <code>string name = 2 [json_name = "name"];</code>
    * @return The bytes for name.
    */
@@ -130,6 +151,10 @@ private static final long serialVersionUID = 0L;
   public static final int STATUS_FIELD_NUMBER = 3;
   private int status_ = 0;
   /**
+   * <pre>
+   * Required. Default is PROVISIONING status.
+   * </pre>
+   *
    * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
@@ -137,12 +162,253 @@ private static final long serialVersionUID = 0L;
     return status_;
   }
   /**
+   * <pre>
+   * Required. Default is PROVISIONING status.
+   * </pre>
+   *
    * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
    * @return The status.
    */
   @java.lang.Override public com.github.vnworkday.proto.account.tenant.v1.TenantStatus getStatus() {
     com.github.vnworkday.proto.account.tenant.v1.TenantStatus result = com.github.vnworkday.proto.account.tenant.v1.TenantStatus.forNumber(status_);
     return result == null ? com.github.vnworkday.proto.account.tenant.v1.TenantStatus.UNRECOGNIZED : result;
+  }
+
+  public static final int DOMAIN_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object domain_ = "";
+  /**
+   * <pre>
+   * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+   * </pre>
+   *
+   * <code>string domain = 4 [json_name = "domain"];</code>
+   * @return The domain.
+   */
+  @java.lang.Override
+  public java.lang.String getDomain() {
+    java.lang.Object ref = domain_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      domain_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+   * </pre>
+   *
+   * <code>string domain = 4 [json_name = "domain"];</code>
+   * @return The bytes for domain.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDomainBytes() {
+    java.lang.Object ref = domain_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      domain_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TIMEZONE_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timezone_ = "";
+  /**
+   * <pre>
+   * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+   * </pre>
+   *
+   * <code>string timezone = 5 [json_name = "timezone"];</code>
+   * @return The timezone.
+   */
+  @java.lang.Override
+  public java.lang.String getTimezone() {
+    java.lang.Object ref = timezone_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      timezone_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+   * </pre>
+   *
+   * <code>string timezone = 5 [json_name = "timezone"];</code>
+   * @return The bytes for timezone.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTimezoneBytes() {
+    java.lang.Object ref = timezone_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      timezone_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PRODUCTION_TYPE_FIELD_NUMBER = 6;
+  private int productionType_ = 0;
+  /**
+   * <pre>
+   * Required. Default is ENTERPRISE.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+   * @return The enum numeric value on the wire for productionType.
+   */
+  @java.lang.Override public int getProductionTypeValue() {
+    return productionType_;
+  }
+  /**
+   * <pre>
+   * Required. Default is ENTERPRISE.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+   * @return The productionType.
+   */
+  @java.lang.Override public com.github.vnworkday.proto.account.tenant.v1.TenantProductionType getProductionType() {
+    com.github.vnworkday.proto.account.tenant.v1.TenantProductionType result = com.github.vnworkday.proto.account.tenant.v1.TenantProductionType.forNumber(productionType_);
+    return result == null ? com.github.vnworkday.proto.account.tenant.v1.TenantProductionType.UNRECOGNIZED : result;
+  }
+
+  public static final int SUBSCRIPTION_TYPE_FIELD_NUMBER = 7;
+  private int subscriptionType_ = 0;
+  /**
+   * <pre>
+   * Required. Default is BASIC.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+   * @return The enum numeric value on the wire for subscriptionType.
+   */
+  @java.lang.Override public int getSubscriptionTypeValue() {
+    return subscriptionType_;
+  }
+  /**
+   * <pre>
+   * Required. Default is BASIC.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+   * @return The subscriptionType.
+   */
+  @java.lang.Override public com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType getSubscriptionType() {
+    com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType result = com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType.forNumber(subscriptionType_);
+    return result == null ? com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType.UNRECOGNIZED : result;
+  }
+
+  public static final int SELF_REGISTRATION_ENABLED_FIELD_NUMBER = 8;
+  private boolean selfRegistrationEnabled_ = false;
+  /**
+   * <pre>
+   * Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.
+   * </pre>
+   *
+   * <code>bool self_registration_enabled = 8 [json_name = "selfRegistrationEnabled"];</code>
+   * @return The selfRegistrationEnabled.
+   */
+  @java.lang.Override
+  public boolean getSelfRegistrationEnabled() {
+    return selfRegistrationEnabled_;
+  }
+
+  public static final int CREATED_AT_FIELD_NUMBER = 10;
+  private com.google.protobuf.Timestamp createdAt_;
+  /**
+   * <pre>
+   * Required. Time when the tenant was created.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+   * @return Whether the createdAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasCreatedAt() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Required. Time when the tenant was created.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+   * @return The createdAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getCreatedAt() {
+    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+  }
+  /**
+   * <pre>
+   * Required. Time when the tenant was created.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+    return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+  }
+
+  public static final int UPDATED_AT_FIELD_NUMBER = 11;
+  private com.google.protobuf.Timestamp updatedAt_;
+  /**
+   * <pre>
+   * Required. Time when the tenant was last updated.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+   * @return Whether the updatedAt field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpdatedAt() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * Required. Time when the tenant was last updated.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+   * @return The updatedAt.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getUpdatedAt() {
+    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+  }
+  /**
+   * <pre>
+   * Required. Time when the tenant was last updated.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+    return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -168,6 +434,27 @@ private static final long serialVersionUID = 0L;
     if (status_ != com.github.vnworkday.proto.account.tenant.v1.TenantStatus.TENANT_STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, status_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(domain_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 4, domain_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timezone_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, timezone_);
+    }
+    if (productionType_ != com.github.vnworkday.proto.account.tenant.v1.TenantProductionType.TENANT_PRODUCTION_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(6, productionType_);
+    }
+    if (subscriptionType_ != com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType.TENANT_SUBSCRIPTION_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(7, subscriptionType_);
+    }
+    if (selfRegistrationEnabled_ != false) {
+      output.writeBool(8, selfRegistrationEnabled_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(10, getCreatedAt());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(11, getUpdatedAt());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -186,6 +473,32 @@ private static final long serialVersionUID = 0L;
     if (status_ != com.github.vnworkday.proto.account.tenant.v1.TenantStatus.TENANT_STATUS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, status_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(domain_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(4, domain_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(timezone_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, timezone_);
+    }
+    if (productionType_ != com.github.vnworkday.proto.account.tenant.v1.TenantProductionType.TENANT_PRODUCTION_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(6, productionType_);
+    }
+    if (subscriptionType_ != com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType.TENANT_SUBSCRIPTION_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(7, subscriptionType_);
+    }
+    if (selfRegistrationEnabled_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(8, selfRegistrationEnabled_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getCreatedAt());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, getUpdatedAt());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -207,6 +520,24 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (status_ != other.status_) return false;
+    if (!getDomain()
+        .equals(other.getDomain())) return false;
+    if (!getTimezone()
+        .equals(other.getTimezone())) return false;
+    if (productionType_ != other.productionType_) return false;
+    if (subscriptionType_ != other.subscriptionType_) return false;
+    if (getSelfRegistrationEnabled()
+        != other.getSelfRegistrationEnabled()) return false;
+    if (hasCreatedAt() != other.hasCreatedAt()) return false;
+    if (hasCreatedAt()) {
+      if (!getCreatedAt()
+          .equals(other.getCreatedAt())) return false;
+    }
+    if (hasUpdatedAt() != other.hasUpdatedAt()) return false;
+    if (hasUpdatedAt()) {
+      if (!getUpdatedAt()
+          .equals(other.getUpdatedAt())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -224,6 +555,25 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
+    hash = (37 * hash) + DOMAIN_FIELD_NUMBER;
+    hash = (53 * hash) + getDomain().hashCode();
+    hash = (37 * hash) + TIMEZONE_FIELD_NUMBER;
+    hash = (53 * hash) + getTimezone().hashCode();
+    hash = (37 * hash) + PRODUCTION_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + productionType_;
+    hash = (37 * hash) + SUBSCRIPTION_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + subscriptionType_;
+    hash = (37 * hash) + SELF_REGISTRATION_ENABLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSelfRegistrationEnabled());
+    if (hasCreatedAt()) {
+      hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getCreatedAt().hashCode();
+    }
+    if (hasUpdatedAt()) {
+      hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdatedAt().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -347,13 +697,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.vnworkday.proto.account.tenant.v1.Tenant.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        getCreatedAtFieldBuilder();
+        getUpdatedAtFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -362,6 +719,21 @@ private static final long serialVersionUID = 0L;
       id_ = "";
       name_ = "";
       status_ = 0;
+      domain_ = "";
+      timezone_ = "";
+      productionType_ = 0;
+      subscriptionType_ = 0;
+      selfRegistrationEnabled_ = false;
+      createdAt_ = null;
+      if (createdAtBuilder_ != null) {
+        createdAtBuilder_.dispose();
+        createdAtBuilder_ = null;
+      }
+      updatedAt_ = null;
+      if (updatedAtBuilder_ != null) {
+        updatedAtBuilder_.dispose();
+        updatedAtBuilder_ = null;
+      }
       return this;
     }
 
@@ -404,6 +776,35 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.status_ = status_;
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.domain_ = domain_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.timezone_ = timezone_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.productionType_ = productionType_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.subscriptionType_ = subscriptionType_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.selfRegistrationEnabled_ = selfRegistrationEnabled_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.createdAt_ = createdAtBuilder_ == null
+            ? createdAt_
+            : createdAtBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.updatedAt_ = updatedAtBuilder_ == null
+            ? updatedAt_
+            : updatedAtBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -430,6 +831,31 @@ private static final long serialVersionUID = 0L;
       }
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
+      }
+      if (!other.getDomain().isEmpty()) {
+        domain_ = other.domain_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      if (!other.getTimezone().isEmpty()) {
+        timezone_ = other.timezone_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      if (other.productionType_ != 0) {
+        setProductionTypeValue(other.getProductionTypeValue());
+      }
+      if (other.subscriptionType_ != 0) {
+        setSubscriptionTypeValue(other.getSubscriptionTypeValue());
+      }
+      if (other.getSelfRegistrationEnabled() != false) {
+        setSelfRegistrationEnabled(other.getSelfRegistrationEnabled());
+      }
+      if (other.hasCreatedAt()) {
+        mergeCreatedAt(other.getCreatedAt());
+      }
+      if (other.hasUpdatedAt()) {
+        mergeUpdatedAt(other.getUpdatedAt());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -472,6 +898,45 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 34: {
+              domain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              timezone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              productionType_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              subscriptionType_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              selfRegistrationEnabled_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 82: {
+              input.readMessage(
+                  getCreatedAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getUpdatedAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -491,6 +956,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object id_ = "";
     /**
+     * <pre>
+     * Required. In form of nanoid.
+     * </pre>
+     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
@@ -507,6 +976,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Required. In form of nanoid.
+     * </pre>
+     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
@@ -524,6 +997,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Required. In form of nanoid.
+     * </pre>
+     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
@@ -537,6 +1014,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Required. In form of nanoid.
+     * </pre>
+     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
@@ -547,6 +1028,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Required. In form of nanoid.
+     * </pre>
+     *
      * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
@@ -563,6 +1048,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
+     * <pre>
+     * Required. Name of the tenant. Unique within the system.
+     * </pre>
+     *
      * <code>string name = 2 [json_name = "name"];</code>
      * @return The name.
      */
@@ -579,6 +1068,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Required. Name of the tenant. Unique within the system.
+     * </pre>
+     *
      * <code>string name = 2 [json_name = "name"];</code>
      * @return The bytes for name.
      */
@@ -596,6 +1089,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * Required. Name of the tenant. Unique within the system.
+     * </pre>
+     *
      * <code>string name = 2 [json_name = "name"];</code>
      * @param value The name to set.
      * @return This builder for chaining.
@@ -609,6 +1106,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Required. Name of the tenant. Unique within the system.
+     * </pre>
+     *
      * <code>string name = 2 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
@@ -619,6 +1120,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Required. Name of the tenant. Unique within the system.
+     * </pre>
+     *
      * <code>string name = 2 [json_name = "name"];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
@@ -635,6 +1140,10 @@ private static final long serialVersionUID = 0L;
 
     private int status_ = 0;
     /**
+     * <pre>
+     * Required. Default is PROVISIONING status.
+     * </pre>
+     *
      * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
@@ -642,6 +1151,10 @@ private static final long serialVersionUID = 0L;
       return status_;
     }
     /**
+     * <pre>
+     * Required. Default is PROVISIONING status.
+     * </pre>
+     *
      * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
@@ -653,6 +1166,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Required. Default is PROVISIONING status.
+     * </pre>
+     *
      * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
      * @return The status.
      */
@@ -662,6 +1179,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.github.vnworkday.proto.account.tenant.v1.TenantStatus.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * Required. Default is PROVISIONING status.
+     * </pre>
+     *
      * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
@@ -676,6 +1197,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * Required. Default is PROVISIONING status.
+     * </pre>
+     *
      * <code>.account.tenant.v1.TenantStatus status = 3 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
@@ -684,6 +1209,694 @@ private static final long serialVersionUID = 0L;
       status_ = 0;
       onChanged();
       return this;
+    }
+
+    private java.lang.Object domain_ = "";
+    /**
+     * <pre>
+     * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+     * </pre>
+     *
+     * <code>string domain = 4 [json_name = "domain"];</code>
+     * @return The domain.
+     */
+    public java.lang.String getDomain() {
+      java.lang.Object ref = domain_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        domain_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+     * </pre>
+     *
+     * <code>string domain = 4 [json_name = "domain"];</code>
+     * @return The bytes for domain.
+     */
+    public com.google.protobuf.ByteString
+        getDomainBytes() {
+      java.lang.Object ref = domain_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        domain_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+     * </pre>
+     *
+     * <code>string domain = 4 [json_name = "domain"];</code>
+     * @param value The domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomain(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      domain_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+     * </pre>
+     *
+     * <code>string domain = 4 [json_name = "domain"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomain() {
+      domain_ = getDefaultInstance().getDomain();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+     * </pre>
+     *
+     * <code>string domain = 4 [json_name = "domain"];</code>
+     * @param value The bytes for domain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      domain_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object timezone_ = "";
+    /**
+     * <pre>
+     * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+     * </pre>
+     *
+     * <code>string timezone = 5 [json_name = "timezone"];</code>
+     * @return The timezone.
+     */
+    public java.lang.String getTimezone() {
+      java.lang.Object ref = timezone_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timezone_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+     * </pre>
+     *
+     * <code>string timezone = 5 [json_name = "timezone"];</code>
+     * @return The bytes for timezone.
+     */
+    public com.google.protobuf.ByteString
+        getTimezoneBytes() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timezone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+     * </pre>
+     *
+     * <code>string timezone = 5 [json_name = "timezone"];</code>
+     * @param value The timezone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimezone(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      timezone_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+     * </pre>
+     *
+     * <code>string timezone = 5 [json_name = "timezone"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTimezone() {
+      timezone_ = getDefaultInstance().getTimezone();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+     * </pre>
+     *
+     * <code>string timezone = 5 [json_name = "timezone"];</code>
+     * @param value The bytes for timezone to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimezoneBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      timezone_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private int productionType_ = 0;
+    /**
+     * <pre>
+     * Required. Default is ENTERPRISE.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+     * @return The enum numeric value on the wire for productionType.
+     */
+    @java.lang.Override public int getProductionTypeValue() {
+      return productionType_;
+    }
+    /**
+     * <pre>
+     * Required. Default is ENTERPRISE.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+     * @param value The enum numeric value on the wire for productionType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setProductionTypeValue(int value) {
+      productionType_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Default is ENTERPRISE.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+     * @return The productionType.
+     */
+    @java.lang.Override
+    public com.github.vnworkday.proto.account.tenant.v1.TenantProductionType getProductionType() {
+      com.github.vnworkday.proto.account.tenant.v1.TenantProductionType result = com.github.vnworkday.proto.account.tenant.v1.TenantProductionType.forNumber(productionType_);
+      return result == null ? com.github.vnworkday.proto.account.tenant.v1.TenantProductionType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Required. Default is ENTERPRISE.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+     * @param value The productionType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setProductionType(com.github.vnworkday.proto.account.tenant.v1.TenantProductionType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000020;
+      productionType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Default is ENTERPRISE.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantProductionType production_type = 6 [json_name = "productionType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearProductionType() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      productionType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int subscriptionType_ = 0;
+    /**
+     * <pre>
+     * Required. Default is BASIC.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+     * @return The enum numeric value on the wire for subscriptionType.
+     */
+    @java.lang.Override public int getSubscriptionTypeValue() {
+      return subscriptionType_;
+    }
+    /**
+     * <pre>
+     * Required. Default is BASIC.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+     * @param value The enum numeric value on the wire for subscriptionType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSubscriptionTypeValue(int value) {
+      subscriptionType_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Default is BASIC.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+     * @return The subscriptionType.
+     */
+    @java.lang.Override
+    public com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType getSubscriptionType() {
+      com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType result = com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType.forNumber(subscriptionType_);
+      return result == null ? com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Required. Default is BASIC.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+     * @param value The subscriptionType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSubscriptionType(com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000040;
+      subscriptionType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Default is BASIC.
+     * </pre>
+     *
+     * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 7 [json_name = "subscriptionType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSubscriptionType() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      subscriptionType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean selfRegistrationEnabled_ ;
+    /**
+     * <pre>
+     * Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.
+     * </pre>
+     *
+     * <code>bool self_registration_enabled = 8 [json_name = "selfRegistrationEnabled"];</code>
+     * @return The selfRegistrationEnabled.
+     */
+    @java.lang.Override
+    public boolean getSelfRegistrationEnabled() {
+      return selfRegistrationEnabled_;
+    }
+    /**
+     * <pre>
+     * Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.
+     * </pre>
+     *
+     * <code>bool self_registration_enabled = 8 [json_name = "selfRegistrationEnabled"];</code>
+     * @param value The selfRegistrationEnabled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSelfRegistrationEnabled(boolean value) {
+
+      selfRegistrationEnabled_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.
+     * </pre>
+     *
+     * <code>bool self_registration_enabled = 8 [json_name = "selfRegistrationEnabled"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSelfRegistrationEnabled() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      selfRegistrationEnabled_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp createdAt_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * @return Whether the createdAt field is set.
+     */
+    public boolean hasCreatedAt() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     * @return The createdAt.
+     */
+    public com.google.protobuf.Timestamp getCreatedAt() {
+      if (createdAtBuilder_ == null) {
+        return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+      } else {
+        return createdAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
+      if (createdAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        createdAt_ = value;
+      } else {
+        createdAtBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    public Builder setCreatedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (createdAtBuilder_ == null) {
+        createdAt_ = builderForValue.build();
+      } else {
+        createdAtBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
+      if (createdAtBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) != 0) &&
+          createdAt_ != null &&
+          createdAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreatedAtBuilder().mergeFrom(value);
+        } else {
+          createdAt_ = value;
+        }
+      } else {
+        createdAtBuilder_.mergeFrom(value);
+      }
+      if (createdAt_ != null) {
+        bitField0_ |= 0x00000100;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    public Builder clearCreatedAt() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      createdAt_ = null;
+      if (createdAtBuilder_ != null) {
+        createdAtBuilder_.dispose();
+        createdAtBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return getCreatedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
+      if (createdAtBuilder_ != null) {
+        return createdAtBuilder_.getMessageOrBuilder();
+      } else {
+        return createdAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was created.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getCreatedAtFieldBuilder() {
+      if (createdAtBuilder_ == null) {
+        createdAtBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getCreatedAt(),
+                getParentForChildren(),
+                isClean());
+        createdAt_ = null;
+      }
+      return createdAtBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp updatedAt_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     * @return Whether the updatedAt field is set.
+     */
+    public boolean hasUpdatedAt() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     * @return The updatedAt.
+     */
+    public com.google.protobuf.Timestamp getUpdatedAt() {
+      if (updatedAtBuilder_ == null) {
+        return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+      } else {
+        return updatedAtBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (updatedAtBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        updatedAt_ = value;
+      } else {
+        updatedAtBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    public Builder setUpdatedAt(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (updatedAtBuilder_ == null) {
+        updatedAt_ = builderForValue.build();
+      } else {
+        updatedAtBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
+      if (updatedAtBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+          updatedAt_ != null &&
+          updatedAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdatedAtBuilder().mergeFrom(value);
+        } else {
+          updatedAt_ = value;
+        }
+      } else {
+        updatedAtBuilder_.mergeFrom(value);
+      }
+      if (updatedAt_ != null) {
+        bitField0_ |= 0x00000200;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    public Builder clearUpdatedAt() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      updatedAt_ = null;
+      if (updatedAtBuilder_ != null) {
+        updatedAtBuilder_.dispose();
+        updatedAtBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return getUpdatedAtFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
+      if (updatedAtBuilder_ != null) {
+        return updatedAtBuilder_.getMessageOrBuilder();
+      } else {
+        return updatedAt_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Time when the tenant was last updated.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getUpdatedAtFieldBuilder() {
+      if (updatedAtBuilder_ == null) {
+        updatedAtBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getUpdatedAt(),
+                getParentForChildren(),
+                isClean());
+        updatedAt_ = null;
+      }
+      return updatedAtBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:account.tenant.v1.Tenant)

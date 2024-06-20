@@ -3,7 +3,7 @@
 Execute the following commands to release a new version of the project:
 
 ```bash
-sh scripts/release-go.sh -t $type
+sh scripts/go-release.sh -t $type
 ```
 
 Where `$type` is one of the following:

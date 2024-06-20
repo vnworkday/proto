@@ -40,29 +40,51 @@ public final class TenantProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\036account/tenant/v1/tenant.proto\022\021accoun" +
-      "t.tenant.v1\"e\n\006Tenant\022\016\n\002id\030\001 \001(\tR\002id\022\022\n" +
-      "\004name\030\002 \001(\tR\004name\0227\n\006status\030\003 \001(\0162\037.acco" +
-      "unt.tenant.v1.TenantStatusR\006status*\200\001\n\014T" +
-      "enantStatus\022\035\n\031TENANT_STATUS_UNSPECIFIED" +
-      "\020\000\022\033\n\023TENANT_STATUS_UNSET\020\001\032\002\010\001\022\030\n\024TENAN" +
-      "T_STATUS_ACTIVE\020\002\022\032\n\026TENANT_STATUS_INACT" +
-      "IVE\020\003B\241\001\n,com.github.vnworkday.proto.acc" +
-      "ount.tenant.v1B\013TenantProtoP\001\242\002\003ATX\252\002\021Ac" +
-      "count.Tenant.V1\312\002\021Account\\Tenant\\V1\342\002\035Ac" +
-      "count\\Tenant\\V1\\GPBMetadata\352\002\023Account::T" +
-      "enant::V1b\006proto3"
+      "t.tenant.v1\032\037google/protobuf/timestamp.p" +
+      "roto\"\365\003\n\006Tenant\022\016\n\002id\030\001 \001(\tR\002id\022\022\n\004name\030" +
+      "\002 \001(\tR\004name\0227\n\006status\030\003 \001(\0162\037.account.te" +
+      "nant.v1.TenantStatusR\006status\022\026\n\006domain\030\004" +
+      " \001(\tR\006domain\022\032\n\010timezone\030\005 \001(\tR\010timezone" +
+      "\022P\n\017production_type\030\006 \001(\0162\'.account.tena" +
+      "nt.v1.TenantProductionTypeR\016productionTy" +
+      "pe\022V\n\021subscription_type\030\007 \001(\0162).account." +
+      "tenant.v1.TenantSubscriptionTypeR\020subscr" +
+      "iptionType\022:\n\031self_registration_enabled\030" +
+      "\010 \001(\010R\027selfRegistrationEnabled\0229\n\ncreate" +
+      "d_at\030\n \001(\0132\032.google.protobuf.TimestampR\t" +
+      "createdAt\0229\n\nupdated_at\030\013 \001(\0132\032.google.p" +
+      "rotobuf.TimestampR\tupdatedAt*\203\001\n\014TenantS" +
+      "tatus\022\035\n\031TENANT_STATUS_UNSPECIFIED\020\000\022\036\n\032" +
+      "TENANT_STATUS_PROVISIONING\020\001\022\030\n\024TENANT_S" +
+      "TATUS_ACTIVE\020\002\022\032\n\026TENANT_STATUS_INACTIVE" +
+      "\020\003*\253\001\n\024TenantProductionType\022&\n\"TENANT_PR" +
+      "ODUCTION_TYPE_UNSPECIFIED\020\000\022%\n!TENANT_PR" +
+      "ODUCTION_TYPE_ENTERPRISE\020\001\022\037\n\033TENANT_PRO" +
+      "DUCTION_TYPE_ROOT\020\002\022#\n\037TENANT_PRODUCTION" +
+      "_TYPE_INTERNAL\020\003*\263\001\n\026TenantSubscriptionT" +
+      "ype\022(\n$TENANT_SUBSCRIPTION_TYPE_UNSPECIF" +
+      "IED\020\000\022\"\n\036TENANT_SUBSCRIPTION_TYPE_BASIC\020" +
+      "\001\022%\n!TENANT_SUBSCRIPTION_TYPE_STANDARD\020\002" +
+      "\022$\n TENANT_SUBSCRIPTION_TYPE_PREMIUM\020\003B\241" +
+      "\001\n,com.github.vnworkday.proto.account.te" +
+      "nant.v1B\013TenantProtoP\001\242\002\003ATX\252\002\021Account.T" +
+      "enant.V1\312\002\021Account\\Tenant\\V1\342\002\035Account\\T" +
+      "enant\\V1\\GPBMetadata\352\002\023Account::Tenant::" +
+      "V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_account_tenant_v1_Tenant_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_account_tenant_v1_Tenant_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_Tenant_descriptor,
-        new java.lang.String[] { "Id", "Name", "Status", });
+        new java.lang.String[] { "Id", "Name", "Status", "Domain", "Timezone", "ProductionType", "SubscriptionType", "SelfRegistrationEnabled", "CreatedAt", "UpdatedAt", });
     descriptor.resolveAllFeaturesImmutable();
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -10,34 +10,210 @@ public interface ListTenantsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
-   * @return The pageSize.
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return Whether the info field is set.
    */
-  int getPageSize();
+  boolean hasInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return The info.
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfo getInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder();
 
   /**
-   * <code>int32 page_token = 2 [json_name = "pageToken"];</code>
-   * @return The pageToken.
+   * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+   * @return Whether the pagination field is set.
    */
-  int getPageToken();
+  boolean hasPagination();
+  /**
+   * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+   * @return The pagination.
+   */
+  com.github.vnworkday.proto.shared.v1.RequestPagination getPagination();
+  /**
+   * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestPaginationOrBuilder getPaginationOrBuilder();
 
   /**
    * <pre>
-   * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
    * </pre>
    *
-   * <code>string query = 3 [json_name = "query"];</code>
-   * @return The query.
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
    */
-  java.lang.String getQuery();
+  java.util.List<com.github.vnworkday.proto.shared.v1.RequestFilter> 
+      getFiltersList();
   /**
    * <pre>
-   * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
    * </pre>
    *
-   * <code>string query = 3 [json_name = "query"];</code>
-   * @return The bytes for query.
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
    */
-  com.google.protobuf.ByteString
-      getQueryBytes();
+  com.github.vnworkday.proto.shared.v1.RequestFilter getFilters(int index);
+  /**
+   * <pre>
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+   */
+  int getFiltersCount();
+  /**
+   * <pre>
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+   */
+  java.util.List<? extends com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder> 
+      getFiltersOrBuilderList();
+  /**
+   * <pre>
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder getFiltersOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  java.util.List<com.github.vnworkday.proto.shared.v1.RequestSort> 
+      getSortsList();
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestSort getSorts(int index);
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  int getSortsCount();
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  java.util.List<? extends com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder> 
+      getSortsOrBuilderList();
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder getSortsOrBuilder(
+      int index);
 }

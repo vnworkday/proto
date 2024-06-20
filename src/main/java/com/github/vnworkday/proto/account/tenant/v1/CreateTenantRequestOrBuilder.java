@@ -10,14 +10,106 @@ public interface CreateTenantRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return Whether the info field is set.
+   */
+  boolean hasInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return The info.
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfo getInfo();
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   */
+  com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder();
+
+  /**
+   * <pre>
+   * Required. The name of the tenant. This must be unique across all tenants.
+   * </pre>
+   *
+   * <code>string name = 2 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 1 [json_name = "name"];</code>
+   * <pre>
+   * Required. The name of the tenant. This must be unique across all tenants.
+   * </pre>
+   *
+   * <code>string name = 2 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <pre>
+   * Required. The domain of the tenant. This must be unique across all tenants.
+   * </pre>
+   *
+   * <code>string domain = 3 [json_name = "domain"];</code>
+   * @return The domain.
+   */
+  java.lang.String getDomain();
+  /**
+   * <pre>
+   * Required. The domain of the tenant. This must be unique across all tenants.
+   * </pre>
+   *
+   * <code>string domain = 3 [json_name = "domain"];</code>
+   * @return The bytes for domain.
+   */
+  com.google.protobuf.ByteString
+      getDomainBytes();
+
+  /**
+   * <pre>
+   * Required. The timezone of the tenant. This must be a valid Olson timezone.
+   * </pre>
+   *
+   * <code>string timezone = 4 [json_name = "timezone"];</code>
+   * @return The timezone.
+   */
+  java.lang.String getTimezone();
+  /**
+   * <pre>
+   * Required. The timezone of the tenant. This must be a valid Olson timezone.
+   * </pre>
+   *
+   * <code>string timezone = 4 [json_name = "timezone"];</code>
+   * @return The bytes for timezone.
+   */
+  com.google.protobuf.ByteString
+      getTimezoneBytes();
+
+  /**
+   * <pre>
+   * Required. The type of subscription for the tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 5 [json_name = "subscriptionType"];</code>
+   * @return The enum numeric value on the wire for subscriptionType.
+   */
+  int getSubscriptionTypeValue();
+  /**
+   * <pre>
+   * Required. The type of subscription for the tenant.
+   * </pre>
+   *
+   * <code>.account.tenant.v1.TenantSubscriptionType subscription_type = 5 [json_name = "subscriptionType"];</code>
+   * @return The subscriptionType.
+   */
+  com.github.vnworkday.proto.account.tenant.v1.TenantSubscriptionType getSubscriptionType();
+
+  /**
+   * <pre>
+   * Optional. Whether self-registration is enabled for the tenant. Defaults to false if not set.
+   * </pre>
+   *
+   * <code>bool self_registration_enabled = 6 [json_name = "selfRegistrationEnabled"];</code>
+   * @return The selfRegistrationEnabled.
+   */
+  boolean getSelfRegistrationEnabled();
 }

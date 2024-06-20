@@ -6,6 +6,10 @@
 package com.github.vnworkday.proto.account.tenant.v1;
 
 /**
+ * <pre>
+ * Response for listing tenants.
+ * </pre>
+ *
  * Protobuf type {@code account.tenant.v1.ListTenantsResponse}
  */
 public final class ListTenantsResponse extends
@@ -28,7 +32,6 @@ private static final long serialVersionUID = 0L;
   }
   private ListTenantsResponse() {
     tenants_ = java.util.Collections.emptyList();
-    nextPageToken_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -44,18 +47,71 @@ private static final long serialVersionUID = 0L;
             com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse.class, com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse.Builder.class);
   }
 
-  public static final int TENANTS_FIELD_NUMBER = 1;
+  private int bitField0_;
+  public static final int ERROR_FIELD_NUMBER = 1;
+  private com.github.vnworkday.proto.shared.v1.Error error_;
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  @java.lang.Override
+  public boolean hasError() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return The error.
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.Error getError() {
+    return error_ == null ? com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+  }
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.ErrorOrBuilder getErrorOrBuilder() {
+    return error_ == null ? com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+  }
+
+  public static final int PAGINATION_FIELD_NUMBER = 2;
+  private com.github.vnworkday.proto.shared.v1.ResponsePagination pagination_;
+  /**
+   * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+   * @return Whether the pagination field is set.
+   */
+  @java.lang.Override
+  public boolean hasPagination() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+   * @return The pagination.
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.ResponsePagination getPagination() {
+    return pagination_ == null ? com.github.vnworkday.proto.shared.v1.ResponsePagination.getDefaultInstance() : pagination_;
+  }
+  /**
+   * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.ResponsePaginationOrBuilder getPaginationOrBuilder() {
+    return pagination_ == null ? com.github.vnworkday.proto.shared.v1.ResponsePagination.getDefaultInstance() : pagination_;
+  }
+
+  public static final int TENANTS_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
   private java.util.List<com.github.vnworkday.proto.account.tenant.v1.Tenant> tenants_;
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   @java.lang.Override
   public java.util.List<com.github.vnworkday.proto.account.tenant.v1.Tenant> getTenantsList() {
     return tenants_;
   }
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder> 
@@ -63,65 +119,26 @@ private static final long serialVersionUID = 0L;
     return tenants_;
   }
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   @java.lang.Override
   public int getTenantsCount() {
     return tenants_.size();
   }
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   @java.lang.Override
   public com.github.vnworkday.proto.account.tenant.v1.Tenant getTenants(int index) {
     return tenants_.get(index);
   }
   /**
-   * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+   * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
    */
   @java.lang.Override
   public com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder getTenantsOrBuilder(
       int index) {
     return tenants_.get(index);
-  }
-
-  public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object nextPageToken_ = "";
-  /**
-   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-   * @return The nextPageToken.
-   */
-  @java.lang.Override
-  public java.lang.String getNextPageToken() {
-    java.lang.Object ref = nextPageToken_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      nextPageToken_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-   * @return The bytes for nextPageToken.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getNextPageTokenBytes() {
-    java.lang.Object ref = nextPageToken_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      nextPageToken_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -138,11 +155,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < tenants_.size(); i++) {
-      output.writeMessage(1, tenants_.get(i));
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(1, getError());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(nextPageToken_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 2, nextPageToken_);
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(2, getPagination());
+    }
+    for (int i = 0; i < tenants_.size(); i++) {
+      output.writeMessage(3, tenants_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -153,12 +173,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getError());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getPagination());
+    }
     for (int i = 0; i < tenants_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, tenants_.get(i));
-    }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(nextPageToken_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, nextPageToken_);
+        .computeMessageSize(3, tenants_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -175,10 +200,18 @@ private static final long serialVersionUID = 0L;
     }
     com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse other = (com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse) obj;
 
+    if (hasError() != other.hasError()) return false;
+    if (hasError()) {
+      if (!getError()
+          .equals(other.getError())) return false;
+    }
+    if (hasPagination() != other.hasPagination()) return false;
+    if (hasPagination()) {
+      if (!getPagination()
+          .equals(other.getPagination())) return false;
+    }
     if (!getTenantsList()
         .equals(other.getTenantsList())) return false;
-    if (!getNextPageToken()
-        .equals(other.getNextPageToken())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -190,12 +223,18 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+    }
+    if (hasPagination()) {
+      hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
+      hash = (53 * hash) + getPagination().hashCode();
+    }
     if (getTenantsCount() > 0) {
       hash = (37 * hash) + TENANTS_FIELD_NUMBER;
       hash = (53 * hash) + getTenantsList().hashCode();
     }
-    hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getNextPageToken().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -294,6 +333,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * Response for listing tenants.
+   * </pre>
+   *
    * Protobuf type {@code account.tenant.v1.ListTenantsResponse}
    */
   public static final class Builder extends
@@ -315,26 +358,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        getErrorFieldBuilder();
+        getPaginationFieldBuilder();
+        getTenantsFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
+        errorBuilder_ = null;
+      }
+      pagination_ = null;
+      if (paginationBuilder_ != null) {
+        paginationBuilder_.dispose();
+        paginationBuilder_ = null;
+      }
       if (tenantsBuilder_ == null) {
         tenants_ = java.util.Collections.emptyList();
       } else {
         tenants_ = null;
         tenantsBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      nextPageToken_ = "";
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -369,9 +429,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartialRepeatedFields(com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse result) {
       if (tenantsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           tenants_ = java.util.Collections.unmodifiableList(tenants_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.tenants_ = tenants_;
       } else {
@@ -381,9 +441,20 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse result) {
       int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.nextPageToken_ = nextPageToken_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+        to_bitField0_ |= 0x00000001;
       }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pagination_ = paginationBuilder_ == null
+            ? pagination_
+            : paginationBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -398,11 +469,17 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse other) {
       if (other == com.github.vnworkday.proto.account.tenant.v1.ListTenantsResponse.getDefaultInstance()) return this;
+      if (other.hasError()) {
+        mergeError(other.getError());
+      }
+      if (other.hasPagination()) {
+        mergePagination(other.getPagination());
+      }
       if (tenantsBuilder_ == null) {
         if (!other.tenants_.isEmpty()) {
           if (tenants_.isEmpty()) {
             tenants_ = other.tenants_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTenantsIsMutable();
             tenants_.addAll(other.tenants_);
@@ -415,7 +492,7 @@ private static final long serialVersionUID = 0L;
             tenantsBuilder_.dispose();
             tenantsBuilder_ = null;
             tenants_ = other.tenants_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             tenantsBuilder_ = 
               com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                  getTenantsFieldBuilder() : null;
@@ -423,11 +500,6 @@ private static final long serialVersionUID = 0L;
             tenantsBuilder_.addAllMessages(other.tenants_);
           }
         }
-      }
-      if (!other.getNextPageToken().isEmpty()) {
-        nextPageToken_ = other.nextPageToken_;
-        bitField0_ |= 0x00000002;
-        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -456,6 +528,20 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPaginationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
               com.github.vnworkday.proto.account.tenant.v1.Tenant m =
                   input.readMessage(
                       com.github.vnworkday.proto.account.tenant.v1.Tenant.parser(),
@@ -467,12 +553,7 @@ private static final long serialVersionUID = 0L;
                 tenantsBuilder_.addMessage(m);
               }
               break;
-            } // case 10
-            case 18: {
-              nextPageToken_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 18
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -490,12 +571,254 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private com.github.vnworkday.proto.shared.v1.Error error_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.Error, com.github.vnworkday.proto.shared.v1.Error.Builder, com.github.vnworkday.proto.shared.v1.ErrorOrBuilder> errorBuilder_;
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     * @return Whether the error field is set.
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     * @return The error.
+     */
+    public com.github.vnworkday.proto.shared.v1.Error getError() {
+      if (errorBuilder_ == null) {
+        return error_ == null ? com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+      } else {
+        return errorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder setError(com.github.vnworkday.proto.shared.v1.Error value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        error_ = value;
+      } else {
+        errorBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder setError(
+        com.github.vnworkday.proto.shared.v1.Error.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        error_ = builderForValue.build();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder mergeError(com.github.vnworkday.proto.shared.v1.Error value) {
+      if (errorBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          error_ != null &&
+          error_ != com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
+        } else {
+          error_ = value;
+        }
+      } else {
+        errorBuilder_.mergeFrom(value);
+      }
+      if (error_ != null) {
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder clearError() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
+        errorBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.Error.Builder getErrorBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.ErrorOrBuilder getErrorOrBuilder() {
+      if (errorBuilder_ != null) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        return error_ == null ?
+            com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+      }
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.Error, com.github.vnworkday.proto.shared.v1.Error.Builder, com.github.vnworkday.proto.shared.v1.ErrorOrBuilder> 
+        getErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.Error, com.github.vnworkday.proto.shared.v1.Error.Builder, com.github.vnworkday.proto.shared.v1.ErrorOrBuilder>(
+                getError(),
+                getParentForChildren(),
+                isClean());
+        error_ = null;
+      }
+      return errorBuilder_;
+    }
+
+    private com.github.vnworkday.proto.shared.v1.ResponsePagination pagination_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.ResponsePagination, com.github.vnworkday.proto.shared.v1.ResponsePagination.Builder, com.github.vnworkday.proto.shared.v1.ResponsePaginationOrBuilder> paginationBuilder_;
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     * @return Whether the pagination field is set.
+     */
+    public boolean hasPagination() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     * @return The pagination.
+     */
+    public com.github.vnworkday.proto.shared.v1.ResponsePagination getPagination() {
+      if (paginationBuilder_ == null) {
+        return pagination_ == null ? com.github.vnworkday.proto.shared.v1.ResponsePagination.getDefaultInstance() : pagination_;
+      } else {
+        return paginationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder setPagination(com.github.vnworkday.proto.shared.v1.ResponsePagination value) {
+      if (paginationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        pagination_ = value;
+      } else {
+        paginationBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder setPagination(
+        com.github.vnworkday.proto.shared.v1.ResponsePagination.Builder builderForValue) {
+      if (paginationBuilder_ == null) {
+        pagination_ = builderForValue.build();
+      } else {
+        paginationBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder mergePagination(com.github.vnworkday.proto.shared.v1.ResponsePagination value) {
+      if (paginationBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          pagination_ != null &&
+          pagination_ != com.github.vnworkday.proto.shared.v1.ResponsePagination.getDefaultInstance()) {
+          getPaginationBuilder().mergeFrom(value);
+        } else {
+          pagination_ = value;
+        }
+      } else {
+        paginationBuilder_.mergeFrom(value);
+      }
+      if (pagination_ != null) {
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder clearPagination() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      pagination_ = null;
+      if (paginationBuilder_ != null) {
+        paginationBuilder_.dispose();
+        paginationBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.ResponsePagination.Builder getPaginationBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getPaginationFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.ResponsePaginationOrBuilder getPaginationOrBuilder() {
+      if (paginationBuilder_ != null) {
+        return paginationBuilder_.getMessageOrBuilder();
+      } else {
+        return pagination_ == null ?
+            com.github.vnworkday.proto.shared.v1.ResponsePagination.getDefaultInstance() : pagination_;
+      }
+    }
+    /**
+     * <code>.shared.v1.ResponsePagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.ResponsePagination, com.github.vnworkday.proto.shared.v1.ResponsePagination.Builder, com.github.vnworkday.proto.shared.v1.ResponsePaginationOrBuilder> 
+        getPaginationFieldBuilder() {
+      if (paginationBuilder_ == null) {
+        paginationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.ResponsePagination, com.github.vnworkday.proto.shared.v1.ResponsePagination.Builder, com.github.vnworkday.proto.shared.v1.ResponsePaginationOrBuilder>(
+                getPagination(),
+                getParentForChildren(),
+                isClean());
+        pagination_ = null;
+      }
+      return paginationBuilder_;
+    }
+
     private java.util.List<com.github.vnworkday.proto.account.tenant.v1.Tenant> tenants_ =
       java.util.Collections.emptyList();
     private void ensureTenantsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         tenants_ = new java.util.ArrayList<com.github.vnworkday.proto.account.tenant.v1.Tenant>(tenants_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -503,7 +826,7 @@ private static final long serialVersionUID = 0L;
         com.github.vnworkday.proto.account.tenant.v1.Tenant, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder, com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder> tenantsBuilder_;
 
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public java.util.List<com.github.vnworkday.proto.account.tenant.v1.Tenant> getTenantsList() {
       if (tenantsBuilder_ == null) {
@@ -513,7 +836,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public int getTenantsCount() {
       if (tenantsBuilder_ == null) {
@@ -523,7 +846,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.Tenant getTenants(int index) {
       if (tenantsBuilder_ == null) {
@@ -533,7 +856,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder setTenants(
         int index, com.github.vnworkday.proto.account.tenant.v1.Tenant value) {
@@ -550,7 +873,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder setTenants(
         int index, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder builderForValue) {
@@ -564,7 +887,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder addTenants(com.github.vnworkday.proto.account.tenant.v1.Tenant value) {
       if (tenantsBuilder_ == null) {
@@ -580,7 +903,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder addTenants(
         int index, com.github.vnworkday.proto.account.tenant.v1.Tenant value) {
@@ -597,7 +920,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder addTenants(
         com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder builderForValue) {
@@ -611,7 +934,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder addTenants(
         int index, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder builderForValue) {
@@ -625,7 +948,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder addAllTenants(
         java.lang.Iterable<? extends com.github.vnworkday.proto.account.tenant.v1.Tenant> values) {
@@ -640,12 +963,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder clearTenants() {
       if (tenantsBuilder_ == null) {
         tenants_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         tenantsBuilder_.clear();
@@ -653,7 +976,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public Builder removeTenants(int index) {
       if (tenantsBuilder_ == null) {
@@ -666,14 +989,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder getTenantsBuilder(
         int index) {
       return getTenantsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder getTenantsOrBuilder(
         int index) {
@@ -683,7 +1006,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public java.util.List<? extends com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder> 
          getTenantsOrBuilderList() {
@@ -694,14 +1017,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder addTenantsBuilder() {
       return getTenantsFieldBuilder().addBuilder(
           com.github.vnworkday.proto.account.tenant.v1.Tenant.getDefaultInstance());
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder addTenantsBuilder(
         int index) {
@@ -709,7 +1032,7 @@ private static final long serialVersionUID = 0L;
           index, com.github.vnworkday.proto.account.tenant.v1.Tenant.getDefaultInstance());
     }
     /**
-     * <code>repeated .account.tenant.v1.Tenant tenants = 1 [json_name = "tenants"];</code>
+     * <code>repeated .account.tenant.v1.Tenant tenants = 3 [json_name = "tenants"];</code>
      */
     public java.util.List<com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder> 
          getTenantsBuilderList() {
@@ -722,84 +1045,12 @@ private static final long serialVersionUID = 0L;
         tenantsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
             com.github.vnworkday.proto.account.tenant.v1.Tenant, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder, com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder>(
                 tenants_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         tenants_ = null;
       }
       return tenantsBuilder_;
-    }
-
-    private java.lang.Object nextPageToken_ = "";
-    /**
-     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-     * @return The nextPageToken.
-     */
-    public java.lang.String getNextPageToken() {
-      java.lang.Object ref = nextPageToken_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        nextPageToken_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-     * @return The bytes for nextPageToken.
-     */
-    public com.google.protobuf.ByteString
-        getNextPageTokenBytes() {
-      java.lang.Object ref = nextPageToken_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        nextPageToken_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-     * @param value The nextPageToken to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNextPageToken(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      nextPageToken_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearNextPageToken() {
-      nextPageToken_ = getDefaultInstance().getNextPageToken();
-      bitField0_ = (bitField0_ & ~0x00000002);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
-     * @param value The bytes for nextPageToken to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNextPageTokenBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      nextPageToken_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:account.tenant.v1.ListTenantsResponse)

@@ -8,6 +8,7 @@ on:
     types:
       - opened
       - synchronize
+      - reopened
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
@@ -17,13 +18,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Setup Buf
-        uses: bufbuild/buf-setup-action@v1.32.1
-      - name: Run Buf Lint
-        uses: bufbuild/buf-lint-action@v1.1.1
+        uses: bufbuild/buf-setup-action@v1
         with:
-          input: "proto"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Buf Lint
+        uses: bufbuild/buf-lint-action@v1
+        with:
+          input: proto
       - name: Run Buf Breaking
-        uses: bufbuild/buf-breaking-action@v1.1.4
+        uses: bufbuild/buf-breaking-action@v1
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        # Only run buf breaking if the PR title does not contain 'BREAKING'
+        if: contains(env.PR_TITLE, 'BREAKING') == false
         with:
           against: "https://github.com/vnworkday/proto.git#branch=main,subdir=proto"
-          input: "proto"
+          input: proto

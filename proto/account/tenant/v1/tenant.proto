@@ -2,17 +2,58 @@ syntax = "proto3";
 
 package account.tenant.v1;
 
+import "google/protobuf/timestamp.proto";
+
 // A group or an entity that has its own isolated environment and resources within a shared system.
 message Tenant {
+  // Required. In form of nanoid.
   string id = 1;
+  // Required. Name of the tenant. Unique within the system.
   string name = 2;
+  // Required. Default is PROVISIONING status.
   TenantStatus status = 3;
+  // Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".
+  string domain = 4;
+  // Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".
+  string timezone = 5;
+  // Required. Default is ENTERPRISE.
+  TenantProductionType production_type = 6;
+  // Required. Default is BASIC.
+  TenantSubscriptionType subscription_type = 7;
+  // Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.
+  bool self_registration_enabled = 8;
+  // Required. Time when the tenant was created.
+  google.protobuf.Timestamp created_at = 10;
+  // Required. Time when the tenant was last updated.
+  google.protobuf.Timestamp updated_at = 11;
 }
 
-// The status of a tenant.
 enum TenantStatus {
   TENANT_STATUS_UNSPECIFIED = 0;
-  TENANT_STATUS_UNSET = 1 [deprecated = true];
+  // Default. After the tenant is created, it is placed in the provisioning state and not ready for use yet.
+  TENANT_STATUS_PROVISIONING = 1;
+  // Active tenant is a tenant that is ready for use and can be accessed by users.
   TENANT_STATUS_ACTIVE = 2;
+  // Inactive tenant is a tenant that is not ready for use and cannot be accessed by users. It is disabled by the tenant admin only.
   TENANT_STATUS_INACTIVE = 3;
+}
+
+enum TenantProductionType {
+  TENANT_PRODUCTION_TYPE_UNSPECIFIED = 0;
+  // Default. Enterprise tenant is a tenant that is created by an enterprise customer.
+  TENANT_PRODUCTION_TYPE_ENTERPRISE = 1;
+  // Root tenant is a tenant that is created by the system itself. It is used for system-wide configurations. There is only one root tenant in the system.
+  TENANT_PRODUCTION_TYPE_ROOT = 2;
+  // Internal tenant is a tenant that is created by the system itself. It is used for internal testing purposes.
+  TENANT_PRODUCTION_TYPE_INTERNAL = 3;
+}
+
+enum TenantSubscriptionType {
+  TENANT_SUBSCRIPTION_TYPE_UNSPECIFIED = 0;
+  // Default. Basic subscription is a subscription that provides basic features with most affordable pricing.
+  TENANT_SUBSCRIPTION_TYPE_BASIC = 1;
+  // Standard subscription is a subscription that provides standard features with advanced pricing.
+  TENANT_SUBSCRIPTION_TYPE_STANDARD = 2;
+  // Premium subscription is a subscription that provides premium features with the highest pricing.
+  TENANT_SUBSCRIPTION_TYPE_PREMIUM = 3;
 }

@@ -103,24 +103,6 @@
     
       
       <p>
-        <a href="#message-account.tenant.v1.DeleteTenantRequest">
-          <span class="tag" style="min-width: 6em">Message</span>
-          <code>DeleteTenantRequest</code> 
-        </a>
-      </p>
-      
-    
-      
-      <p>
-        <a href="#message-account.tenant.v1.DeleteTenantResponse">
-          <span class="tag" style="min-width: 6em">Message</span>
-          <code>DeleteTenantResponse</code> 
-        </a>
-      </p>
-      
-    
-      
-      <p>
         <a href="#message-account.tenant.v1.GetTenantRequest">
           <span class="tag" style="min-width: 6em">Message</span>
           <code>GetTenantRequest</code> 
@@ -185,9 +167,23 @@
 
     
       <p>
+        <a href="#enum-account.tenant.v1.TenantProductionType">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>TenantProductionType</code> 
+        </a>
+      </p>
+    
+      <p>
         <a href="#enum-account.tenant.v1.TenantStatus">
           <span class="tag" style="min-width: 6em">Enum</span>
           <code>TenantStatus</code> 
+        </a>
+      </p>
+    
+      <p>
+        <a href="#enum-account.tenant.v1.TenantSubscriptionType">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>TenantSubscriptionType</code> 
         </a>
       </p>
     
@@ -211,12 +207,13 @@
 <h4 class="title is-4 type-heading" id="service-account.tenant.v1.TenantService">
   <a href="#service-account.tenant.v1.TenantService" title="account.tenant.v1.TenantService">service TenantService</a>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L6">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L12">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  <p></p>
+  <p><p>Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.<br />
+Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.</p></p>
 </div>
 
 
@@ -234,6 +231,10 @@
   </div>
 
   
+  <div class="block">
+    <p><p>Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.</p></p>
+  </div>
+  
 </div>
 
 <div class="box">
@@ -249,6 +250,10 @@
     </a></code><br>
   </div>
 
+  
+  <div class="block">
+    <p><p>Get a tenant by ID.</p></p>
+  </div>
   
 </div>
 
@@ -266,6 +271,10 @@
   </div>
 
   
+  <div class="block">
+    <p><p>List tenants. Supports pagination and filtering.</p></p>
+  </div>
+  
 </div>
 
 <div class="box">
@@ -282,21 +291,9 @@
   </div>
 
   
-</div>
-
-<div class="box">
   <div class="block">
-    <h5 class="title is-5" id="service-account.tenant.v1.TenantService-DeleteTenant">
-      <a href="#service-account.tenant.v1.TenantService-DeleteTenant">
-        rpc <code>DeleteTenant</code>
-      </a>
-    </h5>
-    Request: <code><a href="account.tenant.v1.html#message-account.tenant.v1.DeleteTenantRequest"><span title="account.tenant.v1.DeleteTenantRequest">account.tenant.v1.DeleteTenantRequest</span>
-    </a></code><br>
-    Response: <code><a href="account.tenant.v1.html#message-account.tenant.v1.DeleteTenantResponse"><span title="account.tenant.v1.DeleteTenantResponse">account.tenant.v1.DeleteTenantResponse</span>
-    </a></code><br>
+    <p><p>Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.</p></p>
   </div>
-
   
 </div>
  
@@ -323,12 +320,14 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L18">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L29">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>For creating a new tenant.<br />
+Status is set to ACTIVE by default.<br />
+Production type is set to ENTERPRISE by default. Other types must be created outside of the API.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -346,6 +345,22 @@
     <tr>
       <td>1</td>
       <td>
+        info
+      </td>
+      <td>
+        <code title="shared.v1.RequestInfo">
+          
+          <a href="shared.v1.html#message-shared.v1.RequestInfo"><span title="shared.v1.RequestInfo">shared.v1.RequestInfo</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
         name
       </td>
       <td>
@@ -354,7 +369,68 @@
           <span>string</span>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. The name of the tenant. This must be unique across all tenants.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        domain
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The domain of the tenant. This must be unique across all tenants.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        timezone
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The timezone of the tenant. This must be a valid Olson timezone.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        subscription_type
+      </td>
+      <td>
+        <code title="account.tenant.v1.TenantSubscriptionType">
+          
+          <a href="account.tenant.v1.html#enum-account.tenant.v1.TenantSubscriptionType"><span title="account.tenant.v1.TenantSubscriptionType">account.tenant.v1.TenantSubscriptionType</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. The type of subscription for the tenant.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        self_registration_enabled
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. Whether self-registration is enabled for the tenant. Defaults to false if not set.</p></td>
       
     </tr>
     
@@ -375,12 +451,12 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L22">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L44">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>Response for creating a new tenant.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -397,6 +473,22 @@
     
     <tr>
       <td>1</td>
+      <td>
+        error
+      </td>
+      <td>
+        <code title="shared.v1.Error">
+          
+          <a href="shared.v1.html#message-shared.v1.Error"><span title="shared.v1.Error">shared.v1.Error</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
       <td>
         tenant
       </td>
@@ -422,122 +514,18 @@
       <div class="block">
         
 
-<h4 class="title is-4 type-heading" id="message-account.tenant.v1.DeleteTenantRequest">
-  <span>
-    <a href="#message-account.tenant.v1.DeleteTenantRequest" title="account.tenant.v1.DeleteTenantRequest">message DeleteTenantRequest</a>
-  
-  </span>
-  
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L55">account/tenant/v1/tenant_service.proto</a>
-  
-</h4>
-
-<div class="block content">
-  
-</div>
-
-<table class="table is-fullwidth is-hoverable is-bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>1</td>
-      <td>
-        id
-      </td>
-      <td>
-        <code title="string">
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    
-  </tbody>
-</table>
- 
-      </div>
-      
-    
-      
-      <div class="block">
-        
-
-<h4 class="title is-4 type-heading" id="message-account.tenant.v1.DeleteTenantResponse">
-  <span>
-    <a href="#message-account.tenant.v1.DeleteTenantResponse" title="account.tenant.v1.DeleteTenantResponse">message DeleteTenantResponse</a>
-  
-  </span>
-  
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L59">account/tenant/v1/tenant_service.proto</a>
-  
-</h4>
-
-<div class="block content">
-  
-</div>
-
-<table class="table is-fullwidth is-hoverable is-bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>1</td>
-      <td>
-        id
-      </td>
-      <td>
-        <code title="string">
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    
-  </tbody>
-</table>
- 
-      </div>
-      
-    
-      
-      <div class="block">
-        
-
 <h4 class="title is-4 type-heading" id="message-account.tenant.v1.GetTenantRequest">
   <span>
     <a href="#message-account.tenant.v1.GetTenantRequest" title="account.tenant.v1.GetTenantRequest">message GetTenantRequest</a>
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L26">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L50">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>For getting a tenant.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -555,6 +543,22 @@
     <tr>
       <td>1</td>
       <td>
+        info
+      </td>
+      <td>
+        <code title="shared.v1.RequestInfo">
+          
+          <a href="shared.v1.html#message-shared.v1.RequestInfo"><span title="shared.v1.RequestInfo">shared.v1.RequestInfo</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
         id
       </td>
       <td>
@@ -563,7 +567,7 @@
           <span>string</span>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. The ID of the tenant to get.</p></td>
       
     </tr>
     
@@ -584,12 +588,12 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L30">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L57">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>Response for getting a tenant.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -606,6 +610,22 @@
     
     <tr>
       <td>1</td>
+      <td>
+        error
+      </td>
+      <td>
+        <code title="shared.v1.Error">
+          
+          <a href="shared.v1.html#message-shared.v1.Error"><span title="shared.v1.Error">shared.v1.Error</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
       <td>
         tenant
       </td>
@@ -637,12 +657,12 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L34">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L63">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>For listing tenants.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -660,12 +680,13 @@
     <tr>
       <td>1</td>
       <td>
-        page_size
+        info
       </td>
       <td>
-        <code title="int32">
+        <code title="shared.v1.RequestInfo">
           
-          <span>int32</span>
+          <a href="shared.v1.html#message-shared.v1.RequestInfo"><span title="shared.v1.RequestInfo">shared.v1.RequestInfo</span>
+    </a>
         </code>
       </td>
       <td class="content"></td>
@@ -675,12 +696,13 @@
     <tr>
       <td>2</td>
       <td>
-        page_token
+        pagination
       </td>
       <td>
-        <code title="int32">
+        <code title="shared.v1.RequestPagination">
           
-          <span>int32</span>
+          <a href="shared.v1.html#message-shared.v1.RequestPagination"><span title="shared.v1.RequestPagination">shared.v1.RequestPagination</span>
+    </a>
         </code>
       </td>
       <td class="content"></td>
@@ -690,15 +712,54 @@
     <tr>
       <td>3</td>
       <td>
-        query
+        filters
       </td>
       <td>
-        <code title="string">
+        <code title="shared.v1.RequestFilter">
           
-          <span>string</span>
+            repeated
+          
+          <a href="shared.v1.html#message-shared.v1.RequestFilter"><span title="shared.v1.RequestFilter">shared.v1.RequestFilter</span>
+    </a>
         </code>
       </td>
-      <td class="content"><p>Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.</p></td>
+      <td class="content"><p>Optional. Filters to apply to the list of tenants.<br />
+If multiple filters are specified, they are combined with AND.<br />
+Supported filters:<br />
+- name: The name of the tenant.<br />
+- domain: The domain of the tenant.<br />
+- timezone: The timezone of the tenant.<br />
+- subscription_type: The subscription type of the tenant.<br />
+- self_registration_enabled: Whether self-registration is enabled for the tenant.<br />
+- status: The status of the tenant.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        sorts
+      </td>
+      <td>
+        <code title="shared.v1.RequestSort">
+          
+            repeated
+          
+          <a href="shared.v1.html#message-shared.v1.RequestSort"><span title="shared.v1.RequestSort">shared.v1.RequestSort</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Optional. Sorts to apply to the list of tenants.<br />
+If multiple sorts are specified, they are applied in the order given.<br />
+Supported sorts:<br />
+- name<br />
+- domain<br />
+- timezone<br />
+- subscription_type<br />
+- self_registration_enabled<br />
+- status<br />
+- created_at<br />
+- updated_at</p></td>
       
     </tr>
     
@@ -719,12 +780,12 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L41">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L91">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>Response for listing tenants.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -742,14 +803,12 @@
     <tr>
       <td>1</td>
       <td>
-        tenants
+        error
       </td>
       <td>
-        <code title="account.tenant.v1.Tenant">
+        <code title="shared.v1.Error">
           
-            repeated
-          
-          <a href="account.tenant.v1.html#message-account.tenant.v1.Tenant"><span title="account.tenant.v1.Tenant">account.tenant.v1.Tenant</span>
+          <a href="shared.v1.html#message-shared.v1.Error"><span title="shared.v1.Error">shared.v1.Error</span>
     </a>
         </code>
       </td>
@@ -760,12 +819,31 @@
     <tr>
       <td>2</td>
       <td>
-        next_page_token
+        pagination
       </td>
       <td>
-        <code title="string">
+        <code title="shared.v1.ResponsePagination">
           
-          <span>string</span>
+          <a href="shared.v1.html#message-shared.v1.ResponsePagination"><span title="shared.v1.ResponsePagination">shared.v1.ResponsePagination</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        tenants
+      </td>
+      <td>
+        <code title="account.tenant.v1.Tenant">
+          
+            repeated
+          
+          <a href="account.tenant.v1.html#message-account.tenant.v1.Tenant"><span title="account.tenant.v1.Tenant">account.tenant.v1.Tenant</span>
+    </a>
         </code>
       </td>
       <td class="content"></td>
@@ -789,7 +867,7 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L5">account/tenant/v1/tenant.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L7">account/tenant/v1/tenant.proto</a>
   
 </h4>
 
@@ -820,7 +898,7 @@
           <span>string</span>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. In form of nanoid.</p></td>
       
     </tr>
     
@@ -835,7 +913,7 @@
           <span>string</span>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. Name of the tenant. Unique within the system.</p></td>
       
     </tr>
     
@@ -851,7 +929,114 @@
     </a>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. Default is PROVISIONING status.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        domain
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Domain of the tenant. Unique within the system. Example: "example.vnworkday.com".</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        timezone
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Timezone of the tenant. Following Olson format. Default is UTC. Example: "America/Los_Angeles", "Asia/Ho_Chi_Minh".</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        production_type
+      </td>
+      <td>
+        <code title="account.tenant.v1.TenantProductionType">
+          
+          <a href="account.tenant.v1.html#enum-account.tenant.v1.TenantProductionType"><span title="account.tenant.v1.TenantProductionType">account.tenant.v1.TenantProductionType</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. Default is ENTERPRISE.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>7</td>
+      <td>
+        subscription_type
+      </td>
+      <td>
+        <code title="account.tenant.v1.TenantSubscriptionType">
+          
+          <a href="account.tenant.v1.html#enum-account.tenant.v1.TenantSubscriptionType"><span title="account.tenant.v1.TenantSubscriptionType">account.tenant.v1.TenantSubscriptionType</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. Default is BASIC.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>8</td>
+      <td>
+        self_registration_enabled
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Describe whether the user can self-register to the tenant or must be invited by the tenant admin. Default is false.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>10</td>
+      <td>
+        created_at
+      </td>
+      <td>
+        <code title="google.protobuf.Timestamp">
+          
+          <span>google.protobuf.Timestamp</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Time when the tenant was created.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>11</td>
+      <td>
+        updated_at
+      </td>
+      <td>
+        <code title="google.protobuf.Timestamp">
+          
+          <span>google.protobuf.Timestamp</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Time when the tenant was last updated.</p></td>
       
     </tr>
     
@@ -872,12 +1057,12 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L46">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L98">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>For updating a tenant.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -895,12 +1080,13 @@
     <tr>
       <td>1</td>
       <td>
-        id
+        info
       </td>
       <td>
-        <code title="string">
+        <code title="shared.v1.RequestInfo">
           
-          <span>string</span>
+          <a href="shared.v1.html#message-shared.v1.RequestInfo"><span title="shared.v1.RequestInfo">shared.v1.RequestInfo</span>
+    </a>
         </code>
       </td>
       <td class="content"></td>
@@ -910,6 +1096,21 @@
     <tr>
       <td>2</td>
       <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The ID of the tenant to update.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
         name
       </td>
       <td>
@@ -918,7 +1119,38 @@
           <span>string</span>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. The new name of the tenant. This must be unique across all tenants.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        subscription_type
+      </td>
+      <td>
+        <code title="account.tenant.v1.TenantSubscriptionType">
+          
+          <a href="account.tenant.v1.html#enum-account.tenant.v1.TenantSubscriptionType"><span title="account.tenant.v1.TenantSubscriptionType">account.tenant.v1.TenantSubscriptionType</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. The new type of subscription for the tenant.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        self_registration_enabled
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. Whether self-registration is enabled for the tenant. Defaults to false if not set.</p></td>
       
     </tr>
     
@@ -939,12 +1171,12 @@
   
   </span>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L51">account/tenant/v1/tenant_service.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant_service.proto#L111">account/tenant/v1/tenant_service.proto</a>
   
 </h4>
 
 <div class="block content">
-  
+  <p>Response for updating a tenant.</p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -962,6 +1194,22 @@
     <tr>
       <td>1</td>
       <td>
+        error
+      </td>
+      <td>
+        <code title="shared.v1.Error">
+          
+          <a href="shared.v1.html#message-shared.v1.Error"><span title="shared.v1.Error">shared.v1.Error</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
         tenant
       </td>
       <td>
@@ -971,7 +1219,7 @@
     </a>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>Required. The updated tenant.</p></td>
       
     </tr>
     
@@ -993,15 +1241,65 @@
 
     
     <div class="block">
-      <h4 class="title is-4 type-heading" id="enum-account.tenant.v1.TenantStatus">
-  <a href="#enum-account.tenant.v1.TenantStatus" title="account.tenant.v1.TenantStatus">enum TenantStatus</a>
+      <h4 class="title is-4 type-heading" id="enum-account.tenant.v1.TenantProductionType">
+  <a href="#enum-account.tenant.v1.TenantProductionType" title="account.tenant.v1.TenantProductionType">enum TenantProductionType</a>
   
-    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L12">account/tenant/v1/tenant.proto</a>
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L40">account/tenant/v1/tenant.proto</a>
   
 </h4>
 
 <div class="block content">
-  <p><p>The status of a tenant.</p></p>
+  <p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>TENANT_PRODUCTION_TYPE_UNSPECIFIED</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_PRODUCTION_TYPE_ENTERPRISE</code></td>
+      <td>1</td>
+      <td class="content"><p>Default. Enterprise tenant is a tenant that is created by an enterprise customer.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_PRODUCTION_TYPE_ROOT</code></td>
+      <td>2</td>
+      <td class="content"><p>Root tenant is a tenant that is created by the system itself. It is used for system-wide configurations. There is only one root tenant in the system.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_PRODUCTION_TYPE_INTERNAL</code></td>
+      <td>3</td>
+      <td class="content"><p>Internal tenant is a tenant that is created by the system itself. It is used for internal testing purposes.</p></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-account.tenant.v1.TenantStatus">
+  <a href="#enum-account.tenant.v1.TenantStatus" title="account.tenant.v1.TenantStatus">enum TenantStatus</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L30">account/tenant/v1/tenant.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
 </div>
 
 <table class="table is-fullwidth is-hoverable is-bordered">
@@ -1021,21 +1319,71 @@
     </tr>
     
     <tr>
-      <td><code>TENANT_STATUS_UNSET</code></td>
+      <td><code>TENANT_STATUS_PROVISIONING</code></td>
       <td>1</td>
-      <td class="content"></td>
+      <td class="content"><p>Default. After the tenant is created, it is placed in the provisioning state and not ready for use yet.</p></td>
     </tr>
     
     <tr>
       <td><code>TENANT_STATUS_ACTIVE</code></td>
       <td>2</td>
-      <td class="content"></td>
+      <td class="content"><p>Active tenant is a tenant that is ready for use and can be accessed by users.</p></td>
     </tr>
     
     <tr>
       <td><code>TENANT_STATUS_INACTIVE</code></td>
       <td>3</td>
+      <td class="content"><p>Inactive tenant is a tenant that is not ready for use and cannot be accessed by users. It is disabled by the tenant admin only.</p></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-account.tenant.v1.TenantSubscriptionType">
+  <a href="#enum-account.tenant.v1.TenantSubscriptionType" title="account.tenant.v1.TenantSubscriptionType">enum TenantSubscriptionType</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/account/tenant/v1/tenant.proto#L50">account/tenant/v1/tenant.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>TENANT_SUBSCRIPTION_TYPE_UNSPECIFIED</code></td>
+      <td>0</td>
       <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_SUBSCRIPTION_TYPE_BASIC</code></td>
+      <td>1</td>
+      <td class="content"><p>Default. Basic subscription is a subscription that provides basic features with most affordable pricing.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_SUBSCRIPTION_TYPE_STANDARD</code></td>
+      <td>2</td>
+      <td class="content"><p>Standard subscription is a subscription that provides standard features with advanced pricing.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>TENANT_SUBSCRIPTION_TYPE_PREMIUM</code></td>
+      <td>3</td>
+      <td class="content"><p>Premium subscription is a subscription that provides premium features with the highest pricing.</p></td>
     </tr>
     
   </tbody>
@@ -1050,7 +1398,7 @@
     <footer class="footer">
       <div class="content has-text-centered">
         
-          <p>© 2024 Duy Nguyen. All rights reserved.</p>
+          <p>© 2024 <a href="mailto:ntduycs.@gmai.com">Duy Nguyen</a>. All rights reserved.</p>
         
         <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
       </div>

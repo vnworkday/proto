@@ -65,16 +65,6 @@ public final class TenantServiceProto {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_account_tenant_v1_UpdateTenantResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_account_tenant_v1_DeleteTenantRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_account_tenant_v1_DeleteTenantRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_account_tenant_v1_DeleteTenantResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_account_tenant_v1_DeleteTenantResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -86,108 +76,122 @@ public final class TenantServiceProto {
     java.lang.String[] descriptorData = {
       "\n&account/tenant/v1/tenant_service.proto" +
       "\022\021account.tenant.v1\032\036account/tenant/v1/t" +
-      "enant.proto\")\n\023CreateTenantRequest\022\022\n\004na" +
-      "me\030\001 \001(\tR\004name\"I\n\024CreateTenantResponse\0221" +
-      "\n\006tenant\030\001 \001(\0132\031.account.tenant.v1.Tenan" +
-      "tR\006tenant\"\"\n\020GetTenantRequest\022\016\n\002id\030\001 \001(" +
-      "\tR\002id\"F\n\021GetTenantResponse\0221\n\006tenant\030\001 \001" +
-      "(\0132\031.account.tenant.v1.TenantR\006tenant\"f\n" +
-      "\022ListTenantsRequest\022\033\n\tpage_size\030\001 \001(\005R\010" +
-      "pageSize\022\035\n\npage_token\030\002 \001(\005R\tpageToken\022" +
-      "\024\n\005query\030\003 \001(\tR\005query\"r\n\023ListTenantsResp" +
-      "onse\0223\n\007tenants\030\001 \003(\0132\031.account.tenant.v" +
-      "1.TenantR\007tenants\022&\n\017next_page_token\030\002 \001" +
-      "(\tR\rnextPageToken\"9\n\023UpdateTenantRequest" +
-      "\022\016\n\002id\030\001 \001(\tR\002id\022\022\n\004name\030\002 \001(\tR\004name\"I\n\024" +
-      "UpdateTenantResponse\0221\n\006tenant\030\001 \001(\0132\031.a" +
-      "ccount.tenant.v1.TenantR\006tenant\"%\n\023Delet" +
-      "eTenantRequest\022\016\n\002id\030\001 \001(\tR\002id\"&\n\024Delete" +
-      "TenantResponse\022\016\n\002id\030\001 \001(\tR\002id2\362\003\n\rTenan" +
-      "tService\022a\n\014CreateTenant\022&.account.tenan" +
-      "t.v1.CreateTenantRequest\032\'.account.tenan" +
-      "t.v1.CreateTenantResponse\"\000\022X\n\tGetTenant" +
-      "\022#.account.tenant.v1.GetTenantRequest\032$." +
-      "account.tenant.v1.GetTenantResponse\"\000\022^\n" +
-      "\013ListTenants\022%.account.tenant.v1.ListTen" +
-      "antsRequest\032&.account.tenant.v1.ListTena" +
-      "ntsResponse\"\000\022a\n\014UpdateTenant\022&.account." +
-      "tenant.v1.UpdateTenantRequest\032\'.account." +
-      "tenant.v1.UpdateTenantResponse\"\000\022a\n\014Dele" +
-      "teTenant\022&.account.tenant.v1.DeleteTenan" +
-      "tRequest\032\'.account.tenant.v1.DeleteTenan" +
-      "tResponse\"\000B\250\001\n,com.github.vnworkday.pro" +
-      "to.account.tenant.v1B\022TenantServiceProto" +
-      "P\001\242\002\003ATX\252\002\021Account.Tenant.V1\312\002\021Account\\T" +
-      "enant\\V1\342\002\035Account\\Tenant\\V1\\GPBMetadata" +
-      "\352\002\023Account::Tenant::V1b\006proto3"
+      "enant.proto\032\025shared/v1/error.proto\032\027shar" +
+      "ed/v1/request.proto\032\030shared/v1/response." +
+      "proto\032\027shared/v1/tracing.proto\"\235\002\n\023Creat" +
+      "eTenantRequest\022*\n\004info\030\001 \001(\0132\026.shared.v1" +
+      ".RequestInfoR\004info\022\022\n\004name\030\002 \001(\tR\004name\022\026" +
+      "\n\006domain\030\003 \001(\tR\006domain\022\032\n\010timezone\030\004 \001(\t" +
+      "R\010timezone\022V\n\021subscription_type\030\005 \001(\0162)." +
+      "account.tenant.v1.TenantSubscriptionType" +
+      "R\020subscriptionType\022:\n\031self_registration_" +
+      "enabled\030\006 \001(\010R\027selfRegistrationEnabled\"q" +
+      "\n\024CreateTenantResponse\022&\n\005error\030\001 \001(\0132\020." +
+      "shared.v1.ErrorR\005error\0221\n\006tenant\030\002 \001(\0132\031" +
+      ".account.tenant.v1.TenantR\006tenant\"N\n\020Get" +
+      "TenantRequest\022*\n\004info\030\001 \001(\0132\026.shared.v1." +
+      "RequestInfoR\004info\022\016\n\002id\030\002 \001(\tR\002id\"n\n\021Get" +
+      "TenantResponse\022&\n\005error\030\001 \001(\0132\020.shared.v" +
+      "1.ErrorR\005error\0221\n\006tenant\030\002 \001(\0132\031.account" +
+      ".tenant.v1.TenantR\006tenant\"\340\001\n\022ListTenant" +
+      "sRequest\022*\n\004info\030\001 \001(\0132\026.shared.v1.Reque" +
+      "stInfoR\004info\022<\n\npagination\030\002 \001(\0132\034.share" +
+      "d.v1.RequestPaginationR\npagination\0222\n\007fi" +
+      "lters\030\003 \003(\0132\030.shared.v1.RequestFilterR\007f" +
+      "ilters\022,\n\005sorts\030\004 \003(\0132\026.shared.v1.Reques" +
+      "tSortR\005sorts\"\261\001\n\023ListTenantsResponse\022&\n\005" +
+      "error\030\001 \001(\0132\020.shared.v1.ErrorR\005error\022=\n\n" +
+      "pagination\030\002 \001(\0132\035.shared.v1.ResponsePag" +
+      "inationR\npagination\0223\n\007tenants\030\003 \003(\0132\031.a" +
+      "ccount.tenant.v1.TenantR\007tenants\"\371\001\n\023Upd" +
+      "ateTenantRequest\022*\n\004info\030\001 \001(\0132\026.shared." +
+      "v1.RequestInfoR\004info\022\016\n\002id\030\002 \001(\tR\002id\022\022\n\004" +
+      "name\030\003 \001(\tR\004name\022V\n\021subscription_type\030\004 " +
+      "\001(\0162).account.tenant.v1.TenantSubscripti" +
+      "onTypeR\020subscriptionType\022:\n\031self_registr" +
+      "ation_enabled\030\005 \001(\010R\027selfRegistrationEna" +
+      "bled\"q\n\024UpdateTenantResponse\022&\n\005error\030\001 " +
+      "\001(\0132\020.shared.v1.ErrorR\005error\0221\n\006tenant\030\002" +
+      " \001(\0132\031.account.tenant.v1.TenantR\006tenant2" +
+      "\217\003\n\rTenantService\022a\n\014CreateTenant\022&.acco" +
+      "unt.tenant.v1.CreateTenantRequest\032\'.acco" +
+      "unt.tenant.v1.CreateTenantResponse\"\000\022X\n\t" +
+      "GetTenant\022#.account.tenant.v1.GetTenantR" +
+      "equest\032$.account.tenant.v1.GetTenantResp" +
+      "onse\"\000\022^\n\013ListTenants\022%.account.tenant.v" +
+      "1.ListTenantsRequest\032&.account.tenant.v1" +
+      ".ListTenantsResponse\"\000\022a\n\014UpdateTenant\022&" +
+      ".account.tenant.v1.UpdateTenantRequest\032\'" +
+      ".account.tenant.v1.UpdateTenantResponse\"" +
+      "\000B\250\001\n,com.github.vnworkday.proto.account" +
+      ".tenant.v1B\022TenantServiceProtoP\001\242\002\003ATX\252\002" +
+      "\021Account.Tenant.V1\312\002\021Account\\Tenant\\V1\342\002" +
+      "\035Account\\Tenant\\V1\\GPBMetadata\352\002\023Account" +
+      "::Tenant::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.github.vnworkday.proto.account.tenant.v1.TenantProto.getDescriptor(),
+          com.github.vnworkday.proto.shared.v1.ErrorProto.getDescriptor(),
+          com.github.vnworkday.proto.shared.v1.RequestProto.getDescriptor(),
+          com.github.vnworkday.proto.shared.v1.ResponseProto.getDescriptor(),
+          com.github.vnworkday.proto.shared.v1.TracingProto.getDescriptor(),
         });
     internal_static_account_tenant_v1_CreateTenantRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_account_tenant_v1_CreateTenantRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_CreateTenantRequest_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Info", "Name", "Domain", "Timezone", "SubscriptionType", "SelfRegistrationEnabled", });
     internal_static_account_tenant_v1_CreateTenantResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_account_tenant_v1_CreateTenantResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_CreateTenantResponse_descriptor,
-        new java.lang.String[] { "Tenant", });
+        new java.lang.String[] { "Error", "Tenant", });
     internal_static_account_tenant_v1_GetTenantRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_account_tenant_v1_GetTenantRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_GetTenantRequest_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "Info", "Id", });
     internal_static_account_tenant_v1_GetTenantResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_account_tenant_v1_GetTenantResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_GetTenantResponse_descriptor,
-        new java.lang.String[] { "Tenant", });
+        new java.lang.String[] { "Error", "Tenant", });
     internal_static_account_tenant_v1_ListTenantsRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_account_tenant_v1_ListTenantsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_ListTenantsRequest_descriptor,
-        new java.lang.String[] { "PageSize", "PageToken", "Query", });
+        new java.lang.String[] { "Info", "Pagination", "Filters", "Sorts", });
     internal_static_account_tenant_v1_ListTenantsResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_account_tenant_v1_ListTenantsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_ListTenantsResponse_descriptor,
-        new java.lang.String[] { "Tenants", "NextPageToken", });
+        new java.lang.String[] { "Error", "Pagination", "Tenants", });
     internal_static_account_tenant_v1_UpdateTenantRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_account_tenant_v1_UpdateTenantRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_UpdateTenantRequest_descriptor,
-        new java.lang.String[] { "Id", "Name", });
+        new java.lang.String[] { "Info", "Id", "Name", "SubscriptionType", "SelfRegistrationEnabled", });
     internal_static_account_tenant_v1_UpdateTenantResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_account_tenant_v1_UpdateTenantResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_account_tenant_v1_UpdateTenantResponse_descriptor,
-        new java.lang.String[] { "Tenant", });
-    internal_static_account_tenant_v1_DeleteTenantRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_account_tenant_v1_DeleteTenantRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_account_tenant_v1_DeleteTenantRequest_descriptor,
-        new java.lang.String[] { "Id", });
-    internal_static_account_tenant_v1_DeleteTenantResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_account_tenant_v1_DeleteTenantResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_account_tenant_v1_DeleteTenantResponse_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "Error", "Tenant", });
     descriptor.resolveAllFeaturesImmutable();
     com.github.vnworkday.proto.account.tenant.v1.TenantProto.getDescriptor();
+    com.github.vnworkday.proto.shared.v1.ErrorProto.getDescriptor();
+    com.github.vnworkday.proto.shared.v1.RequestProto.getDescriptor();
+    com.github.vnworkday.proto.shared.v1.ResponseProto.getDescriptor();
+    com.github.vnworkday.proto.shared.v1.TracingProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

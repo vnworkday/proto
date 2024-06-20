@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package shared.v1;
+
+message ResponsePagination {
+  // Optional. The token that can be used to fetch the next page. If the token is empty, it means that there are no more pages.
+  string next_token = 1;
+  // Optional. The token that can be used to fetch the previous page. If the token is empty, it means that there are no previous pages.
+  string previous_token = 2;
+  // Required. The total number of items.
+  int32 total = 3;
+  // Required. The total number of pages.
+  int32 total_pages = 4;
+}

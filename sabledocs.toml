@@ -14,17 +14,17 @@ main-page-content-file = ""
 # Default value: "sabledocs_output"
 output-dir = "docs"
 
-# Controls whether the the search functionality is enabled with a prebuilt Lunr index.
+# Controls whether the search functionality is enabled with a prebuilt Lunr index.
 # Default value: true
 enable-lunr-search = true
 
 # Copyright message displayed in the footer.
 # Default value: ""
-footer-content = "© 2024 Duy Nguyen. All rights reserved."
+footer-content = """© 2024 <a href="mailto:ntduycs.@gmai.com">Duy Nguyen</a>. All rights reserved."""
 
 # The following 3 fields configure the source control repository of the project.
 # They are used to generate deeplinks for the members of the Proto model pointing to the original source
-# code. By default these fields are not configured, and source code links are not included in the docs.
+# code. By default, these fields are not configured, and source code links are not included in the docs.
 # The repository-type field supports two possible values, "github" and "bitbucket".
 # The fields repository-url and repository-branch should be configured to point to the correct repository.
 # repository-dir should be set only if the root of your Protobuf module is in a specific directory inside your repository.

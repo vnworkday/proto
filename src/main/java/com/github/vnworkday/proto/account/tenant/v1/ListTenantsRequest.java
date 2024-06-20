@@ -6,6 +6,10 @@
 package com.github.vnworkday.proto.account.tenant.v1;
 
 /**
+ * <pre>
+ * For listing tenants.
+ * </pre>
+ *
  * Protobuf type {@code account.tenant.v1.ListTenantsRequest}
  */
 public final class ListTenantsRequest extends
@@ -27,7 +31,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListTenantsRequest() {
-    query_ = "";
+    filters_ = java.util.Collections.emptyList();
+    sorts_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -43,73 +48,269 @@ private static final long serialVersionUID = 0L;
             com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest.class, com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest.Builder.class);
   }
 
-  public static final int PAGE_SIZE_FIELD_NUMBER = 1;
-  private int pageSize_ = 0;
+  private int bitField0_;
+  public static final int INFO_FIELD_NUMBER = 1;
+  private com.github.vnworkday.proto.shared.v1.RequestInfo info_;
   /**
-   * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
-   * @return The pageSize.
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return Whether the info field is set.
    */
   @java.lang.Override
-  public int getPageSize() {
-    return pageSize_;
+  public boolean hasInfo() {
+    return ((bitField0_ & 0x00000001) != 0);
   }
-
-  public static final int PAGE_TOKEN_FIELD_NUMBER = 2;
-  private int pageToken_ = 0;
   /**
-   * <code>int32 page_token = 2 [json_name = "pageToken"];</code>
-   * @return The pageToken.
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   * @return The info.
    */
   @java.lang.Override
-  public int getPageToken() {
-    return pageToken_;
+  public com.github.vnworkday.proto.shared.v1.RequestInfo getInfo() {
+    return info_ == null ? com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+  }
+  /**
+   * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder() {
+    return info_ == null ? com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
   }
 
-  public static final int QUERY_FIELD_NUMBER = 3;
+  public static final int PAGINATION_FIELD_NUMBER = 2;
+  private com.github.vnworkday.proto.shared.v1.RequestPagination pagination_;
+  /**
+   * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+   * @return Whether the pagination field is set.
+   */
+  @java.lang.Override
+  public boolean hasPagination() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+   * @return The pagination.
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestPagination getPagination() {
+    return pagination_ == null ? com.github.vnworkday.proto.shared.v1.RequestPagination.getDefaultInstance() : pagination_;
+  }
+  /**
+   * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestPaginationOrBuilder getPaginationOrBuilder() {
+    return pagination_ == null ? com.github.vnworkday.proto.shared.v1.RequestPagination.getDefaultInstance() : pagination_;
+  }
+
+  public static final int FILTERS_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object query_ = "";
+  private java.util.List<com.github.vnworkday.proto.shared.v1.RequestFilter> filters_;
   /**
    * <pre>
-   * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
    * </pre>
    *
-   * <code>string query = 3 [json_name = "query"];</code>
-   * @return The query.
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
    */
   @java.lang.Override
-  public java.lang.String getQuery() {
-    java.lang.Object ref = query_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      query_ = s;
-      return s;
-    }
+  public java.util.List<com.github.vnworkday.proto.shared.v1.RequestFilter> getFiltersList() {
+    return filters_;
   }
   /**
    * <pre>
-   * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
    * </pre>
    *
-   * <code>string query = 3 [json_name = "query"];</code>
-   * @return The bytes for query.
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getQueryBytes() {
-    java.lang.Object ref = query_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      query_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public java.util.List<? extends com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder> 
+      getFiltersOrBuilderList() {
+    return filters_;
+  }
+  /**
+   * <pre>
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+   */
+  @java.lang.Override
+  public int getFiltersCount() {
+    return filters_.size();
+  }
+  /**
+   * <pre>
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestFilter getFilters(int index) {
+    return filters_.get(index);
+  }
+  /**
+   * <pre>
+   * Optional. Filters to apply to the list of tenants.
+   * If multiple filters are specified, they are combined with AND.
+   * Supported filters:
+   * - name: The name of the tenant.
+   * - domain: The domain of the tenant.
+   * - timezone: The timezone of the tenant.
+   * - subscription_type: The subscription type of the tenant.
+   * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+   * - status: The status of the tenant.
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder getFiltersOrBuilder(
+      int index) {
+    return filters_.get(index);
+  }
+
+  public static final int SORTS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private java.util.List<com.github.vnworkday.proto.shared.v1.RequestSort> sorts_;
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.github.vnworkday.proto.shared.v1.RequestSort> getSortsList() {
+    return sorts_;
+  }
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder> 
+      getSortsOrBuilderList() {
+    return sorts_;
+  }
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  @java.lang.Override
+  public int getSortsCount() {
+    return sorts_.size();
+  }
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestSort getSorts(int index) {
+    return sorts_.get(index);
+  }
+  /**
+   * <pre>
+   * Optional. Sorts to apply to the list of tenants.
+   * If multiple sorts are specified, they are applied in the order given.
+   * Supported sorts:
+   * - name
+   * - domain
+   * - timezone
+   * - subscription_type
+   * - self_registration_enabled
+   * - status
+   * - created_at
+   * - updated_at
+   * </pre>
+   *
+   * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder getSortsOrBuilder(
+      int index) {
+    return sorts_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -126,14 +327,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (pageSize_ != 0) {
-      output.writeInt32(1, pageSize_);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(1, getInfo());
     }
-    if (pageToken_ != 0) {
-      output.writeInt32(2, pageToken_);
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(2, getPagination());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(query_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 3, query_);
+    for (int i = 0; i < filters_.size(); i++) {
+      output.writeMessage(3, filters_.get(i));
+    }
+    for (int i = 0; i < sorts_.size(); i++) {
+      output.writeMessage(4, sorts_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -144,16 +348,21 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (pageSize_ != 0) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, pageSize_);
+        .computeMessageSize(1, getInfo());
     }
-    if (pageToken_ != 0) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, pageToken_);
+        .computeMessageSize(2, getPagination());
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(query_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, query_);
+    for (int i = 0; i < filters_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, filters_.get(i));
+    }
+    for (int i = 0; i < sorts_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, sorts_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -170,12 +379,20 @@ private static final long serialVersionUID = 0L;
     }
     com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest other = (com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest) obj;
 
-    if (getPageSize()
-        != other.getPageSize()) return false;
-    if (getPageToken()
-        != other.getPageToken()) return false;
-    if (!getQuery()
-        .equals(other.getQuery())) return false;
+    if (hasInfo() != other.hasInfo()) return false;
+    if (hasInfo()) {
+      if (!getInfo()
+          .equals(other.getInfo())) return false;
+    }
+    if (hasPagination() != other.hasPagination()) return false;
+    if (hasPagination()) {
+      if (!getPagination()
+          .equals(other.getPagination())) return false;
+    }
+    if (!getFiltersList()
+        .equals(other.getFiltersList())) return false;
+    if (!getSortsList()
+        .equals(other.getSortsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -187,12 +404,22 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
-    hash = (53 * hash) + getPageSize();
-    hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getPageToken();
-    hash = (37 * hash) + QUERY_FIELD_NUMBER;
-    hash = (53 * hash) + getQuery().hashCode();
+    if (hasInfo()) {
+      hash = (37 * hash) + INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getInfo().hashCode();
+    }
+    if (hasPagination()) {
+      hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
+      hash = (53 * hash) + getPagination().hashCode();
+    }
+    if (getFiltersCount() > 0) {
+      hash = (37 * hash) + FILTERS_FIELD_NUMBER;
+      hash = (53 * hash) + getFiltersList().hashCode();
+    }
+    if (getSortsCount() > 0) {
+      hash = (37 * hash) + SORTS_FIELD_NUMBER;
+      hash = (53 * hash) + getSortsList().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -291,6 +518,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * For listing tenants.
+   * </pre>
+   *
    * Protobuf type {@code account.tenant.v1.ListTenantsRequest}
    */
   public static final class Builder extends
@@ -312,21 +543,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        getInfoFieldBuilder();
+        getPaginationFieldBuilder();
+        getFiltersFieldBuilder();
+        getSortsFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      pageSize_ = 0;
-      pageToken_ = 0;
-      query_ = "";
+      info_ = null;
+      if (infoBuilder_ != null) {
+        infoBuilder_.dispose();
+        infoBuilder_ = null;
+      }
+      pagination_ = null;
+      if (paginationBuilder_ != null) {
+        paginationBuilder_.dispose();
+        paginationBuilder_ = null;
+      }
+      if (filtersBuilder_ == null) {
+        filters_ = java.util.Collections.emptyList();
+      } else {
+        filters_ = null;
+        filtersBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      if (sortsBuilder_ == null) {
+        sorts_ = java.util.Collections.emptyList();
+      } else {
+        sorts_ = null;
+        sortsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -353,22 +614,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest buildPartial() {
       com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest result = new com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest(this);
+      buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
+    private void buildPartialRepeatedFields(com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest result) {
+      if (filtersBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          filters_ = java.util.Collections.unmodifiableList(filters_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.filters_ = filters_;
+      } else {
+        result.filters_ = filtersBuilder_.build();
+      }
+      if (sortsBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          sorts_ = java.util.Collections.unmodifiableList(sorts_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.sorts_ = sorts_;
+      } else {
+        result.sorts_ = sortsBuilder_.build();
+      }
+    }
+
     private void buildPartial0(com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest result) {
       int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.pageSize_ = pageSize_;
+        result.info_ = infoBuilder_ == null
+            ? info_
+            : infoBuilder_.build();
+        to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.pageToken_ = pageToken_;
+        result.pagination_ = paginationBuilder_ == null
+            ? pagination_
+            : paginationBuilder_.build();
+        to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.query_ = query_;
-      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -383,16 +671,63 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest other) {
       if (other == com.github.vnworkday.proto.account.tenant.v1.ListTenantsRequest.getDefaultInstance()) return this;
-      if (other.getPageSize() != 0) {
-        setPageSize(other.getPageSize());
+      if (other.hasInfo()) {
+        mergeInfo(other.getInfo());
       }
-      if (other.getPageToken() != 0) {
-        setPageToken(other.getPageToken());
+      if (other.hasPagination()) {
+        mergePagination(other.getPagination());
       }
-      if (!other.getQuery().isEmpty()) {
-        query_ = other.query_;
-        bitField0_ |= 0x00000004;
-        onChanged();
+      if (filtersBuilder_ == null) {
+        if (!other.filters_.isEmpty()) {
+          if (filters_.isEmpty()) {
+            filters_ = other.filters_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureFiltersIsMutable();
+            filters_.addAll(other.filters_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.filters_.isEmpty()) {
+          if (filtersBuilder_.isEmpty()) {
+            filtersBuilder_.dispose();
+            filtersBuilder_ = null;
+            filters_ = other.filters_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            filtersBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getFiltersFieldBuilder() : null;
+          } else {
+            filtersBuilder_.addAllMessages(other.filters_);
+          }
+        }
+      }
+      if (sortsBuilder_ == null) {
+        if (!other.sorts_.isEmpty()) {
+          if (sorts_.isEmpty()) {
+            sorts_ = other.sorts_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureSortsIsMutable();
+            sorts_.addAll(other.sorts_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.sorts_.isEmpty()) {
+          if (sortsBuilder_.isEmpty()) {
+            sortsBuilder_.dispose();
+            sortsBuilder_ = null;
+            sorts_ = other.sorts_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            sortsBuilder_ = 
+              com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                 getSortsFieldBuilder() : null;
+          } else {
+            sortsBuilder_.addAllMessages(other.sorts_);
+          }
+        }
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -420,21 +755,46 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 8: {
-              pageSize_ = input.readInt32();
+            case 10: {
+              input.readMessage(
+                  getInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000001;
               break;
-            } // case 8
-            case 16: {
-              pageToken_ = input.readInt32();
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPaginationFieldBuilder().getBuilder(),
+                  extensionRegistry);
               bitField0_ |= 0x00000002;
               break;
-            } // case 16
+            } // case 18
             case 26: {
-              query_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+              com.github.vnworkday.proto.shared.v1.RequestFilter m =
+                  input.readMessage(
+                      com.github.vnworkday.proto.shared.v1.RequestFilter.parser(),
+                      extensionRegistry);
+              if (filtersBuilder_ == null) {
+                ensureFiltersIsMutable();
+                filters_.add(m);
+              } else {
+                filtersBuilder_.addMessage(m);
+              }
               break;
             } // case 26
+            case 34: {
+              com.github.vnworkday.proto.shared.v1.RequestSort m =
+                  input.readMessage(
+                      com.github.vnworkday.proto.shared.v1.RequestSort.parser(),
+                      extensionRegistry);
+              if (sortsBuilder_ == null) {
+                ensureSortsIsMutable();
+                sorts_.add(m);
+              } else {
+                sortsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -452,160 +812,1194 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int pageSize_ ;
+    private com.github.vnworkday.proto.shared.v1.RequestInfo info_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestInfo, com.github.vnworkday.proto.shared.v1.RequestInfo.Builder, com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder> infoBuilder_;
     /**
-     * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
-     * @return The pageSize.
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     * @return Whether the info field is set.
      */
-    @java.lang.Override
-    public int getPageSize() {
-      return pageSize_;
+    public boolean hasInfo() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
-     * @param value The pageSize to set.
-     * @return This builder for chaining.
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     * @return The info.
      */
-    public Builder setPageSize(int value) {
-
-      pageSize_ = value;
+    public com.github.vnworkday.proto.shared.v1.RequestInfo getInfo() {
+      if (infoBuilder_ == null) {
+        return info_ == null ? com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+      } else {
+        return infoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public Builder setInfo(com.github.vnworkday.proto.shared.v1.RequestInfo value) {
+      if (infoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        info_ = value;
+      } else {
+        infoBuilder_.setMessage(value);
+      }
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
-     * @return This builder for chaining.
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
      */
-    public Builder clearPageSize() {
-      bitField0_ = (bitField0_ & ~0x00000001);
-      pageSize_ = 0;
+    public Builder setInfo(
+        com.github.vnworkday.proto.shared.v1.RequestInfo.Builder builderForValue) {
+      if (infoBuilder_ == null) {
+        info_ = builderForValue.build();
+      } else {
+        infoBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
-
-    private int pageToken_ ;
     /**
-     * <code>int32 page_token = 2 [json_name = "pageToken"];</code>
-     * @return The pageToken.
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
      */
-    @java.lang.Override
-    public int getPageToken() {
-      return pageToken_;
+    public Builder mergeInfo(com.github.vnworkday.proto.shared.v1.RequestInfo value) {
+      if (infoBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          info_ != null &&
+          info_ != com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance()) {
+          getInfoBuilder().mergeFrom(value);
+        } else {
+          info_ = value;
+        }
+      } else {
+        infoBuilder_.mergeFrom(value);
+      }
+      if (info_ != null) {
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      return this;
     }
     /**
-     * <code>int32 page_token = 2 [json_name = "pageToken"];</code>
-     * @param value The pageToken to set.
-     * @return This builder for chaining.
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
      */
-    public Builder setPageToken(int value) {
+    public Builder clearInfo() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      info_ = null;
+      if (infoBuilder_ != null) {
+        infoBuilder_.dispose();
+        infoBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestInfo.Builder getInfoBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder getInfoOrBuilder() {
+      if (infoBuilder_ != null) {
+        return infoBuilder_.getMessageOrBuilder();
+      } else {
+        return info_ == null ?
+            com.github.vnworkday.proto.shared.v1.RequestInfo.getDefaultInstance() : info_;
+      }
+    }
+    /**
+     * <code>.shared.v1.RequestInfo info = 1 [json_name = "info"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestInfo, com.github.vnworkday.proto.shared.v1.RequestInfo.Builder, com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder> 
+        getInfoFieldBuilder() {
+      if (infoBuilder_ == null) {
+        infoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.RequestInfo, com.github.vnworkday.proto.shared.v1.RequestInfo.Builder, com.github.vnworkday.proto.shared.v1.RequestInfoOrBuilder>(
+                getInfo(),
+                getParentForChildren(),
+                isClean());
+        info_ = null;
+      }
+      return infoBuilder_;
+    }
 
-      pageToken_ = value;
+    private com.github.vnworkday.proto.shared.v1.RequestPagination pagination_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestPagination, com.github.vnworkday.proto.shared.v1.RequestPagination.Builder, com.github.vnworkday.proto.shared.v1.RequestPaginationOrBuilder> paginationBuilder_;
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     * @return Whether the pagination field is set.
+     */
+    public boolean hasPagination() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     * @return The pagination.
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestPagination getPagination() {
+      if (paginationBuilder_ == null) {
+        return pagination_ == null ? com.github.vnworkday.proto.shared.v1.RequestPagination.getDefaultInstance() : pagination_;
+      } else {
+        return paginationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder setPagination(com.github.vnworkday.proto.shared.v1.RequestPagination value) {
+      if (paginationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        pagination_ = value;
+      } else {
+        paginationBuilder_.setMessage(value);
+      }
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 page_token = 2 [json_name = "pageToken"];</code>
-     * @return This builder for chaining.
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
      */
-    public Builder clearPageToken() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      pageToken_ = 0;
+    public Builder setPagination(
+        com.github.vnworkday.proto.shared.v1.RequestPagination.Builder builderForValue) {
+      if (paginationBuilder_ == null) {
+        pagination_ = builderForValue.build();
+      } else {
+        paginationBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder mergePagination(com.github.vnworkday.proto.shared.v1.RequestPagination value) {
+      if (paginationBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          pagination_ != null &&
+          pagination_ != com.github.vnworkday.proto.shared.v1.RequestPagination.getDefaultInstance()) {
+          getPaginationBuilder().mergeFrom(value);
+        } else {
+          pagination_ = value;
+        }
+      } else {
+        paginationBuilder_.mergeFrom(value);
+      }
+      if (pagination_ != null) {
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public Builder clearPagination() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      pagination_ = null;
+      if (paginationBuilder_ != null) {
+        paginationBuilder_.dispose();
+        paginationBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestPagination.Builder getPaginationBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getPaginationFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestPaginationOrBuilder getPaginationOrBuilder() {
+      if (paginationBuilder_ != null) {
+        return paginationBuilder_.getMessageOrBuilder();
+      } else {
+        return pagination_ == null ?
+            com.github.vnworkday.proto.shared.v1.RequestPagination.getDefaultInstance() : pagination_;
+      }
+    }
+    /**
+     * <code>.shared.v1.RequestPagination pagination = 2 [json_name = "pagination"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestPagination, com.github.vnworkday.proto.shared.v1.RequestPagination.Builder, com.github.vnworkday.proto.shared.v1.RequestPaginationOrBuilder> 
+        getPaginationFieldBuilder() {
+      if (paginationBuilder_ == null) {
+        paginationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.RequestPagination, com.github.vnworkday.proto.shared.v1.RequestPagination.Builder, com.github.vnworkday.proto.shared.v1.RequestPaginationOrBuilder>(
+                getPagination(),
+                getParentForChildren(),
+                isClean());
+        pagination_ = null;
+      }
+      return paginationBuilder_;
     }
 
-    private java.lang.Object query_ = "";
+    private java.util.List<com.github.vnworkday.proto.shared.v1.RequestFilter> filters_ =
+      java.util.Collections.emptyList();
+    private void ensureFiltersIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        filters_ = new java.util.ArrayList<com.github.vnworkday.proto.shared.v1.RequestFilter>(filters_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestFilter, com.github.vnworkday.proto.shared.v1.RequestFilter.Builder, com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder> filtersBuilder_;
+
     /**
      * <pre>
-     * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
      * </pre>
      *
-     * <code>string query = 3 [json_name = "query"];</code>
-     * @return The query.
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
      */
-    public java.lang.String getQuery() {
-      java.lang.Object ref = query_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        query_ = s;
-        return s;
+    public java.util.List<com.github.vnworkday.proto.shared.v1.RequestFilter> getFiltersList() {
+      if (filtersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(filters_);
       } else {
-        return (java.lang.String) ref;
+        return filtersBuilder_.getMessageList();
       }
     }
     /**
      * <pre>
-     * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
      * </pre>
      *
-     * <code>string query = 3 [json_name = "query"];</code>
-     * @return The bytes for query.
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
      */
-    public com.google.protobuf.ByteString
-        getQueryBytes() {
-      java.lang.Object ref = query_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        query_ = b;
-        return b;
+    public int getFiltersCount() {
+      if (filtersBuilder_ == null) {
+        return filters_.size();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return filtersBuilder_.getCount();
       }
     }
     /**
      * <pre>
-     * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
      * </pre>
      *
-     * <code>string query = 3 [json_name = "query"];</code>
-     * @param value The query to set.
-     * @return This builder for chaining.
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
      */
-    public Builder setQuery(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      query_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
+    public com.github.vnworkday.proto.shared.v1.RequestFilter getFilters(int index) {
+      if (filtersBuilder_ == null) {
+        return filters_.get(index);
+      } else {
+        return filtersBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder setFilters(
+        int index, com.github.vnworkday.proto.shared.v1.RequestFilter value) {
+      if (filtersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureFiltersIsMutable();
+        filters_.set(index, value);
+        onChanged();
+      } else {
+        filtersBuilder_.setMessage(index, value);
+      }
       return this;
     }
     /**
      * <pre>
-     * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
      * </pre>
      *
-     * <code>string query = 3 [json_name = "query"];</code>
-     * @return This builder for chaining.
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
      */
-    public Builder clearQuery() {
-      query_ = getDefaultInstance().getQuery();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      onChanged();
+    public Builder setFilters(
+        int index, com.github.vnworkday.proto.shared.v1.RequestFilter.Builder builderForValue) {
+      if (filtersBuilder_ == null) {
+        ensureFiltersIsMutable();
+        filters_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        filtersBuilder_.setMessage(index, builderForValue.build());
+      }
       return this;
     }
     /**
      * <pre>
-     * Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
      * </pre>
      *
-     * <code>string query = 3 [json_name = "query"];</code>
-     * @param value The bytes for query to set.
-     * @return This builder for chaining.
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
      */
-    public Builder setQueryBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      query_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
+    public Builder addFilters(com.github.vnworkday.proto.shared.v1.RequestFilter value) {
+      if (filtersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureFiltersIsMutable();
+        filters_.add(value);
+        onChanged();
+      } else {
+        filtersBuilder_.addMessage(value);
+      }
       return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder addFilters(
+        int index, com.github.vnworkday.proto.shared.v1.RequestFilter value) {
+      if (filtersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureFiltersIsMutable();
+        filters_.add(index, value);
+        onChanged();
+      } else {
+        filtersBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder addFilters(
+        com.github.vnworkday.proto.shared.v1.RequestFilter.Builder builderForValue) {
+      if (filtersBuilder_ == null) {
+        ensureFiltersIsMutable();
+        filters_.add(builderForValue.build());
+        onChanged();
+      } else {
+        filtersBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder addFilters(
+        int index, com.github.vnworkday.proto.shared.v1.RequestFilter.Builder builderForValue) {
+      if (filtersBuilder_ == null) {
+        ensureFiltersIsMutable();
+        filters_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        filtersBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder addAllFilters(
+        java.lang.Iterable<? extends com.github.vnworkday.proto.shared.v1.RequestFilter> values) {
+      if (filtersBuilder_ == null) {
+        ensureFiltersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, filters_);
+        onChanged();
+      } else {
+        filtersBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder clearFilters() {
+      if (filtersBuilder_ == null) {
+        filters_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        filtersBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public Builder removeFilters(int index) {
+      if (filtersBuilder_ == null) {
+        ensureFiltersIsMutable();
+        filters_.remove(index);
+        onChanged();
+      } else {
+        filtersBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestFilter.Builder getFiltersBuilder(
+        int index) {
+      return getFiltersFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder getFiltersOrBuilder(
+        int index) {
+      if (filtersBuilder_ == null) {
+        return filters_.get(index);  } else {
+        return filtersBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public java.util.List<? extends com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder> 
+         getFiltersOrBuilderList() {
+      if (filtersBuilder_ != null) {
+        return filtersBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(filters_);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestFilter.Builder addFiltersBuilder() {
+      return getFiltersFieldBuilder().addBuilder(
+          com.github.vnworkday.proto.shared.v1.RequestFilter.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestFilter.Builder addFiltersBuilder(
+        int index) {
+      return getFiltersFieldBuilder().addBuilder(
+          index, com.github.vnworkday.proto.shared.v1.RequestFilter.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Optional. Filters to apply to the list of tenants.
+     * If multiple filters are specified, they are combined with AND.
+     * Supported filters:
+     * - name: The name of the tenant.
+     * - domain: The domain of the tenant.
+     * - timezone: The timezone of the tenant.
+     * - subscription_type: The subscription type of the tenant.
+     * - self_registration_enabled: Whether self-registration is enabled for the tenant.
+     * - status: The status of the tenant.
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestFilter filters = 3 [json_name = "filters"];</code>
+     */
+    public java.util.List<com.github.vnworkday.proto.shared.v1.RequestFilter.Builder> 
+         getFiltersBuilderList() {
+      return getFiltersFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestFilter, com.github.vnworkday.proto.shared.v1.RequestFilter.Builder, com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder> 
+        getFiltersFieldBuilder() {
+      if (filtersBuilder_ == null) {
+        filtersBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.RequestFilter, com.github.vnworkday.proto.shared.v1.RequestFilter.Builder, com.github.vnworkday.proto.shared.v1.RequestFilterOrBuilder>(
+                filters_,
+                ((bitField0_ & 0x00000004) != 0),
+                getParentForChildren(),
+                isClean());
+        filters_ = null;
+      }
+      return filtersBuilder_;
+    }
+
+    private java.util.List<com.github.vnworkday.proto.shared.v1.RequestSort> sorts_ =
+      java.util.Collections.emptyList();
+    private void ensureSortsIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        sorts_ = new java.util.ArrayList<com.github.vnworkday.proto.shared.v1.RequestSort>(sorts_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestSort, com.github.vnworkday.proto.shared.v1.RequestSort.Builder, com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder> sortsBuilder_;
+
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public java.util.List<com.github.vnworkday.proto.shared.v1.RequestSort> getSortsList() {
+      if (sortsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(sorts_);
+      } else {
+        return sortsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public int getSortsCount() {
+      if (sortsBuilder_ == null) {
+        return sorts_.size();
+      } else {
+        return sortsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestSort getSorts(int index) {
+      if (sortsBuilder_ == null) {
+        return sorts_.get(index);
+      } else {
+        return sortsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder setSorts(
+        int index, com.github.vnworkday.proto.shared.v1.RequestSort value) {
+      if (sortsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSortsIsMutable();
+        sorts_.set(index, value);
+        onChanged();
+      } else {
+        sortsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder setSorts(
+        int index, com.github.vnworkday.proto.shared.v1.RequestSort.Builder builderForValue) {
+      if (sortsBuilder_ == null) {
+        ensureSortsIsMutable();
+        sorts_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        sortsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder addSorts(com.github.vnworkday.proto.shared.v1.RequestSort value) {
+      if (sortsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSortsIsMutable();
+        sorts_.add(value);
+        onChanged();
+      } else {
+        sortsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder addSorts(
+        int index, com.github.vnworkday.proto.shared.v1.RequestSort value) {
+      if (sortsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSortsIsMutable();
+        sorts_.add(index, value);
+        onChanged();
+      } else {
+        sortsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder addSorts(
+        com.github.vnworkday.proto.shared.v1.RequestSort.Builder builderForValue) {
+      if (sortsBuilder_ == null) {
+        ensureSortsIsMutable();
+        sorts_.add(builderForValue.build());
+        onChanged();
+      } else {
+        sortsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder addSorts(
+        int index, com.github.vnworkday.proto.shared.v1.RequestSort.Builder builderForValue) {
+      if (sortsBuilder_ == null) {
+        ensureSortsIsMutable();
+        sorts_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        sortsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder addAllSorts(
+        java.lang.Iterable<? extends com.github.vnworkday.proto.shared.v1.RequestSort> values) {
+      if (sortsBuilder_ == null) {
+        ensureSortsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, sorts_);
+        onChanged();
+      } else {
+        sortsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder clearSorts() {
+      if (sortsBuilder_ == null) {
+        sorts_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        sortsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public Builder removeSorts(int index) {
+      if (sortsBuilder_ == null) {
+        ensureSortsIsMutable();
+        sorts_.remove(index);
+        onChanged();
+      } else {
+        sortsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestSort.Builder getSortsBuilder(
+        int index) {
+      return getSortsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder getSortsOrBuilder(
+        int index) {
+      if (sortsBuilder_ == null) {
+        return sorts_.get(index);  } else {
+        return sortsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public java.util.List<? extends com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder> 
+         getSortsOrBuilderList() {
+      if (sortsBuilder_ != null) {
+        return sortsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(sorts_);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestSort.Builder addSortsBuilder() {
+      return getSortsFieldBuilder().addBuilder(
+          com.github.vnworkday.proto.shared.v1.RequestSort.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.RequestSort.Builder addSortsBuilder(
+        int index) {
+      return getSortsFieldBuilder().addBuilder(
+          index, com.github.vnworkday.proto.shared.v1.RequestSort.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Optional. Sorts to apply to the list of tenants.
+     * If multiple sorts are specified, they are applied in the order given.
+     * Supported sorts:
+     * - name
+     * - domain
+     * - timezone
+     * - subscription_type
+     * - self_registration_enabled
+     * - status
+     * - created_at
+     * - updated_at
+     * </pre>
+     *
+     * <code>repeated .shared.v1.RequestSort sorts = 4 [json_name = "sorts"];</code>
+     */
+    public java.util.List<com.github.vnworkday.proto.shared.v1.RequestSort.Builder> 
+         getSortsBuilderList() {
+      return getSortsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.RequestSort, com.github.vnworkday.proto.shared.v1.RequestSort.Builder, com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder> 
+        getSortsFieldBuilder() {
+      if (sortsBuilder_ == null) {
+        sortsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.RequestSort, com.github.vnworkday.proto.shared.v1.RequestSort.Builder, com.github.vnworkday.proto.shared.v1.RequestSortOrBuilder>(
+                sorts_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        sorts_ = null;
+      }
+      return sortsBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:account.tenant.v1.ListTenantsRequest)

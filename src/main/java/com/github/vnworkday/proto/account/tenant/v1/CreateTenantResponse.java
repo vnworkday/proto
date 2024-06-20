@@ -6,6 +6,10 @@
 package com.github.vnworkday.proto.account.tenant.v1;
 
 /**
+ * <pre>
+ * Response for creating a new tenant.
+ * </pre>
+ *
  * Protobuf type {@code account.tenant.v1.CreateTenantResponse}
  */
 public final class CreateTenantResponse extends
@@ -43,18 +47,44 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int TENANT_FIELD_NUMBER = 1;
+  public static final int ERROR_FIELD_NUMBER = 1;
+  private com.github.vnworkday.proto.shared.v1.Error error_;
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  @java.lang.Override
+  public boolean hasError() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   * @return The error.
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.Error getError() {
+    return error_ == null ? com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+  }
+  /**
+   * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+   */
+  @java.lang.Override
+  public com.github.vnworkday.proto.shared.v1.ErrorOrBuilder getErrorOrBuilder() {
+    return error_ == null ? com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+  }
+
+  public static final int TENANT_FIELD_NUMBER = 2;
   private com.github.vnworkday.proto.account.tenant.v1.Tenant tenant_;
   /**
-   * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+   * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
    * @return Whether the tenant field is set.
    */
   @java.lang.Override
   public boolean hasTenant() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+   * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
    * @return The tenant.
    */
   @java.lang.Override
@@ -62,7 +92,7 @@ private static final long serialVersionUID = 0L;
     return tenant_ == null ? com.github.vnworkday.proto.account.tenant.v1.Tenant.getDefaultInstance() : tenant_;
   }
   /**
-   * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+   * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
    */
   @java.lang.Override
   public com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder getTenantOrBuilder() {
@@ -84,7 +114,10 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (((bitField0_ & 0x00000001) != 0)) {
-      output.writeMessage(1, getTenant());
+      output.writeMessage(1, getError());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(2, getTenant());
     }
     getUnknownFields().writeTo(output);
   }
@@ -97,7 +130,11 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getTenant());
+        .computeMessageSize(1, getError());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getTenant());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -114,6 +151,11 @@ private static final long serialVersionUID = 0L;
     }
     com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse other = (com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse) obj;
 
+    if (hasError() != other.hasError()) return false;
+    if (hasError()) {
+      if (!getError()
+          .equals(other.getError())) return false;
+    }
     if (hasTenant() != other.hasTenant()) return false;
     if (hasTenant()) {
       if (!getTenant()
@@ -130,6 +172,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+    }
     if (hasTenant()) {
       hash = (37 * hash) + TENANT_FIELD_NUMBER;
       hash = (53 * hash) + getTenant().hashCode();
@@ -232,6 +278,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * Response for creating a new tenant.
+   * </pre>
+   *
    * Protobuf type {@code account.tenant.v1.CreateTenantResponse}
    */
   public static final class Builder extends
@@ -264,6 +314,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
+        getErrorFieldBuilder();
         getTenantFieldBuilder();
       }
     }
@@ -271,6 +322,11 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
+        errorBuilder_ = null;
+      }
       tenant_ = null;
       if (tenantBuilder_ != null) {
         tenantBuilder_.dispose();
@@ -311,10 +367,16 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.tenant_ = tenantBuilder_ == null
             ? tenant_
             : tenantBuilder_.build();
-        to_bitField0_ |= 0x00000001;
+        to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -331,6 +393,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse other) {
       if (other == com.github.vnworkday.proto.account.tenant.v1.CreateTenantResponse.getDefaultInstance()) return this;
+      if (other.hasError()) {
+        mergeError(other.getError());
+      }
       if (other.hasTenant()) {
         mergeTenant(other.getTenant());
       }
@@ -362,11 +427,18 @@ private static final long serialVersionUID = 0L;
               break;
             case 10: {
               input.readMessage(
-                  getTenantFieldBuilder().getBuilder(),
+                  getErrorFieldBuilder().getBuilder(),
                   extensionRegistry);
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 18: {
+              input.readMessage(
+                  getTenantFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -384,18 +456,139 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private com.github.vnworkday.proto.shared.v1.Error error_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.Error, com.github.vnworkday.proto.shared.v1.Error.Builder, com.github.vnworkday.proto.shared.v1.ErrorOrBuilder> errorBuilder_;
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     * @return Whether the error field is set.
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     * @return The error.
+     */
+    public com.github.vnworkday.proto.shared.v1.Error getError() {
+      if (errorBuilder_ == null) {
+        return error_ == null ? com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+      } else {
+        return errorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder setError(com.github.vnworkday.proto.shared.v1.Error value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        error_ = value;
+      } else {
+        errorBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder setError(
+        com.github.vnworkday.proto.shared.v1.Error.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        error_ = builderForValue.build();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder mergeError(com.github.vnworkday.proto.shared.v1.Error value) {
+      if (errorBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          error_ != null &&
+          error_ != com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
+        } else {
+          error_ = value;
+        }
+      } else {
+        errorBuilder_.mergeFrom(value);
+      }
+      if (error_ != null) {
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public Builder clearError() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
+        errorBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.Error.Builder getErrorBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    public com.github.vnworkday.proto.shared.v1.ErrorOrBuilder getErrorOrBuilder() {
+      if (errorBuilder_ != null) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        return error_ == null ?
+            com.github.vnworkday.proto.shared.v1.Error.getDefaultInstance() : error_;
+      }
+    }
+    /**
+     * <code>.shared.v1.Error error = 1 [json_name = "error"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.github.vnworkday.proto.shared.v1.Error, com.github.vnworkday.proto.shared.v1.Error.Builder, com.github.vnworkday.proto.shared.v1.ErrorOrBuilder> 
+        getErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.github.vnworkday.proto.shared.v1.Error, com.github.vnworkday.proto.shared.v1.Error.Builder, com.github.vnworkday.proto.shared.v1.ErrorOrBuilder>(
+                getError(),
+                getParentForChildren(),
+                isClean());
+        error_ = null;
+      }
+      return errorBuilder_;
+    }
+
     private com.github.vnworkday.proto.account.tenant.v1.Tenant tenant_;
     private com.google.protobuf.SingleFieldBuilder<
         com.github.vnworkday.proto.account.tenant.v1.Tenant, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder, com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder> tenantBuilder_;
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      * @return Whether the tenant field is set.
      */
     public boolean hasTenant() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      * @return The tenant.
      */
     public com.github.vnworkday.proto.account.tenant.v1.Tenant getTenant() {
@@ -406,7 +599,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     public Builder setTenant(com.github.vnworkday.proto.account.tenant.v1.Tenant value) {
       if (tenantBuilder_ == null) {
@@ -417,12 +610,12 @@ private static final long serialVersionUID = 0L;
       } else {
         tenantBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     public Builder setTenant(
         com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder builderForValue) {
@@ -431,16 +624,16 @@ private static final long serialVersionUID = 0L;
       } else {
         tenantBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     public Builder mergeTenant(com.github.vnworkday.proto.account.tenant.v1.Tenant value) {
       if (tenantBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
+        if (((bitField0_ & 0x00000002) != 0) &&
           tenant_ != null &&
           tenant_ != com.github.vnworkday.proto.account.tenant.v1.Tenant.getDefaultInstance()) {
           getTenantBuilder().mergeFrom(value);
@@ -451,16 +644,16 @@ private static final long serialVersionUID = 0L;
         tenantBuilder_.mergeFrom(value);
       }
       if (tenant_ != null) {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       return this;
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     public Builder clearTenant() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       tenant_ = null;
       if (tenantBuilder_ != null) {
         tenantBuilder_.dispose();
@@ -470,15 +663,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder getTenantBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTenantFieldBuilder().getBuilder();
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     public com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder getTenantOrBuilder() {
       if (tenantBuilder_ != null) {
@@ -489,7 +682,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.account.tenant.v1.Tenant tenant = 1 [json_name = "tenant"];</code>
+     * <code>.account.tenant.v1.Tenant tenant = 2 [json_name = "tenant"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.github.vnworkday.proto.account.tenant.v1.Tenant, com.github.vnworkday.proto.account.tenant.v1.Tenant.Builder, com.github.vnworkday.proto.account.tenant.v1.TenantOrBuilder> 
