@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package workforce.leave.v1;
-
-message LeaveEntitlement {
-  string id = 1;
-  string name = 2;
-}

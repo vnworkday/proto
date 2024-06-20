@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package shared.v1;
+
+// The request to fetch a list of items.
+message RequestPagination {
+  // Optional. The token that should be used to fetch the next page. If not provided, the first page will be fetched. In form of encoded base64 string.
+  string token = 1;
+  // Optional. The limit of the number of items to return. The default is 10.
+  int32 limit = 2;
+  // Optional. The filters to apply to the items. The default is no filters.
+  repeated RequestFilter filters = 3;
+  // Optional. The sorts to apply to the items. The default is to sort by the last_modified_date field in ascending order or no sort if the field is not present.
+  repeated RequestSort sorts = 4;
+}
+
+message RequestFilter {
+  // Required. The field to filter by.
+  string field = 1;
+  // Conditionally required. The value to filter by.
+  // If the operator is 'null' or 'not_null', the value will be ignored and can be omitted.
+  // If the operator is 'in' or 'not_in', the value should be a list of values separated by vertical bars '|'.
+  string value = 2;
+  // Required. The operator to use for the filter.
+  Operator operator = 3;
+  // Optional. Whether the filter is case sensitive. The default is false.
+  bool is_case_sensitive = 4;
+  // Optional. The type of the value. The default is string.
+  ValueType value_type = 5;
+}
+
+// Operator for filtering, aggregating, or calculating.
+enum Operator {
+  OPERATOR_UNSPECIFIED = 0;
+  // Equal.
+  OPERATOR_EQ = 1;
+  // Not equal.
+  OPERATOR_NOT_EQ = 2;
+  // Greater than.
+  OPERATOR_GT = 3;
+  // Less than.
+  OPERATOR_LT = 4;
+  // Greater than or equal.
+  OPERATOR_GE = 5;
+  // Less than or equal.
+  OPERATOR_LE = 6;
+  // In.
+  OPERATOR_IN = 7;
+  // Not in.
+  OPERATOR_NOT_IN = 8;
+  // Contains.
+  OPERATOR_CONTAINS = 9;
+  // Not contains.
+  OPERATOR_NOT_CONTAINS = 10;
+  // Starts with.
+  OPERATOR_STARTS_WITH = 11;
+  // Ends with.
+  OPERATOR_ENDS_WITH = 12;
+  // Is null.
+  OPERATOR_NULL = 13;
+  // Is not null.
+  OPERATOR_NOT_NULL = 14;
+  // Between.
+  OPERATOR_BETWEEN = 15;
+}
+
+enum ValueType {
+  VALUE_TYPE_UNSPECIFIED = 0;
+  // String. Default.
+  VALUE_TYPE_STRING = 1;
+  // Integer. In the format of '123' or '-123'.
+  VALUE_TYPE_INTEGER = 2;
+  // Float. In the format of '123.45'.
+  VALUE_TYPE_FLOAT = 3;
+  // Boolean. In the format of 'true' or 'false'.
+  VALUE_TYPE_BOOLEAN = 4;
+  // Date. In the format of 'YYYY-MM-DD'.
+  VALUE_TYPE_DATE = 5;
+  // Time. In the format of 'HH:MM:SS'.
+  VALUE_TYPE_TIME = 6;
+  // Datetime. In the format of 'YYYY-MM-DDTHH:MM:SS'.
+  VALUE_TYPE_DATETIME = 7;
+}
+
+message RequestSort {
+  // Required. The field to sort by. The default is the updated_at field.
+  string field = 1;
+  // Optional The order of the sort, either 'asc' or 'desc'. The default is 'asc'.
+  string order = 2;
+}

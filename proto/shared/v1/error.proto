@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package shared.v1;
+
+message Error {
+  // Required. Error code that can be used to identify the error type.
+  int32 code = 1;
+  // Optional. Error message that can be used to display the error to the user.
+  string message = 2;
+  // Required. Whether the error is retryable or not. Default is false.
+  bool retryable = 3;
+  // Optional. Reason for the error. This can be used to provide more context to the error. Should NOT be displayed to the user.
+  string reason = 4;
+}

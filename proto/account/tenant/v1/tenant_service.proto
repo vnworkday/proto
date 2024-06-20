@@ -3,60 +3,114 @@ syntax = "proto3";
 package account.tenant.v1;
 
 import "account/tenant/v1/tenant.proto";
+import "shared/v1/error.proto";
+import "shared/v1/request.proto";
+import "shared/v1/response.proto";
+import "shared/v1/tracing.proto";
 
+// Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
+// Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
 service TenantService {
+  // Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
   rpc CreateTenant(CreateTenantRequest) returns (CreateTenantResponse) {}
 
+  // Get a tenant by ID.
   rpc GetTenant(GetTenantRequest) returns (GetTenantResponse) {}
 
+  // List tenants. Supports pagination and filtering.
   rpc ListTenants(ListTenantsRequest) returns (ListTenantsResponse) {}
 
+  // Update a tenant. Compared to CreateTenant, the domain, timezone of the tenant cannot be changed.
   rpc UpdateTenant(UpdateTenantRequest) returns (UpdateTenantResponse) {}
-
-  rpc DeleteTenant(DeleteTenantRequest) returns (DeleteTenantResponse) {}
 }
 
+// For creating a new tenant.
+// Status is set to ACTIVE by default.
+// Production type is set to ENTERPRISE by default. Other types must be created outside of the API.
 message CreateTenantRequest {
-  string name = 1;
-}
-
-message CreateTenantResponse {
-  Tenant tenant = 1;
-}
-
-message GetTenantRequest {
-  string id = 1;
-}
-
-message GetTenantResponse {
-  Tenant tenant = 1;
-}
-
-message ListTenantsRequest {
-  int32 page_size = 1;
-  int32 page_token = 2;
-  // Search query for tenants. Query is case-insensitive. Using a wildcard (*) is allowed.
-  string query = 3;
-}
-
-message ListTenantsResponse {
-  repeated Tenant tenants = 1;
-  string next_page_token = 2;
-}
-
-message UpdateTenantRequest {
-  string id = 1;
+  shared.v1.RequestInfo info = 1;
+  // Required. The name of the tenant. This must be unique across all tenants.
   string name = 2;
+  // Required. The domain of the tenant. This must be unique across all tenants.
+  string domain = 3;
+  // Required. The timezone of the tenant. This must be a valid Olson timezone.
+  string timezone = 4;
+  // Required. The type of subscription for the tenant.
+  TenantSubscriptionType subscription_type = 5;
+  // Optional. Whether self-registration is enabled for the tenant. Defaults to false if not set.
+  bool self_registration_enabled = 6;
 }
 
+// Response for creating a new tenant.
+message CreateTenantResponse {
+  shared.v1.Error error = 1;
+  Tenant tenant = 2;
+}
+
+// For getting a tenant.
+message GetTenantRequest {
+  shared.v1.RequestInfo info = 1;
+  // Required. The ID of the tenant to get.
+  string id = 2;
+}
+
+// Response for getting a tenant.
+message GetTenantResponse {
+  shared.v1.Error error = 1;
+  Tenant tenant = 2;
+}
+
+// For listing tenants.
+message ListTenantsRequest {
+  shared.v1.RequestInfo info = 1;
+  shared.v1.RequestPagination pagination = 2;
+  // Optional. Filters to apply to the list of tenants.
+  // If multiple filters are specified, they are combined with AND.
+  // Supported filters:
+  // - name: The name of the tenant.
+  // - domain: The domain of the tenant.
+  // - timezone: The timezone of the tenant.
+  // - subscription_type: The subscription type of the tenant.
+  // - self_registration_enabled: Whether self-registration is enabled for the tenant.
+  // - status: The status of the tenant.
+  repeated shared.v1.RequestFilter filters = 3;
+  // Optional. Sorts to apply to the list of tenants.
+  // If multiple sorts are specified, they are applied in the order given.
+  // Supported sorts:
+  // - name
+  // - domain
+  // - timezone
+  // - subscription_type
+  // - self_registration_enabled
+  // - status
+  // - created_at
+  // - updated_at
+  repeated shared.v1.RequestSort sorts = 4;
+}
+
+// Response for listing tenants.
+message ListTenantsResponse {
+  shared.v1.Error error = 1;
+  shared.v1.ResponsePagination pagination = 2;
+  repeated Tenant tenants = 3;
+}
+
+// For updating a tenant.
+message UpdateTenantRequest {
+  shared.v1.RequestInfo info = 1;
+  // Required. The ID of the tenant to update.
+  string id = 2;
+  // Required. The new name of the tenant. This must be unique across all tenants.
+  string name = 3;
+  // Required. The new type of subscription for the tenant.
+  TenantSubscriptionType subscription_type = 4;
+  // Optional. Whether self-registration is enabled for the tenant. Defaults to false if not set.
+  bool self_registration_enabled = 5;
+}
+
+// Response for updating a tenant.
 message UpdateTenantResponse {
-  Tenant tenant = 1;
-}
-
-message DeleteTenantRequest {
-  string id = 1;
-}
-
-message DeleteTenantResponse {
-  string id = 1;
+  shared.v1.Error error = 1;
+  // Required. The updated tenant.
+  Tenant tenant = 2;
 }

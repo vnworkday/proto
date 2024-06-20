@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package shared.v1;
+
+message RequestInfo {
+  // Required. The correlation ID of the request for tracing purposes.
+  string correlation_id = 1;
+  // Required. The owner, who initiated the chain of requests.
+  RequestCaller owner = 2;
+  // Required. The caller, who initiated the request.
+  RequestCaller caller = 3;
+  // Optional. The IP address of the original client who initiated the request.
+  string ip_address = 4;
+  // Required. The service that initiated the request.
+  string owner_service = 5;
+  // Required. The service that acts as the caller of the request.
+  string caller_service = 6;
+}
+
+message RequestCaller {
+  // Required. The type of the owner, e.g. user, service, etc.
+  Entity type = 1;
+  // Required. The ID of the owner, e.g. the user ID. In form of a nanoid.
+  string id = 2;
+  // Optional. The tenant ID of the owner. In form of a nanoid.
+  string tenant_id = 3;
+}
+
+// Entity type.
+enum Entity {
+  ENTITY_UNSPECIFIED = 0;
+  ENTITY_USER = 1;
+
+  ENTITY_SERVICE_ACCOUNT = 100;
+  ENTITY_SERVICE_WORKFORCE = 101;
+}
