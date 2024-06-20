@@ -28,7 +28,7 @@ jobs:
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
         # Only run buf breaking if the PR title does not contain 'BREAKING'
-        if: !contains(env.PR_TITLE, 'BREAKING')
+        if: contains(env.PR_TITLE, 'BREAKING') == false
         with:
           against: "https://github.com/vnworkday/proto.git#branch=main,subdir=proto"
           input: proto
