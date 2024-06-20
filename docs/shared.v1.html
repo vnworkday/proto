@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VN Workday Proto API Documentation</title>
+    <link rel="stylesheet" href="static/mystyles.css" />
+    <script src="static/fontawesome.js"></script>
+    <script src="static/lunr.js"></script>
+    <script src="static/theme.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="level pt-6 mb-5 pb-2 bottom-border">
+        <div class="level-left">
+          <p class="level-item has-text-centered is-size-3 has-text-weight-medium">
+            <a class="link is-info" href="index.html">
+              VN Workday Proto API Documentation
+            </a>
+          </p>
+        </div>
+
+        <div class="level-right">
+          
+          <form action="search.html" class="mr-2 has-text-centered">
+            <input type="text" name="query" class="input mr-3 navbar-search-query-input" placeholder="Search">
+            <input type="submit" class="button is-primary mr-5" value="Search" />
+          </form>
+          
+
+          <p class="level-item has-text-centered is-size-5">
+            <a href="https://github.com/vnworkday/proto" class="link is-info mr-5" target="_blank">
+              
+              <span class="icon">
+                <i class="fa-brands fa-github"></i>
+              </span>
+              
+              <span>Source</span>
+            </a>
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite" type="button">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main-content" class="container mb-6">
+  <p class="mb-2">
+    <a style="font-size: 0.9em" href="index.html">← Back to packages</a>
+  </p>
+  <h3 class="title is-3">
+    
+    Package <code>shared.v1</code>
+    
+  </h3>
+
+  <div class="block">
+    
+
+    
+      
+      <p>
+        <a href="#message-shared.v1.Error">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Error</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-shared.v1.RequestCaller">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RequestCaller</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-shared.v1.RequestFilter">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RequestFilter</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-shared.v1.RequestInfo">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RequestInfo</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-shared.v1.RequestPagination">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RequestPagination</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-shared.v1.RequestSort">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RequestSort</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-shared.v1.ResponsePagination">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>ResponsePagination</code> 
+        </a>
+      </p>
+      
+    
+
+    
+      <p>
+        <a href="#enum-shared.v1.Entity">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>Entity</code> 
+        </a>
+      </p>
+    
+      <p>
+        <a href="#enum-shared.v1.Operator">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>Operator</code> 
+        </a>
+      </p>
+    
+      <p>
+        <a href="#enum-shared.v1.ValueType">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>ValueType</code> 
+        </a>
+      </p>
+    
+  </div>
+
+  <div class="block">
+      
+  </div>
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Messages
+    </h3>
+
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.Error">
+  <span>
+    <a href="#message-shared.v1.Error" title="shared.v1.Error">message Error</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/error.proto#L4">shared/v1/error.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        code
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Error code that can be used to identify the error type.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        message
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. Error message that can be used to display the error to the user.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        retryable
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. Whether the error is retryable or not. Default is false.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        reason
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. Reason for the error. This can be used to provide more context to the error. Should NOT be displayed to the user.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.RequestCaller">
+  <span>
+    <a href="#message-shared.v1.RequestCaller" title="shared.v1.RequestCaller">message RequestCaller</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/tracing.proto#L19">shared/v1/tracing.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        type
+      </td>
+      <td>
+        <code title="shared.v1.Entity">
+          
+          <a href="shared.v1.html#enum-shared.v1.Entity"><span title="shared.v1.Entity">shared.v1.Entity</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. The type of the owner, e.g. user, service, etc.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The ID of the owner, e.g. the user ID. In form of a nanoid.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        tenant_id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The tenant ID of the owner. In form of a nanoid.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.RequestFilter">
+  <span>
+    <a href="#message-shared.v1.RequestFilter" title="shared.v1.RequestFilter">message RequestFilter</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/request.proto#L16">shared/v1/request.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        field
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The field to filter by.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        value
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Conditionally required. The value to filter by.<br />
+If the operator is 'null' or 'not_null', the value will be ignored and can be omitted.<br />
+If the operator is 'in' or 'not_in', the value should be a list of values separated by vertical bars '|'.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        operator
+      </td>
+      <td>
+        <code title="shared.v1.Operator">
+          
+          <a href="shared.v1.html#enum-shared.v1.Operator"><span title="shared.v1.Operator">shared.v1.Operator</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. The operator to use for the filter.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        is_case_sensitive
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. Whether the filter is case sensitive. The default is false.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        value_type
+      </td>
+      <td>
+        <code title="shared.v1.ValueType">
+          
+          <a href="shared.v1.html#enum-shared.v1.ValueType"><span title="shared.v1.ValueType">shared.v1.ValueType</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The type of the value. The default is string.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.RequestInfo">
+  <span>
+    <a href="#message-shared.v1.RequestInfo" title="shared.v1.RequestInfo">message RequestInfo</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/tracing.proto#L4">shared/v1/tracing.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        correlation_id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The correlation ID of the request for tracing purposes.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        owner
+      </td>
+      <td>
+        <code title="shared.v1.RequestCaller">
+          
+          <a href="shared.v1.html#message-shared.v1.RequestCaller"><span title="shared.v1.RequestCaller">shared.v1.RequestCaller</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. The owner, who initiated the chain of requests.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        caller
+      </td>
+      <td>
+        <code title="shared.v1.RequestCaller">
+          
+          <a href="shared.v1.html#message-shared.v1.RequestCaller"><span title="shared.v1.RequestCaller">shared.v1.RequestCaller</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Required. The caller, who initiated the request.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        ip_address
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The IP address of the original client who initiated the request.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        owner_service
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The service that initiated the request.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        caller_service
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The service that acts as the caller of the request.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.RequestPagination">
+  <span>
+    <a href="#message-shared.v1.RequestPagination" title="shared.v1.RequestPagination">message RequestPagination</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/request.proto#L5">shared/v1/request.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p>The request to fetch a list of items.</p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        token
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The token that should be used to fetch the next page. If not provided, the first page will be fetched. In form of encoded base64 string.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        limit
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The limit of the number of items to return. The default is 10.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        filters
+      </td>
+      <td>
+        <code title="shared.v1.RequestFilter">
+          
+            repeated
+          
+          <a href="shared.v1.html#message-shared.v1.RequestFilter"><span title="shared.v1.RequestFilter">shared.v1.RequestFilter</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The filters to apply to the items. The default is no filters.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        sorts
+      </td>
+      <td>
+        <code title="shared.v1.RequestSort">
+          
+            repeated
+          
+          <a href="shared.v1.html#message-shared.v1.RequestSort"><span title="shared.v1.RequestSort">shared.v1.RequestSort</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The sorts to apply to the items. The default is to sort by the last_modified_date field in ascending order or no sort if the field is not present.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.RequestSort">
+  <span>
+    <a href="#message-shared.v1.RequestSort" title="shared.v1.RequestSort">message RequestSort</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/request.proto#L84">shared/v1/request.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        field
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The field to sort by. The default is the updated_at field.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        order
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional The order of the sort, either 'asc' or 'desc'. The default is 'asc'.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-shared.v1.ResponsePagination">
+  <span>
+    <a href="#message-shared.v1.ResponsePagination" title="shared.v1.ResponsePagination">message ResponsePagination</a>
+  
+  </span>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/response.proto#L4">shared/v1/response.proto</a>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        next_token
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The token that can be used to fetch the next page. If the token is empty, it means that there are no more pages.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        previous_token
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>Optional. The token that can be used to fetch the previous page. If the token is empty, it means that there are no previous pages.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        total
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The total number of items.</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        total_pages
+      </td>
+      <td>
+        <code title="int32">
+          
+          <span>int32</span>
+        </code>
+      </td>
+      <td class="content"><p>Required. The total number of pages.</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Enums
+    </h3>
+
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-shared.v1.Entity">
+  <a href="#enum-shared.v1.Entity" title="shared.v1.Entity">enum Entity</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/tracing.proto#L29">shared/v1/tracing.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p><p>Entity type.</p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>ENTITY_UNSPECIFIED</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>ENTITY_USER</code></td>
+      <td>1</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>ENTITY_SERVICE_ACCOUNT</code></td>
+      <td>100</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>ENTITY_SERVICE_WORKFORCE</code></td>
+      <td>101</td>
+      <td class="content"></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-shared.v1.Operator">
+  <a href="#enum-shared.v1.Operator" title="shared.v1.Operator">enum Operator</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/request.proto#L32">shared/v1/request.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p><p>Operator for filtering, aggregating, or calculating.</p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>OPERATOR_UNSPECIFIED</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_EQ</code></td>
+      <td>1</td>
+      <td class="content"><p>Equal.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_NOT_EQ</code></td>
+      <td>2</td>
+      <td class="content"><p>Not equal.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_GT</code></td>
+      <td>3</td>
+      <td class="content"><p>Greater than.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_LT</code></td>
+      <td>4</td>
+      <td class="content"><p>Less than.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_GE</code></td>
+      <td>5</td>
+      <td class="content"><p>Greater than or equal.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_LE</code></td>
+      <td>6</td>
+      <td class="content"><p>Less than or equal.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_IN</code></td>
+      <td>7</td>
+      <td class="content"><p>In.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_NOT_IN</code></td>
+      <td>8</td>
+      <td class="content"><p>Not in.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_CONTAINS</code></td>
+      <td>9</td>
+      <td class="content"><p>Contains.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_NOT_CONTAINS</code></td>
+      <td>10</td>
+      <td class="content"><p>Not contains.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_STARTS_WITH</code></td>
+      <td>11</td>
+      <td class="content"><p>Starts with.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_ENDS_WITH</code></td>
+      <td>12</td>
+      <td class="content"><p>Ends with.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_NULL</code></td>
+      <td>13</td>
+      <td class="content"><p>Is null.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_NOT_NULL</code></td>
+      <td>14</td>
+      <td class="content"><p>Is not null.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>OPERATOR_BETWEEN</code></td>
+      <td>15</td>
+      <td class="content"><p>Between.</p></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-shared.v1.ValueType">
+  <a href="#enum-shared.v1.ValueType" title="shared.v1.ValueType">enum ValueType</a>
+  
+    <a class="type-source-link" href="https://github.com/vnworkday/proto/blob/main/proto/shared/v1/request.proto#L66">shared/v1/request.proto</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>VALUE_TYPE_UNSPECIFIED</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_STRING</code></td>
+      <td>1</td>
+      <td class="content"><p>String. Default.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_INTEGER</code></td>
+      <td>2</td>
+      <td class="content"><p>Integer. In the format of '123' or '-123'.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_FLOAT</code></td>
+      <td>3</td>
+      <td class="content"><p>Float. In the format of '123.45'.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_BOOLEAN</code></td>
+      <td>4</td>
+      <td class="content"><p>Boolean. In the format of 'true' or 'false'.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_DATE</code></td>
+      <td>5</td>
+      <td class="content"><p>Date. In the format of 'YYYY-MM-DD'.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_TIME</code></td>
+      <td>6</td>
+      <td class="content"><p>Time. In the format of 'HH:MM:SS'.</p></td>
+    </tr>
+    
+    <tr>
+      <td><code>VALUE_TYPE_DATETIME</code></td>
+      <td>7</td>
+      <td class="content"><p>Datetime. In the format of 'YYYY-MM-DDTHH:MM:SS'.</p></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+
+  
+
+</div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        
+          <p>© 2024 Duy Nguyen. All rights reserved.</p>
+        
+        <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
+      </div>
+    </footer>
+  </body>
+</html>
