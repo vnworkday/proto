@@ -9,8 +9,8 @@ usage() {
 }
 
 check_branch() {
-    if [[ $current_branch != "main" ]]; then
-        echo "⚠️ You must be on the main branch to release."
+    if [[ ! "$current_branch" =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+        echo "⚠️ You must be on the release branch."
         exit 1
     fi
 }
@@ -34,8 +34,6 @@ check_dirty() {
 release() {
     echo "🚀 Generating Go code..."
     npm run gen:go
-
-    current_branch=$(git rev-parse --abbrev-ref HEAD)
 
     new_tag="$(npm version "$release_type" --no-commit-hooks --no-git-tag-version)"
     echo "🔖 Latest tag: $latest_git_tag"
