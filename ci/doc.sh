@@ -10,7 +10,7 @@ gen_descriptor() {
         --descriptor_set_out="${project}.pb" \
         --include_source_info \
         --proto_path=./proto \
-        $(printf " %s" $proto_files)
+        $(printf " %s" "$proto_files")
 }
 
 gen_doc() {
