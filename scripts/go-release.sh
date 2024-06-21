@@ -35,14 +35,16 @@ release() {
     echo "🚀 Generating Go code..."
     npm run gen:go
 
-    new_tag="$(npm version $release_type --no-commit-hooks --no-git-tag-version)"
+    current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+    new_tag="$(npm version "$release_type" --no-commit-hooks --no-git-tag-version)"
     echo "🔖 Latest tag: $latest_git_tag"
     echo "🏷️ New tag: $new_tag"
 
     echo "📦 Staging files and committing..."
     git add .
     git commit -m "chore: prepare to release Go proto module: $new_tag"
-    git push origin main
+    git push origin "$current_branch"
 
     echo -e "\n🚛 Pushing changes to the remote repository...\n"
     git tag -a "$new_tag" -m "Release $new_tag"
@@ -51,6 +53,8 @@ release() {
     echo -e "\n🎉 Done! Released $new_tag"
 }
 
+release_type="patch"
+
 while [ "$#" -ge 2 ]; do
     case "$1" in
         -t|--type) release_type="$2"; shift 2;;
@@ -58,7 +62,6 @@ while [ "$#" -ge 2 ]; do
     esac
 done
 
-release_type="patch"
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 check_branch
