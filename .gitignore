@@ -33,3 +33,6 @@ build/
 
 gen
 node_modules
+
+go/
+src/
