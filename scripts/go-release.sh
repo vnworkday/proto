@@ -9,7 +9,7 @@ usage() {
 }
 
 check_branch() {
-    if [[ ! "$current_branch" =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    if [[ ! ("$current_branch" =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ || "$current_branch" == "main") ]]; then
         echo "⚠️ You must be on the release branch."
         exit 1
     fi
