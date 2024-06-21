@@ -5,7 +5,7 @@ set -euo pipefail
 usage() {
     echo "📋 Usage: $0 -t/--type <major|minor|patch>"
     echo "✅ Example: $0 -t patch"
-    exit
+    exit 0
 }
 
 check_branch() {
@@ -18,7 +18,7 @@ check_branch() {
 check_version() {
     latest_git_tag=$(git describe --tags --abbrev=0)
     pkg_version="v$(node -p "require('./package.json').version")"
-    if [[ $latest_git_tag != $pkg_version ]]; then
+    if [[ $latest_git_tag != "$pkg_version" ]]; then
         echo "⚠️ Latest tag is not the same as the package version. Please check the package version."
         exit 1
     fi
@@ -45,8 +45,8 @@ release() {
     git push origin main
 
     echo -e "\n🚛 Pushing changes to the remote repository...\n"
-    git tag -a $new_tag -m "Release $new_tag"
-    git push origin $new_tag
+    git tag -a "$new_tag" -m "Release $new_tag"
+    git push origin "$new_tag"
 
     echo -e "\n🎉 Done! Released $new_tag"
 }
@@ -54,7 +54,7 @@ release() {
 while [ "$#" -ge 2 ]; do
     case "$1" in
         -t|--type) release_type="$2"; shift 2;;
-        *) echo "❗️ Invalid argument: $1"; usage; exit 1;;
+        *) echo "❗️ Invalid argument: $1"; usage;;
     esac
 done
 

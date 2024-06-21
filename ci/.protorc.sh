@@ -4,8 +4,6 @@ set -euo pipefail
 
 project="${PROJECT_NAME:-vnworkday}"
 
-python_version="3.12.4"
-
 get_container_id() {
     echo "🐳 Getting Protoc container ID..."
     CONTAINER_ID=$(docker ps --filter "label=com.vnworkday.docker.name=protoc" -q)
