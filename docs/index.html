@@ -64,6 +64,33 @@
 
     <div id="main-content" class="container mb-6">
   
+    <p class="mb-2">
+      <a style="font-size: 0.9em" href="#packages">↓ Packages</a>
+    </p>
+    <div class="block content"><h1 id="vn-workday-proto">VN Workday: Proto</h1>
+<h2 id="about-vn-workday">About VN Workday</h2>
+<p>The VN Workday is a multi-tenancy application that allows users to manage their workday. The application is designed to<br />
+be used by employees, managers, and administrators. The application provides a variety of features that help users<br />
+manage their workday, such as time tracking, task management, and reporting.</p>
+<h2 id="about-this-repository">About this repository</h2>
+<p>At VN Workday, we use <code>protobuf</code> to define the data structures that are used in our application. <code>protobuf</code> is a<br />
+language-neutral, platform-neutral, extensible mechanism for serializing structured data. It is widely used in the<br />
+industry for defining<br />
+data structures and messages.</p>
+<p>There are several benefits to using <code>protobuf</code> at VN Workday:</p>
+<ul>
+<li><strong>Efficiency</strong>: <code>protobuf</code> is a binary format that is more efficient than other text-based formats like JSON or XML.</li>
+<li><strong>Performance</strong>: <code>protobuf</code> is designed for performance and is faster to parse and serialize than other formats.</li>
+<li><strong>Interoperability</strong>: <code>protobuf</code> is language-neutral and platform-neutral, so it can be used across different<br />
+  programming languages and platforms.</li>
+<li><strong>Code Generation</strong>: <code>protobuf</code> comes with code generation tools that can automatically generate code for serializing<br />
+  and deserializing data structures.</li>
+<li><strong>Documentation</strong>: <code>protobuf</code> schemas can be used to generate documentation for the data structures, making it easier<br />
+  for developers to understand and use the data.</li>
+</ul>
+<p>This repository contains the <code>protobuf</code> schemas that are used in the VN Workday application. The schemas define the data<br />
+structures that are used in the application, such as user profiles, time entries, and tasks.</p></div>
+  
   <h3 id="packages" class="title is-3">
     Packages
   </h3>
@@ -76,12 +103,21 @@
       
     </h4>
     
+    <div style="margin-top: -0.5rem; margin-bottom: 2.5rem">
+      <p>This package provides a service for managing tenants in the system.<br />
+Tenants are the top-level entities in the system, used to separate data and configuration among organizations.</p>
+    </div>
+    
   
     <h5 class="title is-5">
       
         <a href="shared.v1.html">shared.v1</a>
       
     </h4>
+    
+    <div style="margin-top: -0.5rem; margin-bottom: 2.5rem">
+      <p>This package is used to define shared messages that can be used across multiple services.</p>
+    </div>
     
   
   </div>

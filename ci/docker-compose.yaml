@@ -11,6 +11,7 @@ services:
       - ../proto:/proto
       - ../docs:/docs
       - ../sabledocs.toml:/sabledocs.toml
+      - ../buf.md:/buf.md
     entrypoint: /bin/sh
     stdin_open: true
     stop_signal: SIGKILL

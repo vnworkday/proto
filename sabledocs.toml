@@ -8,7 +8,7 @@ input-descriptor-file = "vnworkday.pb"
 
 # Specifies the file which contains the content to display on the main page above the package list.
 # Default value: ""
-main-page-content-file = ""
+main-page-content-file = "buf.md"
 
 # The output folder to which the documentation is generated.
 # Default value: "sabledocs_output"

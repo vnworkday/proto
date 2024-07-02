@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+// This package is used to define shared messages that can be used across multiple services.
 package shared.v1;
 
 message Error {
