@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+// This package provides a service for managing tenants in the system.
+// Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
 package account.tenant.v1;
 
 import "account/tenant/v1/tenant.proto";
@@ -8,7 +10,6 @@ import "shared/v1/request.proto";
 import "shared/v1/response.proto";
 import "shared/v1/tracing.proto";
 
-// Service for managing tenants. Tenants are the top-level entities in the system, used to separate data and configuration among organizations.
 // Tenant deletion is not supported. Instead, tenants can be disabled by setting their status to INACTIVE.
 service TenantService {
   // Create a new tenant with default status set to ACTIVE and default production type set to ENTERPRISE.
