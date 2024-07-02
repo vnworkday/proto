@@ -1,0 +1,20 @@
+name: Push to BSR
+on:
+  push:
+    branches:
+      - main
+jobs:
+  buf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run Buf Setup
+        uses: bufbuild/buf-setup-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Buf Push
+        uses: bufbuild/buf-push-action@v1
+        with:
+          input: proto
+          buf_token: ${{ secrets.BUF_TOKEN }}

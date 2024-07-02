@@ -47,6 +47,7 @@ This project contains the proto files for the VN Workday project. It currently s
 
 - [x] Install [Node.js (v.20.13.1+)](https://nodejs.org/en/download/)
 - [x] Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [x] Install [buf](https://docs.buf.build/installation)
 - [x] (For Javers only) Install [Java (v.22) via SDKMAN](https://sdkman.io/) (Temurin variant is recommended)
 - [x] (For Javers only) Install [Maven (v.3.8.4+ via SDKMAN)](https://sdkman.io/)
 - [x] (For Gophers only) Install [Go (v.1.22.3+)](https://golang.org/doc/install)

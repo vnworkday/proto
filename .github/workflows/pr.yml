@@ -1,5 +1,4 @@
-name: pull-request
-run-name: Pull Request Lint by ${{ github.actor }}
+name: PR Lint
 on:
   # Trigger the workflow on pull request to main, staging, and production branches
   pull_request:
@@ -17,7 +16,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Buf
+      - name: Run Buf Setup
         uses: bufbuild/buf-setup-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

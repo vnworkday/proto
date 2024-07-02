@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "check:break": "npx buf breaking --against '.git#subdir=proto'",
-    "check:style": "npx buf lint",
+    "lint": "npx buf lint",
     "check:workflow": "sh ./scripts/workflow-check.sh",
     "format": "npx buf format -w",
     "gen:go": "npx buf generate --template buf.gen.go.yaml",
