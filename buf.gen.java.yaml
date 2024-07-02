@@ -5,11 +5,9 @@ managed:
     - file_option: java_package_prefix
       value: com.github.vnworkday.proto
 plugins:
-  - remote: buf.build/bufbuild/validate-java:v1.0.4
+  - remote: buf.build/grpc/java
     out: src/main/java
-  - remote: buf.build/grpc/java:v1.64.0
-    out: src/main/java
-  - remote: buf.build/protocolbuffers/java:v27.0
+  - remote: buf.build/protocolbuffers/java
     out: src/main/java
 inputs:
   - directory: proto
