@@ -1,4 +1,4 @@
-name: Push to BSR
+name: PR Push
 on:
   push:
     branches:
